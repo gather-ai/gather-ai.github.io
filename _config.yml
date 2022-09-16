@@ -15,7 +15,7 @@ markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+paginate: 8 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
@@ -44,7 +44,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "gather-ai.github.io"
+  name   : "Welcome to Gather-AI"
   avatar : "/assets/images/seedling.png"
   bio    : "My awesome biography constrained to a sentence or two goes here."
   links:
@@ -57,7 +57,7 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/lhkhiem28"
-    - label: "Google Scholar"
+    - label: "Scholar"
       icon: "fab fa-fw fa-google"
       url: "https://scholar.google.com/citations?hl=vi&user=T8I-cLIAAAAJ&view_op=list_works&sortby=pubdate"
 
