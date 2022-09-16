@@ -27,12 +27,12 @@ author:
   avatar : "/assets/images/seedling.png"
   bio    : "Where I share intuitive explanations and hands-on tutorials on a range of AI subjects. "
   links:
-    # - label: "GitHub"
-    #   icon: "fab fa-fw fa-github"
-    #   url: "https://github.com/lhkhiem28"
-    # - label: "Scholar"
-    #   icon: "fab fa-fw fa-google"
-    #   url: "https://scholar.google.com/citations?hl=vi&user=T8I-cLIAAAAJ&view_op=list_works&sortby=pubdate"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "github.com/lhkhiem28"
+    - label: "Scholar"
+      icon: "fab fa-fw fa-google"
+      url: "scholar.google.com/citations?hl=vi&user=T8I-cLIAAAAJ&view_op=list_works&sortby=pubdate"
 
 defaults:
   # _posts
@@ -54,9 +54,12 @@ defaults:
       layout: single
       author_profile: true
 
-category_archive:
+category_archive: 
   type: liquid
   path: /categories/
-tag_archive:
+tag_archive: 
   type: liquid
   path: /tags/
+year_archive: 
+  type: liquid
+  path: /posts/
