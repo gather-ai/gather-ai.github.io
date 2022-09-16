@@ -46,7 +46,7 @@ plugins:
 author:
   name   : "Welcome to Gather-AI"
   avatar : "/assets/images/seedling.png"
-  bio    : "Where I document intuitive explanations and hands-on tutorials on various AI subjects. "
+  bio    : "Where I share intuitive explanations and hands-on tutorials on various AI subjects. "
   links:
     # - label: "GitHub"
     #   icon: "fab fa-fw fa-github"
