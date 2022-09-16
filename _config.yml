@@ -45,7 +45,7 @@ plugins:
 
 author:
   name   : "gather-ai.github.io"
-  avatar : "/assets/images/seeding.png"
+  avatar : "/assets/images/seedling.png"
   bio    : "My awesome biography constrained to a sentence or two goes here."
   links:
     - label: "Website"
