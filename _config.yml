@@ -1,4 +1,4 @@
-title: Gather-AI
+title: Gather.AI
 email: lhkhiem28@gmail.com
 description: >- 
   To write
@@ -22,7 +22,7 @@ include:
 
 search: true
 author: 
-  name   : "Welcome to Gather-AI"
+  name   : "Welcome to Gather.AI"
   avatar : "/assets/images/seedling.png"
   bio    : "Where I share intuitive explanations and hands-on tutorials on a range of AI subjects. "
   links: 
@@ -42,6 +42,13 @@ tag_archive:
 year_archive: 
   type: liquid
   path: /posts/
+
+repository: gather-ai/gather-ai.github.io
+comments: 
+  provider: "utterances"
+  utterances: 
+    theme: "github-dark"
+    issue_term: "pathname"
 
 defaults: 
   # _posts
