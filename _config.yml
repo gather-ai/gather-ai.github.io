@@ -2,39 +2,8 @@
 title: Gather-AI
 email: lhkhiem28@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
-minimal_mistakes_skin: dark
-search: true
+  To write
 
-# Build settings
-markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
-# Outputting
-permalink: /:categories/:title/
-paginate: 8 # amount of posts to show
-paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
-include:
-  - _pages
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-
-# Plugins (previously gems:)
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -43,9 +12,16 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
-header:
-  image: "/assets/images/rome.jpg"
+remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: dark
+markdown: kramdown
+permalink: /:categories/:title/
+paginate_path: /page:num/
+paginate: 8
+include:
+  - _pages
 
+search: true
 author:
   name   : "Welcome to Gather-AI"
   avatar : "/assets/images/seedling.png"
@@ -58,18 +34,12 @@ author:
     #   icon: "fab fa-fw fa-google"
     #   url: "https://scholar.google.com/citations?hl=vi&user=T8I-cLIAAAAJ&view_op=list_works&sortby=pubdate"
 
-footer:
-  links:
-    # - label: "GitHub"
-    #   icon: "fab fa-fw fa-github"
-    #   url: "https://github.com/lhkhiem28"
-
 defaults:
   # _posts
-  - scope:
+  - scope: 
       path: ""
       type: posts
-    values:
+    values: 
       layout: single
       author_profile: true
       read_time: true
@@ -77,10 +47,10 @@ defaults:
       share: true
       related: true
   # _pages
-  - scope:
+  - scope: 
       path: "_pages"
       type: pages
-    values:
+    values: 
       layout: single
       author_profile: true
 
