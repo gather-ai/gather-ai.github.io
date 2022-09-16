@@ -1,10 +1,9 @@
-
 title: Gather-AI
 email: lhkhiem28@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- 
   To write
 
-plugins:
+plugins: 
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
@@ -18,41 +17,21 @@ markdown: kramdown
 permalink: /:categories/:title/
 paginate_path: /page:num/
 paginate: 8
-include:
+include: 
   - _pages
 
 search: true
-author:
+author: 
   name   : "Welcome to Gather-AI"
   avatar : "/assets/images/seedling.png"
   bio    : "Where I share intuitive explanations and hands-on tutorials on a range of AI subjects. "
-  links:
+  links: 
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "github.com/lhkhiem28"
+      url: "https://github.com/lhkhiem28"
     - label: "Scholar"
       icon: "fab fa-fw fa-google"
-      url: "scholar.google.com/citations?hl=vi&user=T8I-cLIAAAAJ&view_op=list_works&sortby=pubdate"
-
-defaults:
-  # _posts
-  - scope: 
-      path: ""
-      type: posts
-    values: 
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
-  # _pages
-  - scope: 
-      path: "_pages"
-      type: pages
-    values: 
-      layout: single
-      author_profile: true
+      url: "https://scholar.google.com/citations?hl=vi&user=T8I-cLIAAAAJ&view_op=list_works&sortby=pubdate"
 
 category_archive: 
   type: liquid
@@ -63,3 +42,25 @@ tag_archive:
 year_archive: 
   type: liquid
   path: /posts/
+
+defaults: 
+  # _posts
+  - scope: 
+      path: ""
+      type: posts
+    values: 
+      layout: single
+      author_profile: true
+
+      read_time: true
+      share: true
+      comments: true
+      related: true
+
+  # _pages
+  - scope: 
+      path: "_pages"
+      type: pages
+    values: 
+      layout: single
+      author_profile: true
