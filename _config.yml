@@ -43,6 +43,9 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
+header:
+  image: "/assets/images/rome.jpg"
+
 author:
   name   : "Welcome to Gather-AI"
   avatar : "/assets/images/seedling.png"
@@ -54,9 +57,6 @@ author:
     # - label: "Scholar"
     #   icon: "fab fa-fw fa-google"
     #   url: "https://scholar.google.com/citations?hl=vi&user=T8I-cLIAAAAJ&view_op=list_works&sortby=pubdate"
-
-header:
-  image: "/assets/images/rome.jpg"
 
 footer:
   links:
