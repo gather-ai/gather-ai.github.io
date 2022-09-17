@@ -1,5 +1,5 @@
 ---
-title: How I got the first Kaggle (bronze) medal 🥉!
+title: How did I get the first (bronze) medal on Kaggle 🥉!
 date: 2022-09-15
 categories: 
   - Summaries
