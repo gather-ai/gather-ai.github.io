@@ -1,5 +1,5 @@
 ---
-title: Neural Network Pruning
+title: How I got the first Kaggle (bronze) medal!
 date: 2022-09-15
 categories: 
   - Deep Learning
