@@ -24,7 +24,7 @@ search: true
 author: 
   name   : "Welcome to Gathering.AI"
   avatar : "/assets/images/seedling.png"
-  bio    : "Where I share intuitive explanations and hands-on tutorials on a range of AI subjects. "
+  bio    : "Gather knowledge of various AI topics. "
   links: 
     - label: "GitHub"
       icon: "fab fa-fw fa-github"

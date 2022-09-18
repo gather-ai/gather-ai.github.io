@@ -5,7 +5,6 @@ categories:
   - Summaries
 tags: 
   - kaggle
-  - natural language processing
 header: 
   image: "/assets/images/rome.jpg"
 ---
