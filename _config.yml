@@ -19,8 +19,6 @@ paginate_path: /page:num/
 paginate: 8
 include: 
   - _pages
-header: 
-  image: "/assets/images/rome.jpg"
 
 search: true
 author: 
@@ -73,5 +71,3 @@ defaults:
     values: 
       layout: single
       author_profile: true
-      header: 
-        image: "/assets/images/rome.jpg"
