@@ -1,6 +1,6 @@
 ---
 title: "Domain Generalization (Part 1): Multi-task Learning and Flat Minima Seeking"
-date: 2022-12-15
+date: 2022-09-15
 categories: 
   - Tutorials
 tags: 
