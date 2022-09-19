@@ -73,36 +73,9 @@ We always need a baseline model before applying any advanced methods. Here, I us
 Evaluation of DG algorithms often follows the leave-one-domain-out rule. It leaves one dataset as the target domain while treating the others as the training part. Based on this evaluation strategy, the baseline model’s performance is shown in Table 1. Now we are ready to start exploring DG methods, next part of the series presents the first approach. 
 {: style="text-align: justify;"}
 
-<!-- |                 |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        avg |
+|<div style="width:100px"></div>| <div style="width:100px">Chapman</div> | <div style="width:100px">CPSC</div> | <div style="width:100px">CPSC-Extra</div> | <div style="width:100px">G12EC</div> | <div style="width:100px">Ningbo</div> | <div style="width:100px">PTB-XL</div> | <div style="width:100px">avg</div> |
 | :-------------- | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: |
-| Baseline        |     0.4290 |     0.1643 |     0.2067 |     0.3809 |     0.3987 |     0.3626 |     0.3237 | -->
-
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-fymr"></th>
-    <th class="tg-fymr">Chapman</th>
-    <th class="tg-fymr">CPSC</th>
-    <th class="tg-fymr">CPSC-Extra</th>
-    <th class="tg-fymr">G12EC</th>
-    <th class="tg-fymr">Ningbo</th>
-    <th class="tg-fymr">PTB-XL</th>
-    <th class="tg-fymr">Avg</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0pky">Baseline</td>
-    <td class="tg-0pky">0.4290</td>
-    <td class="tg-0pky">0.1643</td>
-    <td class="tg-0pky">0.2067</td>
-    <td class="tg-0pky">0.3809</td>
-    <td class="tg-0pky">0.3987</td>
-    <td class="tg-0pky">0.3626</td>
-    <td class="tg-0pky"></td>
-  </tr>
-</tbody>
-</table>
+| Baseline        |     0.4290 |     0.1643 |     0.2067 |     0.3809 |     0.3987 |     0.3626 |     0.3237 |
 
 ## References
 * [Domain Generalization: A Survey](https://arxiv.org/abs/2103.02503)
