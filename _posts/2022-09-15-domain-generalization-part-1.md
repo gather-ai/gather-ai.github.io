@@ -26,14 +26,14 @@ Machine learning (ML) systems generally rely on an over-simplified assumption, t
 To address the domain shift problem, as well as the absence of target data, the topic of Domain Generalization (DG) was introduced. Specifically, the goal in DG is to learn a model using data from a single or multiple related but distinct source domains in such a way that the model can generalize well to any **_unseen_** target domain. 
 {: style="text-align: justify;"}
 
-<figure style="height: 256px" class="align-center">
-  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/DG.jpg">
-  <figcaption>Figure 1. Examples from the PACS dataset for DG. </figcaption>
-</figure>
-
 **Watch out!** Unlike other related topics such as Domain Adaptation (DA) or Transfer Learning (TL), where the ML models can do some forms of adaptation on target data, DG considers the scenarios where target data is inaccessible during model learning. 
 {: style="text-align: justify;"}
 {: .notice}
+
+<figure style="height: 256px" class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/DG-DA.jpg">
+  <figcaption>Figure 1. Examples from the PACS dataset for DG. </figcaption>
+</figure>
 
 ### Formulation
 
