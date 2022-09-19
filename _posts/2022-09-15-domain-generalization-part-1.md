@@ -42,11 +42,17 @@ In this series of tutorials, besides introducing and explaining outstanding DG m
 {: style="text-align: justify;"}
 
 ### Datasets
-The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recordings from 6 sources in 4 countries across 3 continents. Each recording was annotated with one or more of 26 types of cardiac abnormalities, which means the problem is multi-label classification. Figure 2 shows the number of data samples in each source domain. 
+The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recordings from 6 sources in 4 countries across 3 continents. Each recording was annotated with one or more of 26 types of cardiac abnormalities, which means the problem is multi-label classification. Figure 2 shows the number of data samples in each source domain, and Figure 3 illustrates the difference in the appearance of signals from 6 domains. 
+{: style="text-align: justify;"}
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/data-sources.jpg">
   <figcaption>Figure 2. Number of data samples in each source domain. </figcaption>
+</figure>
+
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/signal-appearance.jpg">
+  <figcaption>Figure 3. Difference in the appearance of signals from 6 domains. </figcaption>
 </figure>
 
 ### Baseline
