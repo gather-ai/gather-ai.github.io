@@ -55,14 +55,14 @@ The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recor
 </figure>
 
 I recommend you read some documents to understand what is ECG and cardiac abnormalities, as well as our problem: 
-* https://en.wikipedia.org/wiki/Electrocardiography
-* https://www.who.int/health-topics/cardiovascular-diseases
-* https://arxiv.org/abs/2207.12381
+* [https://en.wikipedia.org/wiki/Electrocardiography](https://en.wikipedia.org/wiki/Electrocardiography)
+* [https://www.who.int/health-topics/cardiovascular-diseases](https://www.who.int/health-topics/cardiovascular-diseases)
+* [https://arxiv.org/abs/2207.12381](https://arxiv.org/abs/2207.12381)
 {: style="text-align: justify;"}
 
 Important things to remember: 
 * `input`: 1D signal, a vector with shape with a length of 5000
-* `output`: one or more of 26 classes, a vector of 26 elements, each element is either 0 or 1
+* `output`: one or more of 26 classes, a vector of 26 elements, each 0 or 1
 {: style="text-align: justify;"}
 
 ### Baseline
