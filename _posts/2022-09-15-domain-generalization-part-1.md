@@ -53,28 +53,16 @@ The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recor
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/signal-appearance.jpg">
   <figcaption>Figure 3. Difference in the appearance of signals from 6 domains. </figcaption>
 </figure>
-{: style="text-align: justify;"}
 
 I recommend you read some documents to understand what is ECG and cardiac abnormalities, as well as our problem: 
 * https://en.wikipedia.org/wiki/Electrocardiography
 * https://www.who.int/health-topics/cardiovascular-diseases
 * https://arxiv.org/abs/2207.12381
 {: style="text-align: justify;"}
-{: .notice--info}
 
-```markdown
-I recommend you read some documents to understand what is ECG and cardiac abnormalities, as well as our problem: 
-* https://en.wikipedia.org/wiki/Electrocardiography
-* https://www.who.int/health-topics/cardiovascular-diseases
-* https://arxiv.org/abs/2207.12381
-```
-{: style="text-align: justify;"}
-
-```markdown
 Important things to remember: 
 * `input`: 1D signal, a vector with shape with a length of 5000
 * `output`: one or more of 26 classes, a vector of 26 elements, each element is either 0 or 1
-```
 {: style="text-align: justify;"}
 
 ### Baseline
