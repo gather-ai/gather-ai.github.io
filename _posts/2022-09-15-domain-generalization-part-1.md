@@ -14,7 +14,7 @@ toc_sticky: true
 👋 Hi there. I'm Khiem. Welcome to my website, where I share some intuitive explanations and hands-on tutorials on a range of topics in AI. 
 {: style="text-align: justify;"}
 
-🚀 I am going to kick off this site with a series of tutorials about the topic of Domain Generalization. This series provides a systematic survey of outstanding methods in literature and my own implementations to demonstrate these methods. This is the first part of the series that gives you a brief understanding of the term Domain Generalization. Let's get started. 
+🚀 I am going to kick off this site with a series of tutorials about the topic of Domain Generalization. This series provides a systematic survey of outstanding methods in literature and my own implementations to demonstrate these methods. This is the first part of the series that gives you a brief understanding of the term Domain Generalization. Let’s get started. 
 {: style="text-align: justify;"}
 
 ## 1. Background
@@ -38,16 +38,16 @@ In this series of tutorials, besides introducing and explaining outstanding DG m
 {: style="text-align: justify;"}
 
 ### Datasets
-The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recordings from 6 sources in 4 countries across 3 continents. Each recording was annotated with one or more of 26 types of cardiac abnormalities, which means the problem is multi-label classification. Figure 2 shows the number of data samples in each dataset, and Figure 3 illustrates the difference in the appearance of signals from 6 domains. 
+The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recordings from 6 institutes in 4 countries across 3 continents. Each recording was annotated with one or more of 26 types of cardiac abnormalities, which means the problem is multi-label classification. Figure 2 shows the number of data samples in each dataset, and Figure 3 illustrates the difference in the appearance of signals from 6 institutes. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/data-sources.jpg">
-  <figcaption>Figure 2. Number of data samples in each dataset. </figcaption>
+  <figcaption>Figure 2. The number of data samples in each dataset. </figcaption>
 </figure>
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/signal-appearance.jpg">
-  <figcaption>Figure 3. Difference in the appearance of signals from 6 domains. </figcaption>
+  <figcaption>Figure 3. The difference in the appearance of signals from 6 institutes. </figcaption>
 </figure>
 
 I recommend you read some documents to understand what is ECG and cardiac abnormalities, as well as our problem: 
@@ -70,7 +70,7 @@ We always need a baseline model before applying any advanced methods. Here, I us
 * The batch size is 512 and the number of epochs is 80
 {: style="text-align: justify;"}
 
-Evaluation of DG algorithms often follows the leave-one-domain-out rule. It leaves one dataset as the target domain while treating the others as the training part. Based on this evaluation strategy, the baseline model’s performance is shown in Table 1. Now we are ready to start exploring DG methods, next part of the series presents the first approach. 
+Evaluation of DG algorithms often follows the _leave-one-domain-out_ rule. It leaves one dataset as the target domain while treating the others as the training part i.e. source domains. Based on this evaluation strategy, the baseline model’s performance is shown in the table below. Now we are ready to start exploring DG methods, next part of the series will present the first approach. 
 {: style="text-align: justify;"}
 
 |                 |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        Avg |
