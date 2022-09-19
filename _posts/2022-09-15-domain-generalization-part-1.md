@@ -26,7 +26,7 @@ Machine learning (ML) systems generally rely on an over-simplified assumption, t
 To address the domain shift problem, as well as the absence of target data, the topic of Domain Generalization (DG) was introduced. Specifically, the goal in DG is to learn a model using data from a single or multiple related but distinct source domains in such a way that the model can generalize well to any **_unseen_** target domain. 
 {: style="text-align: justify;"}
 
-Unlike other related topics such as Domain Adaptation (DA) or Transfer Learning (TL), where the ML models can do some forms of adaptation on target data, DG considers the scenarios where target data is inaccessible during model learning. 
+**Watch out!** Unlike other related topics such as Domain Adaptation (DA) or Transfer Learning (TL), where the ML models can do some forms of adaptation on target data, DG considers the scenarios where target data is inaccessible during model learning. 
 {: style="text-align: justify;"}
 {: .notice}
 
@@ -55,16 +55,16 @@ The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recor
   <figcaption>Figure 3. Difference in the appearance of signals from 6 domains. </figcaption>
 </figure>
 
-I recommend you read some documents to understand what is ECG and cardiac abnormalities, as well as our problem: 
-https://en.wikipedia.org/wiki/Electrocardiography
-https://www.who.int/health-topics/cardiovascular-diseases
-https://arxiv.org/abs/2207.12381
+**Watch out!** I recommend you read some documents to understand what is ECG and cardiac abnormalities, as well as our problem: 
+* https://en.wikipedia.org/wiki/Electrocardiography
+* https://www.who.int/health-topics/cardiovascular-diseases
+* https://arxiv.org/abs/2207.12381
 {: style="text-align: justify;"}
 {: .notice--info}
 
-Important things to remember: 
-`input`: 1D signal, a vector with shape with a length of 5000
-`output`: one or more of 26 classes, a vector of 26 elements, each element is either 0 or 1
+**Important things to remember**: 
+* `input`: 1D signal, a vector with shape with a length of 5000
+* `output`: one or more of 26 classes, a vector of 26 elements, each element is either 0 or 1
 {: style="text-align: justify;"}
 {: .notice--success}
 
