@@ -14,7 +14,7 @@ toc_sticky: true
 👋 Hi there. I'm Khiem. Welcome to my website, where I share some intuitive explanations and hands-on tutorials on a range of topics in AI. 
 {: style="text-align: justify;"}
 
-🚀 I am going to kick off this site with a series of tutorials about the topic of Domain Generalization. This series provides a systematic survey of outstanding methods in literature and my own implementations to demonstrate these methods. This is the first part of the series that gives you a brief understanding of the term Domain Generalization and introduces the first approaches to the problem. 
+🚀 I am going to kick off this site with a series of tutorials about the topic of Domain Generalization. This series provides a systematic survey of outstanding methods in literature and my own implementations to demonstrate these methods. This is the first part of the series that gives you a brief understanding of the term Domain Generalization and introduces the first approach to the problem. 
 {: style="text-align: justify;"}
 
 ## 1. Background
@@ -38,12 +38,12 @@ In this series of tutorials, besides introducing and explaining outstanding DG m
 {: style="text-align: justify;"}
 
 ### Datasets
-The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recordings from 6 sources in 4 countries across 3 continents. Each recording was annotated with one or more of 26 types of cardiac abnormalities, which means the problem is multi-label classification. Figure 2 shows the number of data samples in each source domain, and Figure 3 illustrates the difference in the appearance of signals from 6 domains. 
+The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recordings from 6 sources in 4 countries across 3 continents. Each recording was annotated with one or more of 26 types of cardiac abnormalities, which means the problem is multi-label classification. Figure 2 shows the number of data samples in each dataset, and Figure 3 illustrates the difference in the appearance of signals from 6 domains. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/data-sources.jpg">
-  <figcaption>Figure 2. Number of data samples in each source domain. </figcaption>
+  <figcaption>Figure 2. Number of data samples in each dataset. </figcaption>
 </figure>
 <figure class="align-left">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/signal-appearance.jpg">
@@ -68,4 +68,7 @@ We always need a baseline model before applying any advanced methods. Here, I us
 * Adam optimizer with `lr` = 1e-3 and `weight_decay` = 5e-5
 * Cosine Annealing scheduler with `eta_min` = 1e-4 and `T_max` = 50
 * The batch size is 512 and the number of epochs is 80
+{: style="text-align: justify;"}
+
+Evaluation of DG algorithms often follows the leave-one-domain-out rule. It leaves one dataset as the target domain while treating the others as the training part. Based on this evaluation strategy, the baseline model’s performance is shown in Table 1. Now we are ready to start exploring DG methods, next section presents the first approach. 
 {: style="text-align: justify;"}
