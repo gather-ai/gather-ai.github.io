@@ -30,7 +30,7 @@ To address the domain shift problem, as well as the absence of target data, the 
 {: style="text-align: justify;"}
 {: .notice}
 
-<figure style="height: 256px" class="align-center">
+<figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/DG-DA.jpg">
   <figcaption>Figure 1. Examples from the PACS dataset for DG. </figcaption>
 </figure>
