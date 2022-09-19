@@ -73,9 +73,9 @@ We always need a baseline model before applying any advanced methods. Here, I us
 Evaluation of DG algorithms often follows the leave-one-domain-out rule. It leaves one dataset as the target domain while treating the others as the training part. Based on this evaluation strategy, the baseline model’s performance is shown in Table 1. Now we are ready to start exploring DG methods, next part of the series presents the first approach. 
 {: style="text-align: justify;"}
 
-|          |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        avg |
-| -------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
-| Baseline |     0.4290 |     0.1643 |     0.2067 |     0.3809 |     0.3987 |     0.3626 |     0.3237 |
+|                 |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        avg |
+| :-------------- | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: |
+| Baseline        |     0.4290 |     0.1643 |     0.2067 |     0.3809 |     0.3987 |     0.3626 |     0.3237 |
 
 ## References
 * [Domain Generalization: A Survey](https://arxiv.org/abs/2103.02503)
