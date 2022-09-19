@@ -39,7 +39,7 @@ To address the domain shift problem, as well as the absence of target data, the 
 
 ## 2. Tutorial Settings
 
-In this series of tutorials, besides introducing and explaining outstanding DG methods intuitively, I also prepare those implementations and practice them on a real-world problem, which is classifying cardiac abnormalities from twelve-lead ECGs. This can help you understand better as well as apply these methods to your own problems immediately. 
+In this series of tutorials, besides introducing and explaining outstanding DG methods intuitively, I also prepare those implementations and practice them on a real-world problem, which is classifying cardiac abnormalities from twelve-lead ECGs (see more details in [PhysioNet Challenge 2021](https://moody-challenge.physionet.org/2021/)). This can help you understand better as well as apply these methods to your own problems immediately. 
 {: style="text-align: justify;"}
 
 ### Dataset
