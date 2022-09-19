@@ -38,10 +38,15 @@ To address the domain shift problem, as well as the absence of target data, the 
 ### Formulation
 
 ## 2. Tutorial Settings
-
-In this series of tutorials, besides introducing and explaining outstanding DG methods intuitively, I also prepare those implementations and practice them on a real-world problem, which is classifying cardiac abnormalities from twelve-lead ECGs (see more details in [PhysioNet Challenge 2021](https://moody-challenge.physionet.org/2021/)). This can help you understand better as well as apply these methods to your own problems immediately. 
+In this series of tutorials, besides introducing and explaining outstanding DG methods intuitively, I also prepare those implementations and practice them on a real-world problem, which is classifying cardiac abnormalities from twelve-lead [ECGs](https://en.wikipedia.org/wiki/Electrocardiography) (see more details in [PhysioNet Challenge 2021](https://moody-challenge.physionet.org/2021/)). This can help you understand better as well as apply these methods to your own problems immediately. 
 {: style="text-align: justify;"}
 
-### Dataset
+### Datasets
+The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recordings from 6 sources in 4 countries across 3 continents. Each recording was annotated with one or more of 26 types of cardiac abnormalities, which means the problem is multi-label classification. Figure 2 shows the number of data samples in each source domain. 
+
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/data-sources.jpg">
+  <figcaption>Figure 2. Number of data samples in each source domain. </figcaption>
+</figure>
 
 ### Baseline
