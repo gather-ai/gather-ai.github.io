@@ -49,13 +49,16 @@ The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recor
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/data-sources.jpg">
   <figcaption>Figure 2. Number of data samples in each source domain. </figcaption>
 </figure>
-
 <figure class="align-left">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/signal-appearance.jpg">
   <figcaption>Figure 3. Difference in the appearance of signals from 6 domains. </figcaption>
 </figure>
+{: style="text-align: justify;"}
 
-**Watch out!** I recommend you read some documents to understand what is ECG and cardiac abnormalities, as well as our problem: 
+I recommend you read some documents to understand what is ECG and cardiac abnormalities, as well as our problem: 
+* https://en.wikipedia.org/wiki/Electrocardiography
+* https://www.who.int/health-topics/cardiovascular-diseases
+* https://arxiv.org/abs/2207.12381
 {: style="text-align: justify;"}
 {: .notice--info}
 
