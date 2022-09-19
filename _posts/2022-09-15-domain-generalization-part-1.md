@@ -50,7 +50,7 @@ The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recor
   <figcaption>Figure 2. Number of data samples in each source domain. </figcaption>
 </figure>
 
-<figure class="align-right">
+<figure class="align-left">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/signal-appearance.jpg">
   <figcaption>Figure 3. Difference in the appearance of signals from 6 domains. </figcaption>
 </figure>
