@@ -56,9 +56,16 @@ I recommend you read some documents to understand what is ECG and cardiac abnorm
 * [https://arxiv.org/abs/2207.12381](https://arxiv.org/abs/2207.12381)
 {: style="text-align: justify;"}
 
-Important things to remember: 
-* `input`: 1D signal, a vector with shape with a length of 5000
-* `output`: one or more of 26 classes, a vector of 26 elements, each 0 or 1
+Important things to remember about our problem: 
+* input: twelve 1D-signals, a matrix with a shape of (12, 5000)
+* output: one or more of 26 classes, a vector of 26 elements, each 0 or 1
 {: style="text-align: justify;"}
 
 ### Baseline
+We always need a baseline model before applying any advanced methods. Here, I use: 
+* One-dimensional [SEResNet34](https://arxiv.org/abs/1709.01507) model
+* Cross Entropy Loss function
+* Adam optimizer with `lr` = 1e-3 and `weight_decay` = 5e-5
+* Cosine Annealing scheduler with `eta_min` = 1e-4 and `T_max` = 50
+* The batch size is 512 and the number of epochs is 80
+{: style="text-align: justify;"}
