@@ -59,10 +59,11 @@ The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recor
 * https://en.wikipedia.org/wiki/Electrocardiography
 * https://www.who.int/health-topics/cardiovascular-diseases
 * https://arxiv.org/abs/2207.12381
+
 Important things to remember: 
 * `input`: 1D signal, a vector with shape with a length of 5000
 * `output`: one or more of 26 classes, a vector of 26 elements, each element is either 0 or 1
 {: style="text-align: justify;"}
-{: .info}
+{: .notice--info}
 
 ### Baseline
