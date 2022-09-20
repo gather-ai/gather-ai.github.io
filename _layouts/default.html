@@ -33,28 +33,23 @@
       </div>
     {% endif %}
 
+    <form
+      action="https://formspree.io/f/xeqdadpe"
+      method="POST"
+    >
+      <label>
+        Follow me
+        <input type="email" name="email" placeholder="Input your email">
+      </label>
+      <button type="submit">Subscribe</button>
+    </form>
+
     <div id="footer" class="page__footer">
       <footer>
         {% include footer/custom.html %}
         {% include_cached footer.html %}
       </footer>
     </div>
-
-    <form
-      action="https://formspree.io/f/xeqdadpe"
-      method="POST"
-    >
-      <label>
-        Your email:
-        <input type="email" name="email">
-      </label>
-      <label>
-        Your message:
-        <textarea name="message"></textarea>
-      </label>
-      <!-- your other form fields go here -->
-      <button type="submit">Send</button>
-    </form>
 
     {% include scripts.html %}
 
