@@ -70,18 +70,23 @@ We always need a baseline model before applying any advanced methods. Here, I us
 * The batch size is 512 and the number of epochs is 80
 {: style="text-align: justify;"}
 
-Evaluation of DG algorithms often follows the _leave-one-domain-out_ rule. It leaves one dataset as the target domain while treating the others as the training part, i.e., source domains. Based on this evaluation strategy, the baseline model’s performance is shown in the table below. Now we are ready to start exploring DG methods, next part of the series will present the first approach. 
+Evaluation of DG algorithms often follows the _leave-one-domain-out_ rule. It leaves one dataset as the target domain while treating the others as the training part, i.e., source domains. Based on this evaluation strategy, the baseline model’s performance is shown in the table below. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/leave-one-domain-out.jpg">
-  <figcaption>Figure 4. _Leave-one-domain-out_ evaluation strategy. </figcaption>
+  <figcaption>Figure 4. Leave-one-domain-out evaluation strategy. </figcaption>
 </figure>
 
 |                 |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        Avg |
 | :-------------- | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: |
 | Baseline &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4290 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1643 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.2067 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3809 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3987 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3626 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3237 |
+{: style="text-align: justify;"}
+
+Now we are ready to start exploring DG methods, next part of the series will present the first approach. 
+{: style="text-align: justify;"}
 
 ## References
 * [Domain Generalization: A Survey](https://arxiv.org/abs/2103.02503)
 * [Generalizing to Unseen Domains: A Survey on Domain Generalization](https://arxiv.org/abs/2103.03097)
+{: style="text-align: justify;"}
