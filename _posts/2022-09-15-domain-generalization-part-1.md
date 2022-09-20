@@ -11,6 +11,10 @@ toc: true
 toc_sticky: true
 ---
 
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 👋 Hi there. I'm Khiem. Welcome to my website, where I share some intuitive explanations and hands-on tutorials on a range of topics in AI. 
 {: style="text-align: justify;"}
 
@@ -36,6 +40,10 @@ To address the domain shift problem, as well as the absence of target data, the 
 </figure>
 
 ### Formulation
+In the context of DG, we have access to $M$ similar but distinct source domains $S_{source}=\{S_m=\{(x^s, y^s)\}\}_{m=1}^M$, each associated with a joint distribution $P_{XY}^{(m)}$. Note that: 
+* $P_{XY}^{(m)}\neq P_{XY}^{({m}')}$ with $m\neq {m}'$ and $m,{m}'\in \{1,...,M\}$
+* $P_{X|Y}^{(m)}= P_{X|Y}^{({m}')}$ with $m\neq {m}'$ and $m,{m}'\in \{1,...,M\}$
+{: style="text-align: justify;"}
 
 ## 2. Tutorial Settings
 In this series of tutorials, besides introducing and explaining outstanding DG methods intuitively, I also prepare those implementations and practice them on a real-world problem, which is classifying cardiac abnormalities from twelve-lead [ECGs](https://en.wikipedia.org/wiki/Electrocardiography) (see more details in [PhysioNet Challenge 2021](https://moody-challenge.physionet.org/2021/)). This can help you understand better as well as apply these methods to your own problems immediately. 
