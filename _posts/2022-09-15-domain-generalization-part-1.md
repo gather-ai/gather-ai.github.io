@@ -6,7 +6,7 @@ categories:
 tags: 
   - deep learning
 header: 
-  image: "/assets/images/rome.jpg"
+  image: "/assets/images/domain-generalization/shift-cover.jpg"
 toc: true
 toc_sticky: true
 ---
