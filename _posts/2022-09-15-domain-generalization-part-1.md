@@ -11,10 +11,6 @@ toc: true
 toc_sticky: true
 ---
 
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 👋 Hi there. I'm Khiem. Welcome to my website, where I share some intuitive explanations and hands-on tutorials on a range of topics in AI. 
 {: style="text-align: justify;"}
 
