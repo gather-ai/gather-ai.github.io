@@ -36,7 +36,7 @@ To address the domain shift problem, as well as the absence of target data, the 
 </figure>
 
 ### Formulation
-In the context of DG, we have access to $M$ similar but distinct source domains $$S_{source}=\{S_m=\{(x^s, y^s)\}\}_{m=1}^M$$, each associated with a joint distribution $$P_{XY}^{(m)}$$. Note: 
+In the context of DG, we have access to $M$ similar but distinct source domains $$S_{source}=\{S_m=\{(x^s, y^s)\}\}_{m=1}^M$$, each associated with a joint distribution $$P_{XY}^{(m)}$$ with: 
 * $$P_{XY}^{(m)}\neq P_{XY}^{({m}')}$$ with $$m\neq {m}'$$ and $$m,{m}'\in \{1,...,M\}$$, 
 * $$P_{X\mid Y}^{(m)}= P_{X\mid Y}^{({m}')}$$ with $$m\neq {m}'$$ and $$m,{m}'\in \{1,...,M\}$$, 
 
@@ -95,9 +95,9 @@ Evaluation of DG algorithms often follows the _leave-one-domain-out_ rule. It le
   <figcaption>Figure 5. Leave-one-domain-out evaluation strategy. </figcaption>
 </figure>
 
-|                 |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        Avg |
-| :-------------- | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: |
-| Baseline &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4290 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1643 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.2067 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3809 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3987 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3626 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3237 |
+|            |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        Avg |
+| :--------- | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: |
+| Baseline &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4290 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1643 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.2067 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3809 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3987 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3626 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3237 |
 {: style="text-align: justify;"}
 
 Now we are ready to start exploring DG methods, next part of the series will present the first approach. 
