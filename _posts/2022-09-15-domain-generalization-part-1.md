@@ -37,8 +37,9 @@ To address the domain shift problem, as well as the absence of target data, the 
 
 ### Formulation
 In the context of DG, we have access to $M$ similar but distinct source domains $$S_{source}=\{S_m=\{(x^s, y^s)\}\}_{m=1}^M$$, each associated with a joint distribution $$P_{XY}^{(m)}$$. Note: 
-* $$P_{XY}^{(m)}\neq P_{XY}^{({m}')}$$ with $$m\neq {m}'$$ and $$m,{m}'\in \{1,...,M\}$$
-* $$P_{X|Y}^{(m)}= P_{X|Y}^{({m}')}$$ with $$m\neq {m}'$$ and $$m,{m}'\in \{1,...,M\}$$
+* $$P_{XY}^{(m)}\neq P_{XY}^{({m}')}$$ with $$m\neq {m}'$$ and $$m,{m}'\in \{1,...,M\}$$, 
+* $$P_{X\mid Y}^{(m)}= P_{X\mid Y}^{({m}')}$$ with $$m\neq {m}'$$ and $$m,{m}'\in \{1,...,M\}$$, 
+and we have to minimize prediction error on an unseen target domain $$S_{target}$$
 {: style="text-align: justify;"}
 
 ## 2. Tutorial Settings
