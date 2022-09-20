@@ -39,8 +39,16 @@ To address the domain shift problem, as well as the absence of target data, the 
 In the context of DG, we have access to $M$ similar but distinct source domains $$S_{source}=\{S_m=\{(x^s, y^s)\}\}_{m=1}^M$$, each associated with a joint distribution $$P_{XY}^{(m)}$$. Note: 
 * $$P_{XY}^{(m)}\neq P_{XY}^{({m}')}$$ with $$m\neq {m}'$$ and $$m,{m}'\in \{1,...,M\}$$, 
 * $$P_{X\mid Y}^{(m)}= P_{X\mid Y}^{({m}')}$$ with $$m\neq {m}'$$ and $$m,{m}'\in \{1,...,M\}$$, 
-and we have to minimize prediction error on an unseen target domain $$S_{target}$$
+
+and we have to minimize prediction error on an unseen target domain $$S_{target}$$ with: 
+* $$P_{XY}^{(target)}\neq P_{XY}^{(m)}$$ with $$m\in \{1,...,M\}$$, 
+* $$P_{X\mid Y}^{(target)}= P_{X\mid Y}^{(m)}$$ with $$m\in \{1,...,M\}$$. 
 {: style="text-align: justify;"}
+
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/DG-formulation.jpg">
+  <figcaption>Figure 2. Illustration of DG. Adapted from [1]. </figcaption>
+</figure>
 
 ## 2. Tutorial Settings
 In this series of tutorials, besides introducing and explaining outstanding DG methods intuitively, I also prepare those implementations and practice them on a real-world problem, which is classifying cardiac abnormalities from twelve-lead [ECGs](https://en.wikipedia.org/wiki/Electrocardiography) (see more details in [PhysioNet Challenge 2021](https://moody-challenge.physionet.org/2021/)). This can help you understand better as well as apply these methods to your own problems immediately. 
@@ -52,11 +60,11 @@ The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recor
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/data-sources.jpg">
-  <figcaption>Figure 2. The number of data samples in each dataset. </figcaption>
+  <figcaption>Figure 3. The number of data samples in each dataset. </figcaption>
 </figure>
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/signal-appearance.jpg">
-  <figcaption>Figure 3. The difference in the appearance of signals from 6 institutes. </figcaption>
+  <figcaption>Figure 4. The difference in the appearance of signals from 6 institutes. </figcaption>
 </figure>
 
 I recommend you read some documents to understand what is ECG and cardiac abnormalities, as well as our problem: 
@@ -84,7 +92,7 @@ Evaluation of DG algorithms often follows the _leave-one-domain-out_ rule. It le
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/leave-one-domain-out.jpg">
-  <figcaption>Figure 4. Leave-one-domain-out evaluation strategy. </figcaption>
+  <figcaption>Figure 5. Leave-one-domain-out evaluation strategy. </figcaption>
 </figure>
 
 |                 |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        Avg |
