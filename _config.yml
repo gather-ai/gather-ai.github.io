@@ -13,6 +13,7 @@ plugins:
 
 remote_theme: mmistakes/minimal-mistakes
 minimal_mistakes_skin: dark
+minimal_mistakes_skin_2: default
 markdown: kramdown
 permalink: /:categories/:title/
 paginate_path: /page:num/
