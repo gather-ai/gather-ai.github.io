@@ -17,6 +17,10 @@ toc_sticky: true
 🚀 I am going to kick off this site with a series of tutorials about the topic of Domain Generalization. This series provides a systematic survey of outstanding methods in literature and my own implementations to demonstrate these methods. This is the first part of the series that gives you a brief understanding of the term Domain Generalization. Let’s get started. 
 {: style="text-align: justify;"}
 
+You can find the source code of the whole series [here](https://github.com/lhkhiem28/DGECG). 
+{: style="text-align: justify;"}
+{: .notice--info}
+
 ## 1. Background
 
 ### Motivation

@@ -10,3 +10,6 @@ header:
 toc: true
 toc_sticky: true
 ---
+
+👋 Hi there. Welcome back to my website, this is part 2 of the tutorial series about the topic of Domain Generalization. In this article, I will introduce the first approach to the problem, which I call universal generalization. 
+{: style="text-align: justify;"}
