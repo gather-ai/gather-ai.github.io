@@ -20,8 +20,9 @@ You can find the source code of the whole series [here](https://github.com/lhkhi
 
 ## 1. Conventional Generalization
 Conventional generalization methods such as data augmentation or weight decay aim to make ML models less overfit on training data, therefore these models after training are assumpted to generalize well on testing data regardless of its domain. This is a great starting point to approach the DG problem. Despite the popularity of data augmentation and weight decay, I will present two more advanced and effective methods, _multi-task learning_ and _flat minima seeking_. 
+{: style="text-align: justify;"}
 
-### Multi-task Learning
+## 2. Multi-task Learning
 
 
-### Flat Minima Seeking
+## 3. Flat Minima Seeking
