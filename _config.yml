@@ -60,7 +60,7 @@ defaults:
       read_time: true
       share: true
       comments: true
-      related: true
+      related: false
 
 repository: gather-ai/gather-ai.github.io
 comments: 
