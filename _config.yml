@@ -63,7 +63,7 @@ defaults:
       read_time: true
       share: true
       comments: true
-      related: true
+      related: false
 
   # _pages
   - scope: 
