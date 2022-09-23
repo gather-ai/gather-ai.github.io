@@ -106,6 +106,27 @@ swa_scheduler = optim.swa_utils.SWALR(
   <figcaption>Figure 2. Learning rate schedule during training. </figcaption>
 </figure>
 
+Snippet 4 below briefs the training loop. It is a little bit tricky when applying SWA to ML models that have BatchNorm layers, we need to use a utility function `update_bn` to compute the BatchNorm statistics for the SWA model on a given data loader. 
+{: style="text-align: justify;"}
+
+```python
+"""
+Snippet 4: Training loop. 
+"""
+for epoch in range(1, num_epochs + 1):
+
+...
+  if not epoch > scheduler.T_max:
+    scheduler.step()
+  else:
+    swa_model.update_parameters(model.train())
+    swa_scheduler.step()
+...
+
+optim.swa_utils.update_bn(loaders["train"], swa_model)
+...
+```
+
 ## 4. Results
 
 ## References
