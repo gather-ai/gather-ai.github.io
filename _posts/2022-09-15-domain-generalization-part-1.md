@@ -61,7 +61,7 @@ In this series of tutorials, besides introducing and explaining outstanding DG m
 {: style="text-align: justify;"}
 
 ### Datasets
-The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recordings from 6 institutes in 4 countries across 3 continents. Each recording was annotated with one or more of 26 types of cardiac abnormalities, which means the problem is multi-label classification. Figure 2 shows the number of data samples in each dataset, and Figure 3 illustrates the difference in the appearance of signals from 6 institutes. 
+The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recordings from 6 institutes in 4 countries across 3 continents. Each recording was annotated with one or more of 26 types of cardiac abnormalities, which means the problem is multi-label classification. Figure 3 shows the number of data samples in each dataset, and Figure 4 illustrates the difference in the appearance of signals from 6 institutes. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">

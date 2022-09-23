@@ -25,15 +25,20 @@ Conventional generalization methods such as data augmentation or weight decay ai
 ## 2. Multi-task Learning
 
 ### Motivation
-The goal of Multi-task Learning (with deep neural networks) is to jointly learn one or more sub-tasks beside the main task using a shared model, therefore facilitating the model’s shared representations to be generic enough to deal with different tasks, eventually reducing overfitting on the main task. In general, sub-tasks for performing multi-task learning are defined based on specific data and problems. After that, jointly learning is established by minimizing a joint loss function. 
+The goal of multi-task learning (with deep neural networks) is to jointly learn one or more sub-tasks beside the main task using a shared model, therefore facilitating the model’s shared representations to be generic enough to deal with different tasks, eventually reducing overfitting on the main task. In general, sub-tasks for performing multi-task learning are defined based on specific data and problems. After that, jointly learning is established by minimizing a joint loss function. 
 {: style="text-align: justify;"}
 
-Multi-task Learning is popular in ML literature but rarely realized. For example, in Computer Vision, [Object Detection](https://paperswithcode.com/task/object-detection) aims to localize and classify objects simultaneously. In Natural Language Processing, [Intent Detection and Slot Filling](http://nlpprogress.com/english/intent_detection_slot_filling.html) aims to simultaneously identify the speaker's intent from a given utterance and extract from the utterance the correct argument value for the slots of the intent. 
+Multi-task learning is popular in ML literature but rarely realized. For example, in Computer Vision, [Object Detection](https://paperswithcode.com/task/object-detection) aims to localize and classify objects simultaneously. In Natural Language Processing, [Intent Detection and Slot Filling](http://nlpprogress.com/english/intent_detection_slot_filling.html) aims to simultaneously identify the speaker's intent from a given utterance and extract from the utterance the correct argument value for the slots of the intent. 
 {: style="text-align: justify;"}
 
 ### Method
-As mentioned before, sub-tasks for performing multi-task learning are defined based on specific data and problems. In our ECGs-based cardiac abnormalities classification problem, I define and perform a sub-task of _age regression_ from ECGs, which is feasible from a medical perspective. 
+As mentioned before, sub-tasks for performing multi-task learning are defined based on specific data and problems. In our ECGs-based cardiac abnormalities classification problem, I define and perform a sub-task of _age regression_ from ECGs, which is feasible from a medical perspective. Figure 1 illustrates the architecture of the model. 
 {: style="text-align: justify;"}
+
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/multi-task learning.jpg">
+  <figcaption>Figure 1. Multi-task learning architecture. </figcaption>
+</figure>
 
 ## 3. Flat Minima Seeking
 
