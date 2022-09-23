@@ -11,10 +11,10 @@ toc: true
 toc_sticky: true
 ---
 
-👋 Hi there. I'm Khiem. Welcome to my website, where I share some intuitive explanations and hands-on tutorials on a range of topics in AI. 
+👋 Hi there. I'm Khiem. Welcome to my page, where I gather and share some intuitive explanations and hands-on tutorials on a range of topics in AI. 
 {: style="text-align: justify;"}
 
-🚀 I am going to kick off this site with a series of tutorials about the topic of Domain Generalization. This series provides a systematic survey of outstanding methods in literature and my own implementations to demonstrate these methods. This is the first part of the series that gives you a brief understanding of the term Domain Generalization. Let’s get started. 
+🚀 I am going to kick off this website with a series of tutorials about the topic of Domain Generalization. This series provides a systematic survey of outstanding methods in literature and my own implementations to demonstrate these methods. This is the first part of the series that gives you a brief understanding of the term Domain Generalization. Let’s get started. 
 {: style="text-align: justify;"}
 
 You can find the source code of the whole series [here](https://github.com/lhkhiem28/DGECG). 
@@ -113,6 +113,6 @@ Now we are ready to start exploring DG methods, next part of the series will pre
 {: style="text-align: justify;"}
 
 ## References
-* [[1] Generalizing to Unseen Domains: A Survey on Domain Generalization](https://arxiv.org/abs/2103.03097)
-* [[2] Domain Generalization: A Survey](https://arxiv.org/abs/2103.02503)
+[[1] Generalizing to Unseen Domains: A Survey on Domain Generalization](https://arxiv.org/abs/2103.03097)<br>
+[[2] Domain Generalization: A Survey](https://arxiv.org/abs/2103.02503)<br>
 {: style="text-align: justify;"}

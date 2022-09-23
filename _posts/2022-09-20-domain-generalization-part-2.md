@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
 ---
 
-👋 Hi there. Welcome back to my website, this is part 2 of my tutorial series about the topic of Domain Generalization (DG). In this article, I will introduce the first approach to the DG problem, which I call **conventional generalization**. 
+👋 Hi there. Welcome back to my page, this is part 2 of my tutorial series about the topic of Domain Generalization (DG). In this article, I will introduce the first approach to the DG problem, which I call **conventional generalization**. 
 {: style="text-align: justify;"}
 
 You can find the source code of the whole series [here](https://github.com/lhkhiem28/DGECG). 
@@ -73,7 +73,7 @@ loss, sub_loss = F.binary_cross_entropy_with_logits(logits, labels), F.l1_loss(s
 ## 3. Flat Minima Seeking
 
 ### Motivation
-In optimization, the connection between different types of local optima and generalization has been explored extensively in many studies [1]. These studies show that sharp minima often lead to larger test errors while flatter minima yield better generalization. This finding raised a new research direction in deep learning that seeks out flatter minima when training neural networks. 
+In optimization, the connection between different types of local optima and generalization has been explored extensively in many studies [2]. These studies show that sharp minima often lead to larger test errors while flatter minima yield better generalization. This finding raised a new research direction in deep learning that seeks out flatter minima when training neural networks. 
 {: style="text-align: justify;"}
 
 The two most popular flatness-aware solvers are Sharpness-Aware Minimization (SAM) and Stochastic Weight Averaging (SWA). SAM is a procedure that simultaneously minimizes loss value and loss sharpness, this procedure finds flat minima directly but also doubles training cost. Meanwhile, SWA finds flat minima by a weight ensemble approach and has almost no computational overhead. 
@@ -82,9 +82,12 @@ The two most popular flatness-aware solvers are Sharpness-Aware Minimization (SA
 ### Method
 
 
+## 4. Results
 
 ## References
-* [[1] On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima](https://arxiv.org/abs/1609.04836)
-* [[2] Sharpness-Aware Minimization for Efficiently Improving Generalization](https://arxiv.org/abs/2010.01412)
-* [[3] Averaging Weights Leads to Wider Optima and Better Generalization](https://arxiv.org/abs/1803.05407)
+[[1] Multi-Task Learning with Deep Neural Networks: A Survey](https://arxiv.org/abs/2009.09796)<br>
+[[2] On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima](https://arxiv.org/abs/1609.04836)<br>
+[[3] Sharpness-Aware Minimization for Efficiently Improving Generalization](https://arxiv.org/abs/2010.01412)<br>
+[[4] Averaging Weights Leads to Wider Optima and Better Generalization](https://arxiv.org/abs/1803.05407)<br>
+[[5] SWAD: Domain Generalization by Seeking Flat Minima](https://arxiv.org/abs/2102.08604)<br>
 {: style="text-align: justify;"}
