@@ -36,7 +36,7 @@ As mentioned before, sub-tasks for performing multi-task learning are defined ba
 {: style="text-align: justify;"}
 
 <figure class="align-center">
-  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/multi-task learning.jpg">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/multi-task-learning.jpg">
   <figcaption>Figure 1. Multi-task learning architecture. </figcaption>
 </figure>
 
@@ -80,7 +80,31 @@ The two most popular flatness-aware solvers are Sharpness-Aware Minimization (SA
 {: style="text-align: justify;"}
 
 ### Method
+Intuitively, SWA updates a pre-trained model (namely, a model trained with sufficiently enough training epochs, $K_0$) with a cyclical or high constant learning rate scheduling. SWA gathers model parameters for every $K$ epoch during the update and averages them for the model ensemble. SWA finds an ensembled solution of different local optima found by a sufficiently large learning rate to escape a local minimum. 
+{: style="text-align: justify;"}
 
+Since 2020, SWA was included in [PyTorch](https://pytorch.org/blog/pytorch-1.6-now-includes-stochastic-weight-averaging/) effectively. We need two ingredients to apply SWA to our model, a `swa_model` and a `swa_scheduler`. Snippet 3 illustrates how to initialize these two entities in PyTorch. Figure 2 shows the whole learning rate schedule during training, where $K_0$ is set to `T_max` of the base scheduler. 
+{: style="text-align: justify;"}
+
+```python
+"""
+Snippet 3: Initializing swa_model and swa_scheduler. 
+"""
+import torch.optim as optim
+
+...
+swa_model = optim.swa_utils.AveragedModel(model)
+swa_scheduler = optim.swa_utils.SWALR(
+  optimizer, swa_lr = 1e-2, 
+  anneal_strategy = "cos", anneal_epochs = 10, 
+)
+...
+```
+
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/lr-schedule.jpg">
+  <figcaption>Figure 2. Learning rate schedule during training. </figcaption>
+</figure>
 
 ## 4. Results
 
