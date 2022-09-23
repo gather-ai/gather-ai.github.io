@@ -73,7 +73,18 @@ loss, sub_loss = F.binary_cross_entropy_with_logits(logits, labels), F.l1_loss(s
 ## 3. Flat Minima Seeking
 
 ### Motivation
+In optimization, the connection between different types of local optima and generalization has been explored extensively in many studies [1]. These studies show that sharp minima often lead to larger test errors while flatter minima yield better generalization. This finding raised a new research direction in deep learning that seeks out flatter minima when training neural networks. 
+{: style="text-align: justify;"}
 
+The two most popular flatness-aware solvers are Sharpness-Aware Minimization (SAM) and Stochastic Weight Averaging (SWA). SAM is a procedure that simultaneously minimizes loss value and loss sharpness, this procedure finds flat minima directly but also doubles training cost. Meanwhile, SWA finds flat minima by a weight ensemble approach and has almost no computational overhead. 
+{: style="text-align: justify;"}
 
 ### Method
 
+
+
+## References
+* [[1] On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima](https://arxiv.org/abs/1609.04836)
+* [[2] Sharpness-Aware Minimization for Efficiently Improving Generalization](https://arxiv.org/abs/2010.01412)
+* [[3] Averaging Weights Leads to Wider Optima and Better Generalization](https://arxiv.org/abs/1803.05407)
+{: style="text-align: justify;"}
