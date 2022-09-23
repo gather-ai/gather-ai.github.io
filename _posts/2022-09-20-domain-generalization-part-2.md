@@ -54,9 +54,13 @@ self.auxiliary = nn.Sequential(
 ...
 ```
 
+For optimization, I use cross-entropy loss for the main classification task and L1 loss for the regression sub-task. The second loss is added to the main loss with an `auxiliary_lambda` hyperparameter, which is set to 0.02. Snippet 2 describes the backpropagation process. All other settings are similar to the baseline in the previous article. 
+{: style="text-align: justify;"}
 
-
-<!-- ```python
+```python
+"""
+Snippet 2: Backpropagation process. 
+"""
 import torch.nn.functional as F
 
 ...
@@ -64,7 +68,7 @@ logits, sub_logits = model(ecgs)
 loss, sub_loss = F.binary_cross_entropy_with_logits(logits, labels), F.l1_loss(sub_logits, ages)
 (loss + auxiliary_lambda*sub_loss).backward()
 ...
-``` -->
+```
 
 ## 3. Flat Minima Seeking
 
