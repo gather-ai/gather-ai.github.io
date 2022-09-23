@@ -41,10 +41,12 @@ To address the domain shift problem, as well as the absence of target data, the 
 
 ### Formulation
 In the context of DG, we have access to $M$ similar but distinct source domains $$S_{source}=\{S_m=\{(x^s, y^s)\}\}_{m=1}^M$$, each associated with a joint distribution $$P_{XY}^{(m)}$$ with: 
+{: style="text-align: justify;"}
 * $$P_{XY}^{(m)}\neq P_{XY}^{({m}')}$$ with $$m\neq {m}'$$ and $$m, {m}'\in \{1, ..., M\}$$, 
 * $$P_{Y\mid X}^{(m)}= P_{Y\mid X}^{({m}')}$$ with $$m\neq {m}'$$ and $$m, {m}'\in \{1, ..., M\}$$, 
 
 and we have to minimize prediction error on an unseen target domain $$S_{target}$$ with: 
+{: style="text-align: justify;"}
 * $$P_{XY}^{(target)}\neq P_{XY}^{(m)}$$ with $$m\in \{1, ..., M\}$$, 
 * $$P_{Y\mid X}^{(target)}= P_{Y\mid X}^{(m)}$$ with $$m\in \{1, ..., M\}$$. 
 {: style="text-align: justify;"}
@@ -72,18 +74,21 @@ The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recor
 </figure>
 
 I recommend you read some documents to understand what is ECG and cardiac abnormalities, as well as our problem: 
+{: style="text-align: justify;"}
 * [https://en.wikipedia.org/wiki/Electrocardiography](https://en.wikipedia.org/wiki/Electrocardiography)
 * [https://www.who.int/health-topics/cardiovascular-diseases](https://www.who.int/health-topics/cardiovascular-diseases)
 * [https://arxiv.org/abs/2207.12381](https://arxiv.org/abs/2207.12381)
 {: style="text-align: justify;"}
 
 Important things to remember about our problem: 
+{: style="text-align: justify;"}
 * input: twelve 1D-signals, a matrix with a shape of (12, 5000)
 * output: one or more of 26 classes, a vector of 26 elements, each 0 or 1
 {: style="text-align: justify;"}
 
 ### Baseline
 We always need a baseline model before applying any advanced methods. Here, I use: 
+{: style="text-align: justify;"}
 * One-dimensional [SEResNet34](https://arxiv.org/abs/1709.01507) model
 * Cross Entropy Loss function
 * Adam optimizer with `lr` = 1e-3 and `weight_decay` = 5e-5

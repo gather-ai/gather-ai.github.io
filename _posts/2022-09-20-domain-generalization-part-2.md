@@ -32,7 +32,8 @@ Multi-task Learning is popular in ML literature but rarely realized. For example
 {: style="text-align: justify;"}
 
 ### Method
-
+As mentioned before, sub-tasks for performing multi-task learning are defined based on specific data and problems. In our ECGs-based cardiac abnormalities classification problem, I define and perform a sub-task of _age regression_ from ECGs, which is feasible from a medical perspective. 
+{: style="text-align: justify;"}
 
 ## 3. Flat Minima Seeking
 
