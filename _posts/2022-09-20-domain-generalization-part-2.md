@@ -32,7 +32,7 @@ Multi-task learning is popular in ML literature but rarely realized. For example
 {: style="text-align: justify;"}
 
 ### Method
-As mentioned before, sub-tasks for performing multi-task learning are defined based on specific data and problems. In our ECGs-based cardiac abnormalities classification problem, I define and perform a sub-task of _age regression_ from ECGs, which is feasible from a medical perspective. Figure 1 illustrates the architecture of the model. 
+As mentioned before, sub-tasks for performing multi-task learning are defined based on specific data and problems. In our ECGs-based cardiac abnormalities classification problem, I define and perform a sub-task of _age regression_ from ECGs, which is feasible from a medical perspective. Figure 1 illustrates the architecture of the model and Snippet 1 describes the auxiliary module which performs regression. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
@@ -41,8 +41,30 @@ As mentioned before, sub-tasks for performing multi-task learning are defined ba
 </figure>
 
 ```python
-import torch, torch.nn as nn
+"""
+Snippet 1: Regression module. 
+"""
+import torch.nn as nn
+
+...
+self.auxiliary = nn.Sequential(
+  nn.Dropout(0.2), 
+  nn.Linear(512, 1), 
+)
+...
 ```
+
+
+
+<!-- ```python
+import torch.nn.functional as F
+
+...
+logits, sub_logits = model(ecgs)
+loss, sub_loss = F.binary_cross_entropy_with_logits(logits, labels), F.l1_loss(sub_logits, ages)
+(loss + auxiliary_lambda*sub_loss).backward()
+...
+``` -->
 
 ## 3. Flat Minima Seeking
 
