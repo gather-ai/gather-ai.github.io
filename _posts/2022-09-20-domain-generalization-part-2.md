@@ -40,6 +40,10 @@ As mentioned before, sub-tasks for performing multi-task learning are defined ba
   <figcaption>Figure 1. Multi-task learning architecture. </figcaption>
 </figure>
 
+```python
+import torch, torch.nn as nn
+```
+
 ## 3. Flat Minima Seeking
 
 ### Motivation
