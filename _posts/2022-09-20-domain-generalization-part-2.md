@@ -140,7 +140,7 @@ The table below shows the performance of the two presented methods in this artic
 To be continued ...
 
 ## References
-[[1] Multi-Task Learning with Deep Neural Networks: A Survey](https://arxiv.org/abs/2009.09796)<br>
+[[1] Multi-task Learning with Deep Neural Networks: A Survey](https://arxiv.org/abs/2009.09796)<br>
 [[2] On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima](https://arxiv.org/abs/1609.04836)<br>
 [[3] Sharpness-Aware Minimization for Efficiently Improving Generalization](https://arxiv.org/abs/2010.01412)<br>
 [[4] Averaging Weights Leads to Wider Optima and Better Generalization](https://arxiv.org/abs/1803.05407)<br>
