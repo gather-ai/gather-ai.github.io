@@ -76,6 +76,7 @@ else:
 ```
 
 ## 3. MixStyle
+Unlike Mixup which creates new instances at the input level, MixStyle is a recent method that generates new instances in the feature space by mixing their "styles". The style of an instance is represented in its feature statistics which are mean and standard deviation across spatial dimensions in the feature space. At each iteration, we select two instances in a mini-batch following a given strategy (random shuffle or inter-domain) and then mix their styles in a similar way as Mixup: 
 
 ## 4. Results
 The table below shows the performance of the two presented methods in this article. 
