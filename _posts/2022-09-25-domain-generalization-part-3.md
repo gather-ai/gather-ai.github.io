@@ -85,10 +85,18 @@ $$\mu _{mix} = \lambda \mu (x) + (1-\lambda ) \mu (x_{shuffled}), $$
 $$\sigma _{mix} = \lambda \sigma (x) + (1-\lambda ) \sigma (x_{shuffled}), $$
 {: style="text-align: justify;"}
 
-where $\mu$ and $\sigma$ are mean and standard deviation operations, respectively. $\lambda \sim Beta(\alpha , \alpha )$ with $\alpha \in (0, \infty )$ is a hyper-parameter.  
+where $\mu$ and $\sigma$ are mean and standard deviation operations, respectively. $\lambda \sim Beta(\alpha , \alpha )$ with $\alpha \in (0, \infty )$ is a hyper-parameter. 
+{: style="text-align: justify;"}
+
+Finally, the mixed feature statistics are applied to the style-normalized $x$: 
+{: style="text-align: justify;"}
+
+$$MixStyle(x) = \sigma _{mix}\frac{x - \mu (x)}{\sigma (x)} + \mu _{mix}. $$
+{: style="text-align: justify;"}
 
 ## 4. Results
 The table below shows the performance of the two presented methods in this article. 
+{: style="text-align: justify;"}
 
 ## References
 [[1] Mixup: Beyond Empirical Risk Minimization](https://arxiv.org/abs/1710.09412)<br>
