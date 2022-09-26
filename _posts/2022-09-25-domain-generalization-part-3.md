@@ -52,6 +52,29 @@ $$loss = \lambda loss(z, y) + (1-\lambda ) loss(z_{shuffled}, y_{shuffled})$$
 where $z$ is output from the model of $x$. 
 {: style="text-align: justify;"}
 
+Snippet 1 describes how to integrate Mixup into the training pipeline. 
+{: style="text-align: justify;"}
+
+```python
+"""
+Snippet 1: Mixup integration. 
+"""
+import random
+import pandas, numpy as np
+import torch
+
+...
+if random.random() < 0.5:
+  logits = model(ecgs)
+  loss = F.binary_cross_entropy_with_logits(logits, labels)
+else:
+  shuffled_indices = torch.randperm(ecgs.size()[0])
+  mixup_lambda = np.random.beta(0.2, 0.2)
+  logits = model(mixup_lambda*ecgs + (1 - mixup_lambda)*ecgs[permuted_indices])
+  loss = mixup_lambda*F.binary_cross_entropy_with_logits(logits, labels) + (1 - mixup_lambda)*F.binary_cross_entropy_with_logits(logits, labels[permuted_indices])
+...
+```
+
 ## 3. MixStyle
 
 ## 4. Results
