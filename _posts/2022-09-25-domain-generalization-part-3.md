@@ -19,7 +19,7 @@ You can find the source code of the whole series [here](https://github.com/lhkhi
 {: .notice--info}
 
 ## 1. Inter-domain Data Augmentation
-**Mixing data augmentation** is an emerging type of augmentation method that has shown superior in recent years. The methods of this type do a [convex combination](https://en.wikipedia.org/wiki/Convex_combination) (mix) on two data instances at the input or feature level, hence generating a new instance for training ML models. Differing from conventional data augmentation such as crop, scale, or cut out which preserves the context of the original instance, mixing augmentation creates instances with new contexts, in other words, new domains, this is extremely suitable for solving the DG problem. Because these methods perfectly fit into mini-batch training, we have two ways to select data instances for doing the mixing, without domain labels (random shuffle mixing) and with domain labels (inter-domain mixing). Figure 1 illustrates these selection strategies. Let’s dive into Mixup and MixStyle, the two most popular and effective augmentation methods for DG. 
+**Mixing data augmentation** is an emerging type of augmentation method that has shown superior in recent years. The methods of this type do a [convex combination](https://en.wikipedia.org/wiki/Convex_combination) (mix) on two data instances at the input or feature level, hence generating a new instance for training ML models. Differing from conventional data augmentation such as crop, scale, or cut out which preserves the context of the original instance, mixing augmentation creates instances with new contexts, in other words, new domains, this is extremely suitable for solving the DG problem. Because these methods perfectly fit into mini-batch training, we have two ways to select data instances for doing the mixing, without domain labels (random shuffle mixing) and with domain labels (inter-domain mixing). Figure 1 illustrates these selection strategies. Let's dive into Mixup and MixStyle, the two most popular and effective augmentation methods for DG. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
@@ -93,6 +93,44 @@ Finally, the mixed feature statistics are applied to the style-normalized $x$:
 
 $$MixStyle(x) = \sigma _{mix}\frac{x - \mu (x)}{\sigma (x)} + \mu _{mix}. $$
 {: style="text-align: justify;"}
+
+If you look at the above formula carefully, you can realize that MixStyle does not actually create a new instance, but mixes the style of an instance into another one to make it become “new”. Therefore, MixStyle uses the original label $y$ of this “new” instance $x$. 
+{: style="text-align: justify;"}
+
+Similar to Mixup, MixStyle is easy to implement, but where to apply MixStyle? Experiments showed that applying MixStyle after the first three residual blocks in a ResNet34 model gives the best results in our problem. Snippet 2 illustrates this setting. 
+{: style="text-align: justify;"}
+
+```python
+"""
+Snippet 2: MixStyle setting. 
+"""
+import torch.nn as nn
+
+class SEResNet34(nn.Module):
+
+  ...
+  self.augment = MixStyle(alpha = 0.1, p = 0.5)
+  ...
+
+  ...
+  self.stem = ...
+  self.stage_0 = ...
+
+  self.stage_1 = ...
+  self.stage_2 = ...
+  self.stage_3 = ...
+  ...
+
+  def forward(self, inputs, augment = False):
+    ...
+    feature = self.stem(inputs)
+    feature = self.augment(self.stage_0(inputs), activate = augment)
+
+    feature = self.augment(self.stage_1(inputs), activate = augment)
+    feature = self.augment(self.stage_2(inputs), activate = augment)
+    feature = self.stage_3(inputs)
+    ...
+```
 
 ## 4. Results
 The table below shows the performance of the two presented methods in this article. 

@@ -14,7 +14,7 @@ toc_sticky: true
 👋 Hi there. I'm Khiem. Welcome to my page, where I gather and share some intuitive explanations and hands-on tutorials on a range of topics in AI. 
 {: style="text-align: justify;"}
 
-🚀 I am going to kick off this website with a series of tutorials about the topic of Domain Generalization. This series provides a systematic survey of outstanding methods in literature and my own implementations to demonstrate these methods. This is the first part of the series that gives you a brief understanding of the term Domain Generalization. Let’s get started. 
+🚀 I am going to kick off this website with a series of tutorials about the topic of Domain Generalization. This series provides a systematic survey of outstanding methods in literature and my own implementations to demonstrate these methods. This is the first part of the series that gives you a brief understanding of the term Domain Generalization. Let's get started. 
 {: style="text-align: justify;"}
 
 You can find the source code of the whole series [here](https://github.com/lhkhiem28/DGECG). 
@@ -97,7 +97,7 @@ We always need a baseline model before applying any advanced methods. Here, I us
 * The batch size is 512 and the number of epochs is 80
 {: style="text-align: justify;"}
 
-Evaluation of DG algorithms often follows the _leave-one-domain-out_ rule. It leaves one dataset as the target domain while treating the others as the training part, i.e., source domains. Based on this evaluation strategy, the baseline model’s performance is shown in the table below. 
+Evaluation of DG algorithms often follows the _leave-one-domain-out_ rule. It leaves one dataset as the target domain while treating the others as the training part, i.e., source domains. Based on this evaluation strategy, the baseline model's performance is shown in the table below. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">

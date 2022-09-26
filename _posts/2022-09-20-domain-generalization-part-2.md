@@ -25,7 +25,7 @@ Conventional generalization methods such as data augmentation or weight decay ai
 ## 2. Multi-task Learning
 
 ### Motivation
-The goal of multi-task learning (with deep neural networks) is to jointly learn one or more sub-tasks beside the main task using a shared model, therefore facilitating the model’s shared representations to be generic enough to deal with different tasks, eventually reducing overfitting on the main task. In general, sub-tasks for performing multi-task learning are defined based on specific data and problems. After that, jointly learning is established by minimizing a joint loss function. 
+The goal of multi-task learning (with deep neural networks) is to jointly learn one or more sub-tasks beside the main task using a shared model, therefore facilitating the model's shared representations to be generic enough to deal with different tasks, eventually reducing overfitting on the main task. In general, sub-tasks for performing multi-task learning are defined based on specific data and problems. After that, jointly learning is established by minimizing a joint loss function. 
 {: style="text-align: justify;"}
 
 Multi-task learning is popular in ML literature but rarely realized. For example, in Computer Vision, [Object Detection](https://paperswithcode.com/task/object-detection) aims to localize and classify objects simultaneously. In Natural Language Processing, [Intent Detection and Slot Filling](http://nlpprogress.com/english/intent_detection_slot_filling.html) aims to simultaneously identify the speaker's intent from a given utterance and extract from the utterance the correct argument value for the slots of the intent. 
@@ -46,12 +46,18 @@ Snippet 1: Regression module.
 """
 import torch.nn as nn
 
-...
-self.auxiliary = nn.Sequential(
-  nn.Dropout(0.2), 
-  nn.Linear(512, 1), 
-)
-...
+class SEResNet34(nn.Module):
+
+  ...
+  self.auxiliary = nn.Sequential(
+    nn.Dropout(0.2), 
+    nn.Linear(512, 1), 
+  )
+  ...
+
+  def forward(self, inputs):
+    ...
+    return self.classifier(feature), self.auxiliary(feature)
 ```
 
 For optimization, I use cross-entropy loss for the main classification task and L1 loss for the regression sub-task. The second loss is added to the main loss with an `auxiliary_lambda` hyperparameter, which is set to 0.02. Snippet 2 describes the backpropagation process. All other settings are similar to the baseline in the previous article. 
@@ -123,6 +129,7 @@ for epoch in range(1, num_epochs + 1):
     swa_scheduler.step()
 ...
 
+...
 optim.swa_utils.update_bn(loaders["train"], swa_model)
 ...
 ```
