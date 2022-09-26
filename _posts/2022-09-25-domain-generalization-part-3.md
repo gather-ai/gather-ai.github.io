@@ -31,22 +31,22 @@ You can find the source code of the whole series [here](https://github.com/lhkhi
 As mentioned above, Mixup perfectly fits into mini-batch training, at each training iteration, we select two instances in a mini-batch following a given strategy (random shuffle or inter-domain) and then mix them at the input level through a convex combination to generate a new instance: 
 {: style="text-align: justify;"}
 
-$$x = \lambda x + (1-\lambda ) x_{shuffled}, $$
+$$x_{mix} = \lambda x + (1-\lambda ) x_{shuffled}, $$
 {: style="text-align: justify;"}
 
-where $\lambda$ is drawn from a [Beta distribution](https://en.wikipedia.org/wiki/Beta_distribution) $\lambda \sim Beta(\alpha ,\alpha )$ with $\alpha \in (0, \infty )$ is a hyper-parameter. 
+where $\lambda$ is drawn from a [Beta distribution](https://en.wikipedia.org/wiki/Beta_distribution) $\lambda \sim Beta(\alpha , \alpha )$ with $\alpha \in (0, \infty )$ is a hyper-parameter. 
 {: style="text-align: justify;"}
 
 We also have to create the label for the generated instance by mixing labels of original instances in the same way: 
 {: style="text-align: justify;"}
 
-$$y = \lambda y + (1-\lambda ) y_{shuffled}. $$
+$$y_{mix} = \lambda y + (1-\lambda ) y_{shuffled}. $$
 {: style="text-align: justify;"}
 
 The above combination of original labels can yield a non-integer label for the generated instances, this is not fit with the classification problem which requires the label must be categorical. Therefore, we have to do a trick, mixing loss instead of mixing labels: 
 {: style="text-align: justify;"}
 
-$$loss = \lambda loss(z, y) + (1-\lambda ) loss(z_{shuffled}, y_{shuffled}), $$
+$$loss = \lambda loss(z_{mix}, y) + (1-\lambda ) loss(z_{mix}, y_{shuffled}), $$
 {: style="text-align: justify;"}
 
 where $z$ is output from the model of $x$. 
@@ -77,6 +77,15 @@ else:
 
 ## 3. MixStyle
 Unlike Mixup which creates new instances at the input level, MixStyle is a recent method that generates new instances in the feature space by mixing their "styles". The style of an instance is represented in its feature statistics which are mean and standard deviation across spatial dimensions in the feature space. At each iteration, we select two instances in a mini-batch following a given strategy (random shuffle or inter-domain) and then mix their styles in a similar way as Mixup: 
+{: style="text-align: justify;"}
+
+$$\mu _{mix} = \lambda \mu (x) + (1-\lambda ) \mu (x_{shuffled}), $$
+{: style="text-align: justify;"}
+
+$$\sigma _{mix} = \lambda \sigma (x) + (1-\lambda ) \sigma (x_{shuffled}), $$
+{: style="text-align: justify;"}
+
+where $\mu$ and $\sigma$ are mean and standard deviation operations, respectively. $\lambda \sim Beta(\alpha , \alpha )$ with $\alpha \in (0, \infty )$ is a hyper-parameter.  
 
 ## 4. Results
 The table below shows the performance of the two presented methods in this article. 
