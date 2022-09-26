@@ -98,6 +98,9 @@ $$MixStyle(x) = \sigma _{mix}\frac{x - \mu (x)}{\sigma (x)} + \mu _{mix}. $$
 The table below shows the performance of the two presented methods in this article. 
 {: style="text-align: justify;"}
 
+To be continued ...
+{: style="text-align: justify;"}
+
 ## References
 [[1] Mixup: Beyond Empirical Risk Minimization](https://arxiv.org/abs/1710.09412)<br>
 [[2] Domain Generalization with MixStyle](https://arxiv.org/abs/2104.02008)<br>

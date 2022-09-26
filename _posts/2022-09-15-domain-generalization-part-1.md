@@ -44,6 +44,7 @@ In the context of DG, we have access to $M$ similar but distinct source domains 
 {: style="text-align: justify;"}
 * $$P_{XY}^{(m)}\neq P_{XY}^{({m}')}$$ with $$m\neq {m}'$$ and $$m, {m}'\in \{1, ..., M\}$$, 
 * $$P_{Y\mid X}^{(m)}= P_{Y\mid X}^{({m}')}$$ with $$m\neq {m}'$$ and $$m, {m}'\in \{1, ..., M\}$$, 
+{: style="text-align: justify;"}
 
 and we have to minimize prediction error on an unseen target domain $$S_{target}$$ with: 
 {: style="text-align: justify;"}

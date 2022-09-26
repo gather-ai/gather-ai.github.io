@@ -139,6 +139,7 @@ The table below shows the performance of the two presented methods in this artic
 {: style="text-align: justify;"}
 
 To be continued ...
+{: style="text-align: justify;"}
 
 ## References
 [[1] Multi-task Learning with Deep Neural Networks: A Survey](https://arxiv.org/abs/2009.09796)<br>
