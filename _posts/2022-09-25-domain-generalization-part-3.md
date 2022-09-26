@@ -28,10 +28,13 @@ You can find the source code of the whole series [here](https://github.com/lhkhi
 </figure>
 
 ## 2. Mixup
-As mentioned above, Mixup perfectly fits into mini-batch training, at each training iteration, we select two instances in a mini-batch following a given strategy (random shuffle or inter-domain) and then mix them at the input level through a convex combination to generate a new instance. 
+As mentioned above, Mixup perfectly fits into mini-batch training, at each training iteration, we select two instances in a mini-batch following a given strategy (random shuffle or inter-domain) and then mix them at the input level through a convex combination to generate a new instance: 
 {: style="text-align: justify;"}
 
 $$x = \lambda x + (1-\lambda ) x_{shuffled}$$
+{: style="text-align: justify;"}
+
+where $\lambda$ is drawn from a [Beta distribution](https://en.wikipedia.org/wiki/Beta_distribution) $\lambda \sim Beta(\alpha ,\alpha )$ with $\alpha \in (0, \infty )$ is a hyper-parameter. 
 {: style="text-align: justify;"}
 
 ## 3. MixStyle
