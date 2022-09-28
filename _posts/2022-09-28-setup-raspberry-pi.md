@@ -58,7 +58,18 @@ Now that Pi is ready, we need to connect to it from our main computer. One optio
 ## 4. Share Internet connection from your computer
 Next, we need the Internet connection on Pi to install a lot of Python packages for working on Federated Learning. 
 {: style="text-align: justify;"}
-* 
+* Open Control Panel &rarr; Network and Internet &rarr; Network and Sharing Center, where you see the Connections fields for Wi-Fi and Ethernet
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/network-and-sharing-center.jpg">
+</figure>
+* Under the Connections field for Wi-Fi, click on the name of your Wi-Fi connection to open the Wi-Fi Status window
+<figure class="align-center" style="width: 400px">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/wi-fi-status.jpg">
+</figure>
+* Open Properties &rarr; click on Sharing tab &rarr; Check the box for “Allow other network users to connect through this computer’s Internet connection” &rarr; select the Ethernet connection in the drop-down menu below
+<figure class="align-center" style="width: 400px">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/wi-fi-properties.jpg">
+</figure>
 
 ## References
 [[1] Computer Vision & Pi – Chương 1. Cài đặt môi trường lập trình cho Raspberry Pi](https://miai.vn/2020/02/17/computer-vision-pi-chuong-1-cai-dat-moi-truong-lap-trinh-cho-raspbery-pi/)<br>
