@@ -31,12 +31,12 @@ Firstly, we need to install Raspbian OS on X by following steps:
 **1. Format SD card**
 - Plug your SD card into your computer (maybe via a reader USB)
 - Download and use the [SD card formatter](https://www.sdcard.org/downloads/formatter/) tool to format your card, this process will take a while, depending on card memory size
-<figure class="align-center">
+<figure class="align-center" style="width: 500px">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/sd-card-formatter.jpg">
 </figure>
 - Download and unzip [Raspbian](https://downloads.raspberrypi.org/raspbian_full_latest) from this link
 - Download and use [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/) to write OS into SD card
-<figure class="align-center">
+<figure class="align-center" style="width: 500px">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/win32diskimager.jpg">
 </figure>
 
