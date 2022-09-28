@@ -28,12 +28,16 @@ You need all of these things to start:
 Firstly, we need to install Raspbian OS on X by following steps: 
 {: style="text-align: justify;"}
 * Plug your SD card into your computer (maybe via a reader USB)
+{: style="text-align: justify;"}
 * Download and use the [SD card formatter](https://www.sdcard.org/downloads/formatter/) tool to format your card, this process will take a while, depending on card memory size
+{: style="text-align: justify;"}
 <figure class="align-center" style="width: 400px">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/sd-card-formatter.jpg">
 </figure>
 * Download and unzip [Raspbian](https://downloads.raspberrypi.org/raspbian_full_latest) from this link
+{: style="text-align: justify;"}
 * Download and use [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/) to write OS into SD card
+{: style="text-align: justify;"}
 <figure class="align-center" style="width: 400px">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/win32diskimager.jpg">
 </figure>
@@ -44,14 +48,17 @@ Firstly, we need to install Raspbian OS on X by following steps:
 Now that Pi is ready, we need to connect to it from our main computer. One option is to use SSH via the Ethernet cable. 
 {: style="text-align: justify;"}
 * On your Pi, go to the Pi icon &rarr; Preferences &rarr; Raspberry Pi Configuration
+{: style="text-align: justify;"}
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/pi-configuration.jpg">
 </figure>
 * Click on the Interfaces tab &rarr; Check the Enabled button for SSH
+{: style="text-align: justify;"}
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/pi-configuration-interfaces.jpg">
 </figure>
 * Open Terminal, use the command line `ifconfig` to get the IP address of your Pi
+{: style="text-align: justify;"}
 * Connect the Ethernet cable from Pi to your computer, then use any SSH client (PuTTY for example) to connect to Pi by its IP address
 {: style="text-align: justify;"}
 
@@ -59,18 +66,20 @@ Now that Pi is ready, we need to connect to it from our main computer. One optio
 Next, we need the Internet connection on Pi to install a lot of Python packages for working on Federated Learning. 
 {: style="text-align: justify;"}
 * Open Control Panel &rarr; Network and Internet &rarr; Network and Sharing Center, where you see the Connections fields for Wi-Fi and Ethernet
+{: style="text-align: justify;"}
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/network-and-sharing-center.jpg">
 </figure>
 * Under the Connections field for Wi-Fi, click on the name of your Wi-Fi connection to open the Wi-Fi Status window
+{: style="text-align: justify;"}
 <figure class="align-center" style="width: 300px">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/wi-fi-status.jpg">
 </figure>
 * Open Properties &rarr; click on Sharing tab &rarr; Check the box for “Allow other network users to connect through this computer’s Internet connection” &rarr; select the Ethernet connection in the drop-down menu below
+{: style="text-align: justify;"}
 <figure class="align-center" style="width: 300px">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/wi-fi-properties.jpg">
 </figure>
-{: style="text-align: justify;"}
 
 Now, our Pi can access the Internet shared from our computer, we can now create a virtual environment and install any Python package into it. 
 {: style="text-align: justify;"}
