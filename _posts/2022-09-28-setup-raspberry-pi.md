@@ -59,7 +59,7 @@ Now that Pi is ready, we need to connect to it from our main computer. One optio
 Next, we need the Internet connection on Pi to install a lot of Python packages for working on Federated Learning. 
 {: style="text-align: justify;"}
 * Open Control Panel &rarr; Network and Internet &rarr; Network and Sharing Center, where you see the Connections fields for Wi-Fi and Ethernet
-<figure class="align-center" style="width: 800px">
+<figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/network-and-sharing-center.jpg">
 </figure>
 * Under the Connections field for Wi-Fi, click on the name of your Wi-Fi connection to open the Wi-Fi Status window
