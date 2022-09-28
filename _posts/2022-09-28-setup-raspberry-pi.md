@@ -40,8 +40,16 @@ Firstly, we need to install Raspbian OS on X by following steps:
 * Put SD card into Pi and turn it on, plug in a monitor, mouse, and keyboard, then do some simple steps to start working
 {: style="text-align: justify;"}
 
-## 3. Enable remote access
+## 3. Enable SSH via Ethernet
+Now that Pi is ready, we need to connect to it from our main computer. One option is to use SSH via the Ethernet cable. 
+{: style="text-align: justify;"}
+* On your Pi, go to the Pi icon &rarr; Preferences &rarr; Raspberry Pi Configuration
+* Click on the Interfaces tab &rarr; Check the Enabled button for SSH
+* Open Terminal, use the command line `ifconfig` to get the IP address of your Pi
+* Connect the Ethernet cable from Pi to your computer, then use any SSH client (PuTTY for example) to connect to Pi by its IP address
+{: style="text-align: justify;"}
 
 ## References
 [[1] Computer Vision & Pi – Chương 1. Cài đặt môi trường lập trình cho Raspberry Pi](https://miai.vn/2020/02/17/computer-vision-pi-chuong-1-cai-dat-moi-truong-lap-trinh-cho-raspbery-pi/)<br>
+[[2] First Steps with your Raspberry Pi](https://medium.com/secure-and-private-ai-writing-challenge/first-steps-with-your-raspberry-pi-5917f980a48)<br>
 {: style="text-align: justify;"}
