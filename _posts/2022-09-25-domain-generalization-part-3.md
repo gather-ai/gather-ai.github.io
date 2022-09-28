@@ -4,6 +4,7 @@ date: 2022-09-25
 categories: 
   - Tutorials
 tags: 
+  - ai research
   - deep learning
 header: 
   image: "/assets/images/domain-generalization/shift-cover.jpg"
