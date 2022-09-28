@@ -27,18 +27,20 @@ You need all of these things to start:
 ## 2. Boot OS into Pi
 Firstly, we need to install Raspbian OS on X by following steps: 
 {: style="text-align: justify;"}
-
-**1. Format SD card**
-- Plug your SD card into your computer (maybe via a reader USB)
-- Download and use the [SD card formatter](https://www.sdcard.org/downloads/formatter/) tool to format your card, this process will take a while, depending on card memory size
+* Plug your SD card into your computer (maybe via a reader USB)
+* Download and use the [SD card formatter](https://www.sdcard.org/downloads/formatter/) tool to format your card, this process will take a while, depending on card memory size
 <figure class="align-center" style="width: 500px">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/sd-card-formatter.jpg">
 </figure>
-- Download and unzip [Raspbian](https://downloads.raspberrypi.org/raspbian_full_latest) from this link
-- Download and use [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/) to write OS into SD card
+* Download and unzip [Raspbian](https://downloads.raspberrypi.org/raspbian_full_latest) from this link
+* Download and use [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/) to write OS into SD card
 <figure class="align-center" style="width: 500px">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/win32diskimager.jpg">
 </figure>
+* Put SD card into Pi and turn it on, plug in a monitor, mouse, and keyboard, then do some simple steps to start working
+{: style="text-align: justify;"}
+
+## 3. Enable remote access
 
 ## References
 [[1] Computer Vision & Pi – Chương 1. Cài đặt môi trường lập trình cho Raspberry Pi](https://miai.vn/2020/02/17/computer-vision-pi-chuong-1-cai-dat-moi-truong-lap-trinh-cho-raspbery-pi/)<br>
