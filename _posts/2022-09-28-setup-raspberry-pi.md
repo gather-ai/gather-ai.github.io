@@ -44,12 +44,25 @@ Firstly, we need to install Raspbian OS on X by following steps:
 Now that Pi is ready, we need to connect to it from our main computer. One option is to use SSH via the Ethernet cable. 
 {: style="text-align: justify;"}
 * On your Pi, go to the Pi icon &rarr; Preferences &rarr; Raspberry Pi Configuration
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/pi-configuration.jpg">
+</figure>
 * Click on the Interfaces tab &rarr; Check the Enabled button for SSH
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/pi-configuration-interfaces.jpg">
+</figure>
 * Open Terminal, use the command line `ifconfig` to get the IP address of your Pi
 * Connect the Ethernet cable from Pi to your computer, then use any SSH client (PuTTY for example) to connect to Pi by its IP address
 {: style="text-align: justify;"}
 
+## 4. Share Internet connection from your computer
+Next, we need the Internet connection on Pi to install a lot of Python packages for working on Federated Learning. 
+{: style="text-align: justify;"}
+* 
+
 ## References
 [[1] Computer Vision & Pi – Chương 1. Cài đặt môi trường lập trình cho Raspberry Pi](https://miai.vn/2020/02/17/computer-vision-pi-chuong-1-cai-dat-moi-truong-lap-trinh-cho-raspbery-pi/)<br>
 [[2] First Steps with your Raspberry Pi](https://medium.com/secure-and-private-ai-writing-challenge/first-steps-with-your-raspberry-pi-5917f980a48)<br>
+[[3] Connecting to your Raspberry Pi via SSH](https://raspberrypi-guide.github.io/networking/connecting-via-ssh)<br>
+[[4] How to Use Internet Connection Sharing on Windows 10](https://medium.com/@jrcharney/connect-your-raspberry-pi-to-your-computer-via-ethernet-4564e1e68922)<br>
 {: style="text-align: justify;"}
