@@ -34,7 +34,7 @@ Firstly, we need to install Raspbian OS on X by following steps:
 <figure class="align-center" style="width: 400px">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/setup-raspberry-pi4/sd-card-formatter.jpg">
 </figure>
-* Download and unzip [Raspbian](https://downloads.raspberrypi.org/raspbian_full_latest) from this link
+* Download and unzip Raspbian OS from this [link](https://www.raspberrypi.com/software/operating-systems/), we need a 64-bit version for installing PyTorch later
 {: style="text-align: justify;"}
 * Download and use [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/) to write OS into SD card
 {: style="text-align: justify;"}
