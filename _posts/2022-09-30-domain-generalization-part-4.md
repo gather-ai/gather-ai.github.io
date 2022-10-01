@@ -96,7 +96,7 @@ Although BN generally works well in a variety of tasks, it consistently degrades
 {: style="text-align: justify;"}
 
 ### Method
-Snippet 3 is a simple implementation of a 1-dimensional I-BN layer, just half of BN and half of IN. It is straightforward to extend the implementation to higher-dimension usages. 
+Snippet 3 is a simple implementation of a one-dimensional I-BN layer, just half of BN and half of IN. It is straightforward to extend the implementation to higher-dimension usages. 
 {: style="text-align: justify;"}
 
 ```python
@@ -185,12 +185,23 @@ Domain alignment methods generally have a common limitation, which will be discu
 It is reasonable to note that leveraging the relative similarity of the _photo_ instances to instances from _art painting_ might result in better predictions compared to a setting where the model relies solely on invariant characteristics across domains. Both covered methods try to learn domain-invariant representations while ignoring domain-specific features, features that are specific to individual domains. 
 {: style="text-align: justify;"}
 
-Extending from I-BN and [DSBN](https://arxiv.org/abs/1906.03950), Domain-Specific I-BN (DS I-BN) is developed which aims to capture both domain-invariant and domain-specific features from multi-source domain data. 
+Extending from the above I-BN Net, domain-specific I-BN Net (DS I-BN Net) is developed which aims to capture both domain-invariant and domain-specific features from multi-source domain data. 
 {: style="text-align: justify;"}
 
 ### Method
-DS I-BN is a module that consists of $M$ normalization layers, using parameters of each normalization layer to capture domain-specific features of each individual domain in $M$ source domains. Specifically, during training, instances $\mathbf{X}_{m}$ from domain $m$ only go through the $m^{th}$ normalization layer in the DS I-BN module. Figure 4 illustrates the DS I-BN module. 
+In particular, an original ResNet can is modified to become a DS I-BN ResNet in the following two steps: 
 {: style="text-align: justify;"}
+* Turn all BN layers in the model into (domain-specific BN) [DSBN](https://arxiv.org/abs/1906.03950) modules
+* Replace BN layers with I-BN layers at the same positions as I-BN ResNet
+{: style="text-align: justify;"}
+
+What is the DSBN? DSBN is a module that consists of $M$ BN layers, using parameters of each BN layer to capture domain-specific features of each individual domain in $M$ source domains. Specifically, during training, instances from domain $m$, $\mathbf{X}_{m}$ only go through the $m^{th}$ BN layer in the DSBN module. Figure 4 illustrates the module and Snippet 5 is its implementation in a 1-dimensional version. 
+{: style="text-align: justify;"}
+
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/domain-specific-batch-normalization.jpg">
+  <figcaption>Figure 4. Domain-specific batch normalization module architecture. </figcaption>
+</figure>
 
 ## 5. Results
 The table below shows the performance of the two presented methods in this article. 
