@@ -20,10 +20,19 @@ You can find the source code of the whole series [here](https://github.com/lhkhi
 {: .notice--info}
 
 ## 1. Domain Alignment
-The central idea of domain alignment is to minimize the difference among source domains for learning _domain-invariant representations_. The motivation is straightforward: features that are invariant to the source domains should also generalize well on any unseen target domain. Traditionally, the difference among source domains is modeled by Feature Correlation or Maximum Mean Discrepancy, these entities are minimized to learn domain-invariant representations. However, let’s explore simpler and more effective domain alignment methods. 
+The central idea of domain alignment is to minimize the difference among source domains for learning _domain-invariant representations_. The motivation is straightforward: features that are invariant to the source domains should also generalize well on any unseen target domain. Traditionally, the difference among source domains is modeled by [Feature Correlation](https://arxiv.org/abs/1612.01939) or [Maximum Mean Discrepancy](https://jmlr.csail.mit.edu/papers/v13/gretton12a.html), these entities are minimized to learn domain-invariant representations. However, let's explore simpler and more effective domain alignment methods. 
 {: style="text-align: justify;"}
 
 ## 2. Domain-Adversarial Training
+
+### Motivation
+Don't be afraid to see the word "adversarial", this method is simple to understand if you have read about multi-task learning in [part 2](https://gather-ai.github.io/tutorials/domain-generalization-part-2/) of the series, but if not, it's still simple. Domain-adversarial training (DAT) perfectly represents the spirit of the domain alignment approach, that is to learn the feature cannot tell which source domain the instance came from. 
+{: style="text-align: justify;"}
+
+By leveraging a multi-task learning setting, DAT combines discriminativeness and domain-invariance into the same representations. To this end, a subtle trick is introduced along with the main method. 
+{: style="text-align: justify;"}
+
+### Method
 
 ## 3. Instance-Batch Normalization
 
@@ -38,4 +47,5 @@ To be continued ...
 
 ## References
 [[1] Domain Generalization: A Survey](https://arxiv.org/abs/2103.02503)<br>
+[[2] Domain-Adversarial Training of Neural Networks](https://arxiv.org/abs/1505.07818)<br>
 {: style="text-align: justify;"}

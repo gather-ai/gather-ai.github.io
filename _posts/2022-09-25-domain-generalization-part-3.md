@@ -95,7 +95,7 @@ Finally, the mixed feature statistics are applied to the style-normalized $x$:
 $$MixStyle(x) = \sigma _{mix}\frac{x - \mu (x)}{\sigma (x)} + \mu _{mix}. $$
 {: style="text-align: justify;"}
 
-If you look at the above formula carefully, you can realize that MixStyle does not actually create a new instance, but mixes the style of an instance into another one to make it become “new”. Therefore, MixStyle uses the original label $y$ of this “new” instance $x$. 
+If you look at the above formula carefully, you can realize that MixStyle does not actually create a new instance, but mixes the style of an instance into another one to make it become "new". Therefore, MixStyle uses the original label $y$ of this "new" instance $x$. 
 {: style="text-align: justify;"}
 
 Similar to Mixup, MixStyle is easy to implement, but where to apply MixStyle? Experiments showed that applying MixStyle after the first three residual blocks in a ResNet34 model gives the best results in our problem. Snippet 2 illustrates this setting. 
