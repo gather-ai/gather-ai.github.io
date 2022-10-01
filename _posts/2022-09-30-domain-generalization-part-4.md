@@ -33,7 +33,7 @@ By leveraging a multi-task learning setting, DAT combines discriminativeness and
 {: style="text-align: justify;"}
 
 ### Method
-Specifically, along the main task of cardiac abnormalities classification, DAT performs a subtask of domain identification and uses a gradient reversal layer to learn the representation in an adversarial manner. Figure 1 illustrates the architecture of the model and Snippet 1 describes the auxiliary module which performs DAT. 
+Specifically, along the main task of cardiac abnormalities classification, DAT performs a subtask of domain identification and uses a gradient reversal layer to learn the representations in an adversarial manner. Figure 1 illustrates the architecture of the model and Snippet 1 describes the auxiliary module which performs DAT. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
@@ -77,6 +77,9 @@ loss, sub_loss = F.binary_cross_entropy_with_logits(logits, labels), F.cross_ent
 (loss + auxiliary_lambda*sub_loss).backward()
 ...
 ```
+
+Intuitively, the gradient reversal layer is skipped in the forward pass and just flips the sign of the gradient flow through it during the backpropagation process. Look at the position of this layer, it is placed right before the domain classifier $g_{d}$, this means that during training, $g_{d}$ is updated with $\frac{\partial L_{sub}}{\partial \theta_{g_d}}$ while the backbone $f$ is updated with $-\frac{\partial L_{sub}}{\partial \theta_{f}}$. In this way, the domain classifier learns how to use representations to identify the source domain of instances, but gives the reverse information to the backbone, forcing $f$ to generate domain-invariant representations. 
+{: style="text-align: justify;"}
 
 ## 3. Instance-Batch Normalization
 
