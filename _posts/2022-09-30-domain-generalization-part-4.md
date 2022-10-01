@@ -174,6 +174,16 @@ class SEResNet34(nn.Module):
 ## 4. Domain-Specific Batch Normalization Network
 
 ### Motivation
+Both above methods have a common limitation, which will be discussed and addressed. Look back to an illustration of DG from part 1, where a classifier trained in _sketch_, _cartoon_, _art painting_ images encounters instances from a novel domain _photo_ at test-time. 
+{: style="text-align: justify;"}
+
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/DG-DA.jpg">
+  <figcaption>Figure 3. Examples from the PACS dataset for DG. Adapted from [1]. </figcaption>
+</figure>
+
+It is reasonable to note that leveraging the relative similarity of the _photo_ instances to instances from _art painting_ might result in better predictions compared to a setting where the model relies solely on invariant characteristics across domains. Both covered methods try to learn domain-invariant representations while ignoring domain-specific features, features that are specific to individual domains. 
+{: style="text-align: justify;"}
 
 ### Method
 
