@@ -1,5 +1,5 @@
 ---
-title: "Domain Generalization Tutorials (Part 4): Domain Alignment"
+title: "Domain Generalization Tutorials (Part 4): Domain Alignment (and More)"
 date: 2022-09-30
 categories: 
   - Tutorials
@@ -83,7 +83,22 @@ Intuitively, the gradient reversal layer is skipped in the forward pass and just
 
 ## 3. Instance-Batch Normalization
 
+### Motivation
+Nowadays, normalization layers are an important part of any neural network. There are many types of normalization techniques and each of them has its own characteristics and advantages, perhaps you have seen Figure 2 somewhere. We will talk about batch normalization and instance normalization here because of their effects on DG. 
+{: style="text-align: justify;"}
+
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/normalization-techniques.jpg">
+  <figcaption>Figure 2. Different normalization techniques. </figcaption>
+</figure>
+
+### Method
+
 ## 4. Domain-Specific Optimized Normalization
+
+### Motivation
+
+### Method
 
 ## 5. Results
 The table below shows the performance of the two presented methods in this article. 
@@ -95,4 +110,5 @@ To be continued ...
 ## References
 [[1] Domain Generalization: A Survey](https://arxiv.org/abs/2103.02503)<br>
 [[2] Domain-Adversarial Training of Neural Networks](https://arxiv.org/abs/1505.07818)<br>
+[[3] Two at Once: Enhancing Learning and Generalization Capacities via IBN-Net](https://arxiv.org/abs/1807.09441)<br>
 {: style="text-align: justify;"}
