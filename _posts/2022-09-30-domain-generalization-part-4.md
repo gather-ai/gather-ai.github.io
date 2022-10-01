@@ -53,7 +53,7 @@ class SEResNet34(nn.Module):
   self.auxiliary = nn.Sequential(
     GradientReversal(), 
     nn.Dropout(0.2), 
-    nn.Linear(512, 5), 
+    nn.Linear(512, num_domains), 
   )
   ...
 
@@ -171,10 +171,10 @@ class SEResNet34(nn.Module):
   ...
 ```
 
-## 4. Domain-Specific Optimized Normalization Network
+## 4. Domain-Specific I-BN Network
 
 ### Motivation
-Both above methods have a common limitation, which will be discussed and addressed here. Look back to an illustration of DG from part 1, where a classifier trained in _sketch_, _cartoon_, _art painting_ images encounters instances from a novel domain _photo_ at test-time. 
+Domain alignment methods generally have a common limitation, which will be discussed and addressed here. Look back to an illustration of DG from part 1, where a classifier trained in _sketch_, _cartoon_, _art painting_ images encounters instances from a novel domain _photo_ at test-time. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
@@ -185,10 +185,12 @@ Both above methods have a common limitation, which will be discussed and address
 It is reasonable to note that leveraging the relative similarity of the _photo_ instances to instances from _art painting_ might result in better predictions compared to a setting where the model relies solely on invariant characteristics across domains. Both covered methods try to learn domain-invariant representations while ignoring domain-specific features, features that are specific to individual domains. 
 {: style="text-align: justify;"}
 
-Also inspired by I-BN, Domain-Specific Optimized Normalization (DSON) is developed which aims to capture both domain-invariant and domain-specific features from multi-source domain data. 
+Extending from I-BN and [DSBN](https://arxiv.org/abs/1906.03950), Domain-Specific I-BN (DS I-BN) is developed which aims to capture both domain-invariant and domain-specific features from multi-source domain data. 
 {: style="text-align: justify;"}
 
 ### Method
+DS I-BN is a module that consists of $M$ normalization layers, using parameters of each normalization layer to capture domain-specific features of each individual domain in $M$ source domains. Specifically, during training, instances from domain $m$ only go through the normalization layer $m_{th}$ in the DS I-BN module. 
+{: style="text-align: justify;"}
 
 ## 5. Results
 The table below shows the performance of the two presented methods in this article. 
@@ -203,4 +205,3 @@ To be continued ...
 [[3] Two at Once: Enhancing Learning and Generalization Capacities via IBN-Net](https://arxiv.org/abs/1807.09441)<br>
 [[4] Learning to Optimize Domain Specific Normalization for Domain Generalization](https://arxiv.org/abs/1907.04275)<br>
 [[5] Learning to Balance Specificity and Invariance for In and Out of Domain Generalization](https://arxiv.org/abs/2008.12839)<br>
-{: style="text-align: justify;"}

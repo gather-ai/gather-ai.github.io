@@ -155,4 +155,3 @@ To be continued ...
 [[3] Sharpness-Aware Minimization for Efficiently Improving Generalization](https://arxiv.org/abs/2010.01412)<br>
 [[4] Averaging Weights Leads to Wider Optima and Better Generalization](https://arxiv.org/abs/1803.05407)<br>
 [[5] SWAD: Domain Generalization by Seeking Flat Minima](https://arxiv.org/abs/2102.08604)<br>
-{: style="text-align: justify;"}
