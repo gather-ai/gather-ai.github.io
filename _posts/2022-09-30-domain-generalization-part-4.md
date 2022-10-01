@@ -84,7 +84,7 @@ Intuitively, the gradient reversal layer is skipped in the forward pass and just
 ## 3. Instance-Batch Normalization
 
 ### Motivation
-Nowadays, normalization layers are an important part of any neural network. There are many types of normalization techniques and each of them has its own characteristics and advantages, perhaps you have seen Figure 2 somewhere. We will talk about batch normalization and instance normalization here because of their effects on DG. 
+Nowadays, normalization layers are an important part of any neural network. There are many types of normalization techniques and each of them has its own characteristics and advantages, perhaps you have seen Figure 2 somewhere. We will talk about batch normalization (BN) and instance normalization (IN) here because of their effects on DG. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
@@ -92,7 +92,11 @@ Nowadays, normalization layers are an important part of any neural network. Ther
   <figcaption>Figure 2. Different normalization techniques. </figcaption>
 </figure>
 
+Although BN generally works well in a variety of tasks, it consistently degrades performance when it is trained in the presence of a large domain divergence. This is because the batch statistics overfit the particular training domains, resulting in poor generalization performance in unseen target domains. Meanwhile, IN does not depend on batch statistics. This property allows the network to learn feature representations that less overfit a particular domain. The downside of IN, however, is that it makes the features less discriminative with respect to instance categories, which is guaranteed in BN in contrast. Instance-Batch normalization (I-BN) is a mixture of BN and IN, which is introduced to reap the benefits of IN of learning domain-invariant representations while maintaining the ability to capture discriminative representations from BN. 
+{: style="text-align: justify;"}
+
 ### Method
+
 
 ## 4. Domain-Specific Optimized Normalization
 
@@ -111,4 +115,5 @@ To be continued ...
 [[1] Domain Generalization: A Survey](https://arxiv.org/abs/2103.02503)<br>
 [[2] Domain-Adversarial Training of Neural Networks](https://arxiv.org/abs/1505.07818)<br>
 [[3] Two at Once: Enhancing Learning and Generalization Capacities via IBN-Net](https://arxiv.org/abs/1807.09441)<br>
+[[4] Learning to Optimize Domain Specific Normalization for Domain Generalization](https://arxiv.org/abs/1907.04275)<br>
 {: style="text-align: justify;"}
