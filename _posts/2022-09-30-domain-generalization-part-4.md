@@ -198,10 +198,37 @@ In particular, an original ResNet can is modified to become a DS I-BN ResNet in 
 What is the DSBN? DSBN is a module that consists of $M$ BN layers, using parameters of each BN layer to capture domain-specific features of each individual domain in $M$ source domains. Specifically, during training, instances from domain $m$, $\mathbf{X}_{m}$ only go through the $m^{th}$ BN layer in the DSBN module. Figure 4 illustrates the module and Snippet 5 is its implementation in a 1-dimensional version. 
 {: style="text-align: justify;"}
 
-<figure class="align-center">
+<figure class="align-center" style="width: 500px">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/domain-specific-batch-normalization.jpg">
   <figcaption>Figure 4. Domain-specific batch normalization module architecture. </figcaption>
 </figure>
+
+```python
+"""
+Snippet 5: I-BN layer. 
+"""
+import torch
+import torch.nn as nn
+
+class DomainSpecificBatchNorm1d(nn.Module):
+  def __init__(self, num_features, num_domains):
+    super(DomainSpecificBatchNorm1d, self).__init__()
+
+    self.num_domains = num_domains
+    self.BNs = nn.ModuleList(
+      [nn.BatchNorm1d(num_features) for _ in range(self.num_domains)]
+    )
+
+  def forward(self, input, domains, is_training = True, running_domain = None):
+    domain_uniques = torch.unique(domains)
+
+    if is_training:
+      outputs = [self.BNs[i](input[domains == domain_uniques[i]]) for i in range(domain_uniques.shape[0])]
+      return torch.concat(outputs)
+    else:
+      output = self.BNs[running_domain](output)
+      return output
+```
 
 ## 5. Results
 The table below shows the performance of the two presented methods in this article. 
