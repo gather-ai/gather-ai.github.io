@@ -171,10 +171,10 @@ class SEResNet34(nn.Module):
   ...
 ```
 
-## 4. Domain-Specific Batch Normalization Network
+## 4. Domain-Specific Optimized Normalization Network
 
 ### Motivation
-Both above methods have a common limitation, which will be discussed and addressed. Look back to an illustration of DG from part 1, where a classifier trained in _sketch_, _cartoon_, _art painting_ images encounters instances from a novel domain _photo_ at test-time. 
+Both above methods have a common limitation, which will be discussed and addressed here. Look back to an illustration of DG from part 1, where a classifier trained in _sketch_, _cartoon_, _art painting_ images encounters instances from a novel domain _photo_ at test-time. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
@@ -183,6 +183,9 @@ Both above methods have a common limitation, which will be discussed and address
 </figure>
 
 It is reasonable to note that leveraging the relative similarity of the _photo_ instances to instances from _art painting_ might result in better predictions compared to a setting where the model relies solely on invariant characteristics across domains. Both covered methods try to learn domain-invariant representations while ignoring domain-specific features, features that are specific to individual domains. 
+{: style="text-align: justify;"}
+
+Also inspired by I-BN, Domain-Specific Optimized Normalization (DSON) is developed which aims to capture both domain-invariant and domain-specific features from multi-source domain data. 
 {: style="text-align: justify;"}
 
 ### Method
@@ -198,6 +201,6 @@ To be continued ...
 [[1] Domain Generalization: A Survey](https://arxiv.org/abs/2103.02503)<br>
 [[2] Domain-Adversarial Training of Neural Networks](https://arxiv.org/abs/1505.07818)<br>
 [[3] Two at Once: Enhancing Learning and Generalization Capacities via IBN-Net](https://arxiv.org/abs/1807.09441)<br>
-[[4] Domain-Specific Batch Normalization for Unsupervised Domain Adaptation](https://arxiv.org/abs/1906.03950)<br>
-[[5] Learning to Optimize Domain Specific Normalization for Domain Generalization](https://arxiv.org/abs/1907.04275)<br>
+[[4] Learning to Optimize Domain Specific Normalization for Domain Generalization](https://arxiv.org/abs/1907.04275)<br>
+[[5] Learning to Balance Specificity and Invariance for In and Out of Domain Generalization](https://arxiv.org/abs/2008.12839)<br>
 {: style="text-align: justify;"}
