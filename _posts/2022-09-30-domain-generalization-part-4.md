@@ -107,14 +107,14 @@ import torch
 import torch.nn as nn
 
 class Instance_BatchNorm1d(nn.Module):
-  def __init__(self, planes):
+  def __init__(self, num_features):
     super(Instance_BatchNorm1d, self).__init__()
 
-    self.half_planes = planes//2
-    self.BN, self.IN = nn.BatchNorm1d(planes - self.half_planes), nn.InstanceNorm1d(self.half_planes, affine = True)
+    self.half_num_features = num_features//2
+    self.BN, self.IN = nn.BatchNorm1d(num_features - self.half_num_features), nn.InstanceNorm1d(self.half_num_features, affine = True)
 
   def forward(self, input):
-    half_input = torch.split(input, self.half_planes, dim = 1)
+    half_input = torch.split(input, self.half_num_features, dim = 1)
     half_BN, half_IN = self.BN(half_input[0].contiguous()), self.IN(half_input[1].contiguous())
 
     return torch.cat((half_BN, half_IN), dim = 1)
@@ -171,7 +171,7 @@ class SEResNet34(nn.Module):
   ...
 ```
 
-## 4. Domain-Specific Optimized Normalization Network
+## 4. Domain-Specific Batch Normalization Network
 
 ### Motivation
 
@@ -188,5 +188,6 @@ To be continued ...
 [[1] Domain Generalization: A Survey](https://arxiv.org/abs/2103.02503)<br>
 [[2] Domain-Adversarial Training of Neural Networks](https://arxiv.org/abs/1505.07818)<br>
 [[3] Two at Once: Enhancing Learning and Generalization Capacities via IBN-Net](https://arxiv.org/abs/1807.09441)<br>
-[[4] Learning to Optimize Domain Specific Normalization for Domain Generalization](https://arxiv.org/abs/1907.04275)<br>
+[[4] Domain-Specific Batch Normalization for Unsupervised Domain Adaptation](https://arxiv.org/abs/1906.03950)<br>
+[[5] Learning to Optimize Domain Specific Normalization for Domain Generalization](https://arxiv.org/abs/1907.04275)<br>
 {: style="text-align: justify;"}
