@@ -198,7 +198,7 @@ In particular, an original ResNet can is modified to become a DS I-BN ResNet in 
 What is the DSBN? DSBN is a module that consists of $M$ BN layers, using parameters of each BN layer to capture domain-specific features of each individual domain in $M$ source domains. Specifically, during training, instances from domain $m$, $\mathbf{X}_{m}$ only go through the $m^{th}$ BN layer in the DSBN module. Figure 4 illustrates the module and Snippet 5 is its implementation in a 1-dimensional version. 
 {: style="text-align: justify;"}
 
-<figure class="align-center" style="width: 500px">
+<figure class="align-center" style="width: 400px">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/domain-specific-batch-normalization.jpg">
   <figcaption>Figure 4. Domain-specific batch normalization module architecture. </figcaption>
 </figure>
@@ -235,6 +235,18 @@ At inference time, a test instance is fed into all $M$ "sub-networks" of all dom
 
 ## 5. Results
 The table below shows the performance of the two presented methods in this article. 
+{: style="text-align: justify;"}
+
+|            |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        Avg |
+| :--------- | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: |
+| Baseline &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4290 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1643 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.2067 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3809 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3987 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3626 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3237 |
+| AgeReg | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4222 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1715 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.2136 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3923 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4024 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4021 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3340 |
+| SWA | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4271 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1759 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.2052 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3969 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4313 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4203 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3428 |
+| Mixup | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4225 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1759 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.2127 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3901 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4025 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3934 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3329 |
+| MixStyle | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4253 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1681 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.2027 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3927 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4117 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3853 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3310 |
+| DAT | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4282 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1712 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1966 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3956 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4114 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3878 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **0.3318** |
+| I-BN | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4252 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1748 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.2045 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3817 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4193 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4161 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **0.3369** |
+| DS I-BN | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4484 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1805 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.2191 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4318 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3916 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4242 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **0.3493** |
 {: style="text-align: justify;"}
 
 To be continued ...
