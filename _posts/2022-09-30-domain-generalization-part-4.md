@@ -189,7 +189,7 @@ Extending from I-BN and [DSBN](https://arxiv.org/abs/1906.03950), Domain-Specifi
 {: style="text-align: justify;"}
 
 ### Method
-DS I-BN is a module that consists of $M$ normalization layers, using parameters of each normalization layer to capture domain-specific features of each individual domain in $M$ source domains. Specifically, during training, instances from domain $m$ only go through the normalization layer $m_{th}$ in the DS I-BN module. 
+DS I-BN is a module that consists of $M$ normalization layers, using parameters of each normalization layer to capture domain-specific features of each individual domain in $M$ source domains. Specifically, during training, instances $\mathbf{X}_{m}$ from domain $m$ only go through the $m^{th}$ normalization layer in the DS I-BN module. Figure 4 illustrates the DS I-BN module. 
 {: style="text-align: justify;"}
 
 ## 5. Results
