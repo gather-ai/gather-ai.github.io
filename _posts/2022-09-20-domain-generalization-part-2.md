@@ -43,7 +43,7 @@ As mentioned before, sub-tasks for performing multi-task learning are defined ba
 
 ```python
 """
-Snippet 1: Regression module. 
+Snippet 1: Age Regression module. 
 """
 import torch.nn as nn
 

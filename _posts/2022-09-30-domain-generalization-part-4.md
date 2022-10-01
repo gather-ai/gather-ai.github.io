@@ -33,6 +33,34 @@ By leveraging a multi-task learning setting, DAT combines discriminativeness and
 {: style="text-align: justify;"}
 
 ### Method
+Specifically, along the main task of cardiac abnormalities classification, DAT performs a subtask of domain identification and uses a gradient reversal layer to learn the representation in an adversarial manner. Figure 1 illustrates the architecture of the model and Snippet 1 describes the auxiliary module which performs DAT. 
+{: style="text-align: justify;"}
+
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/domain-adversarial-training.jpg">
+  <figcaption>Figure 1. Domain-adversarial training architecture. </figcaption>
+</figure>
+
+```python
+"""
+Snippet 1: DAT module. 
+"""
+import torch.nn as nn
+
+class SEResNet34(nn.Module):
+
+  ...
+  self.auxiliary = nn.Sequential(
+    GradientReversal(), 
+    nn.Dropout(0.2), 
+    nn.Linear(512, 5), 
+  )
+  ...
+
+  def forward(self, inputs):
+    ...
+    return self.classifier(feature), self.auxiliary(feature)
+```
 
 ## 3. Instance-Batch Normalization
 
