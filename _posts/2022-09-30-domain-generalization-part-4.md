@@ -96,7 +96,7 @@ Although BN generally works well in a variety of tasks, it consistently degrades
 {: style="text-align: justify;"}
 
 ### Method
-Snippet 3 is a simple implementation of an I-BN layer, just half of BN and half of IN. 
+Snippet 3 is a simple implementation of a 1-dimensional I-BN layer, just half of BN and half of IN. It is straightforward to extend the implementation to higher-dimension usages. 
 {: style="text-align: justify;"}
 
 ```python
@@ -106,18 +106,69 @@ Snippet 3: I-BN layer.
 import torch
 import torch.nn as nn
 
-class InstanceBatchNorm1d(nn.Module):
+class Instance_BatchNorm1d(nn.Module):
   def __init__(self, planes):
-    super(InstanceBatchNorm1d, self).__init__()
-    self.half_planes = planes//2
+    super(Instance_BatchNorm1d, self).__init__()
 
+    self.half_planes = planes//2
     self.BN, self.IN = nn.BatchNorm1d(planes - self.half_planes), nn.InstanceNorm1d(self.half_planes, affine = True)
 
   def forward(self, input):
     half_input = torch.split(input, self.half_planes, dim = 1)
-
     half_BN, half_IN = self.BN(half_input[0].contiguous()), self.IN(half_input[1].contiguous())
+
     return torch.cat((half_BN, half_IN), dim = 1)
+```
+
+But where to place I-BN layers in a specific network, a ResNet-like model for example? Another observation showed that, for BN-based CNNs, the feature divergence caused by appearance variance (domain shift) mainly lies in the shallow half of the CNN, while the feature discrimination for categories is high in deep layers, but also exists in shallow layers. Therefore, an original ResNet can is modified as follows to become an I-BN ResNet: 
+{: style="text-align: justify;"}
+* Only use I-BN layers in the first three residual blocks and leave the fourth block as normal (similar to MixStyle in the [previous article](https://gather-ai.github.io/tutorials/domain-generalization-part-3/))
+* For each selected block, only replace the BN layer after the first convolution layer in the main path with an I-BN layer
+{: style="text-align: justify;"}
+
+Snippet 4 illustrates this setting. 
+{: style="text-align: justify;"}
+
+```python
+"""
+Snippet 4: I-BN ResNet setting. 
+"""
+import torch.nn as nn
+
+class SEResNet34(nn.Module):
+
+  ...
+  self.block = I_NBSEBlock()
+  ...
+
+  ...
+  self.stem = ...
+  self.stage_0 = nn.Sequential(
+    self.block(i_bn = True), 
+    self.block(i_bn = True), 
+    self.block(i_bn = True), 
+  )
+
+  self.stage_1 = nn.Sequential(
+    self.block(i_bn = True), 
+    self.block(i_bn = True), 
+    self.block(i_bn = True), 
+    self.block(i_bn = True), 
+  )
+  self.stage_2 = nn.Sequential(
+    self.block(i_bn = True), 
+    self.block(i_bn = True), 
+    self.block(i_bn = True), 
+    self.block(i_bn = True), 
+    self.block(i_bn = True), 
+    self.block(i_bn = True), 
+  )
+  self.stage_3 = nn.Sequential(
+    self.block(i_bn = False), 
+    self.block(i_bn = False), 
+    self.block(i_bn = False), 
+  )
+  ...
 ```
 
 ## 4. Domain-Specific Optimized Normalization Network
