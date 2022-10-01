@@ -81,7 +81,7 @@ loss, sub_loss = F.binary_cross_entropy_with_logits(logits, labels), F.cross_ent
 Intuitively, the gradient reversal layer is skipped in the forward pass and just flips the sign of the gradient flow through it during the backpropagation process. Look at the position of this layer, it is placed right before the domain classifier $g_{d}$, this means that during training, $g_{d}$ is updated with $\frac{\partial L_{sub}}{\partial \theta_{g_d}}$ while the backbone $f$ is updated with $-\frac{\partial L_{sub}}{\partial \theta_{f}}$. In this way, the domain classifier learns how to use representations to identify the source domain of instances, but gives the reverse information to the backbone, forcing $f$ to generate domain-invariant representations. 
 {: style="text-align: justify;"}
 
-## 3. Instance-Batch Normalization
+## 3. Instance-Batch Normalization Network
 
 ### Motivation
 Nowadays, normalization layers are an important part of any neural network. There are many types of normalization techniques and each of them has its own characteristics and advantages, perhaps you have seen Figure 2 somewhere. We will talk about batch normalization (BN) and instance normalization (IN) here because of their effects on DG. 
@@ -96,9 +96,31 @@ Although BN generally works well in a variety of tasks, it consistently degrades
 {: style="text-align: justify;"}
 
 ### Method
+Snippet 3 is a simple implementation of an I-BN layer, just half of BN and half of IN. 
+{: style="text-align: justify;"}
 
+```python
+"""
+Snippet 3: I-BN layer. 
+"""
+import torch
+import torch.nn as nn
 
-## 4. Domain-Specific Optimized Normalization
+class InstanceBatchNorm1d(nn.Module):
+  def __init__(self, planes):
+    super(InstanceBatchNorm1d, self).__init__()
+    self.half_planes = planes//2
+
+    self.BN, self.IN = nn.BatchNorm1d(planes - self.half_planes), nn.InstanceNorm1d(self.half_planes, affine = True)
+
+  def forward(self, input):
+    half_input = torch.split(input, self.half_planes, dim = 1)
+
+    half_BN, half_IN = self.BN(half_input[0].contiguous()), self.IN(half_input[1].contiguous())
+    return torch.cat((half_BN, half_IN), dim = 1)
+```
+
+## 4. Domain-Specific Optimized Normalization Network
 
 ### Motivation
 
