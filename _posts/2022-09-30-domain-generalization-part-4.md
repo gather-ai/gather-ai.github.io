@@ -230,6 +230,9 @@ class DomainSpecificBatchNorm1d(nn.Module):
       return output
 ```
 
+At inference time, a test instance is fed into all $M$ “sub-networks” of all domains to get $M$ logits. The final logit is averaged over these $M$ logits and made the prediction. 
+{: style="text-align: justify;"}
+
 ## 5. Results
 The table below shows the performance of the two presented methods in this article. 
 {: style="text-align: justify;"}
