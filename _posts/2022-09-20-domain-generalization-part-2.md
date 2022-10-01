@@ -61,12 +61,12 @@ class SEResNet34(nn.Module):
     return self.classifier(feature), self.auxiliary(feature)
 ```
 
-For optimization, I use cross-entropy loss for the main classification task and L1 loss for the regression sub-task. The second loss is added to the main loss with an `auxiliary_lambda` hyperparameter, which is set to 0.02. Snippet 2 describes the backpropagation process. All other settings are similar to the baseline in the previous article. 
+For optimization, I use cross-entropy loss for the main classification task and L1 loss for the regression sub-task. The second loss is added to the main loss with an `auxiliary_lambda` hyperparameter, which is set to 0.02. Snippet 2 describes the optimization process. All other settings are similar to the baseline in the previous article. 
 {: style="text-align: justify;"}
 
 ```python
 """
-Snippet 2: Backpropagation process. 
+Snippet 2: Optimization process. 
 """
 import torch.nn.functional as F
 

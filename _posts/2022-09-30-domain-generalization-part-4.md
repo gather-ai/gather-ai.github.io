@@ -62,6 +62,22 @@ class SEResNet34(nn.Module):
     return self.classifier(feature), self.auxiliary(feature)
 ```
 
+The model is optimized with a combined loss similar to multi-task learning. Snippet 2 describes the optimization process. 
+{: style="text-align: justify;"}
+
+```python
+"""
+Snippet 2: Optimization process. 
+"""
+import torch.nn.functional as F
+
+...
+logits, sub_logits = model(ecgs)
+loss, sub_loss = F.binary_cross_entropy_with_logits(logits, labels), F.cross_entropy(sub_logits, domains)
+(loss + auxiliary_lambda*sub_loss).backward()
+...
+```
+
 ## 3. Instance-Batch Normalization
 
 ## 4. Domain-Specific Optimized Normalization
