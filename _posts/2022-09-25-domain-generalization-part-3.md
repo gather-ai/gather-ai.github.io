@@ -50,7 +50,7 @@ The above combination of original labels can yield a non-integer label for the g
 $$loss = \lambda loss(z_{mix}, y) + (1-\lambda ) loss(z_{mix}, y_{shuffled}), $$
 {: style="text-align: justify;"}
 
-where $z$ is output from the model of $x$. 
+where $z_{mix}$ is output from the model of $x_{mix}$. 
 {: style="text-align: justify;"}
 
 Snippet 1 describes how to integrate Mixup into the training pipeline. 
@@ -108,7 +108,6 @@ Snippet 2: MixStyle setting.
 import torch.nn as nn
 
 class SEResNet34(nn.Module):
-
   ...
   self.augment = MixStyle(alpha = 0.1, p = 0.5)
   ...

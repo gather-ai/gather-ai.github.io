@@ -48,7 +48,6 @@ Snippet 1: Age Regression module.
 import torch.nn as nn
 
 class SEResNet34(nn.Module):
-
   ...
   self.auxiliary = nn.Sequential(
     nn.Dropout(0.2), 
@@ -121,7 +120,6 @@ Snippet 4 below briefs the training loop. It is a little bit tricky when applyin
 Snippet 4: Training loop. 
 """
 for epoch in range(1, num_epochs + 1):
-
 ...
   if not epoch > scheduler.T_max:
     scheduler.step()
