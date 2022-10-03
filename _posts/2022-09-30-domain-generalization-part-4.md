@@ -174,7 +174,7 @@ class SEResNet34(nn.Module):
 ## 4. Domain-Specific I-BN Network
 
 ### Motivation
-Domain alignment methods generally have a common limitation, which will be discussed and addressed here. Look back to an illustration of DG from part 1, where a classifier trained in _sketch_, _cartoon_, _art painting_ images encounters instances from a novel domain _photo_ at test-time. 
+Domain alignment methods generally have a common limitation, which will be discussed and addressed here. Look back to an illustration of DG from [part 1](https://gather-ai.github.io/tutorials/domain-generalization-part-1/), where a classifier trained in _sketch_, _cartoon_, _art painting_ images encounters instances from a novel domain _photo_ at test-time. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
