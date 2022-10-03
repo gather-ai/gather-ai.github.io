@@ -134,7 +134,7 @@ class SEResNet34(nn.Module):
 ```
 
 ## 4. Results
-The table below shows the performance of the two presented methods in this article. 
+The table below shows the performance of the two presented methods in this article: 
 {: style="text-align: justify;"}
 
 |            |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        Avg |

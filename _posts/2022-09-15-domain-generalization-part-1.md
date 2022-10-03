@@ -31,7 +31,7 @@ Machine Learning (ML) systems generally rely on an over-simplified assumption, t
 To address the domain shift problem, as well as the absence of target data, the topic of Domain Generalization (DG) was introduced. Specifically, the goal in DG is to learn a model using data from a single or multiple related but distinct source domains in such a way that the model can generalize well to any **_unseen_** target domain. 
 {: style="text-align: justify;"}
 
-**Watch out!** Unlike other related topics such as Domain Adaptation (DA) or Transfer Learning (TL), where the ML models can do some forms of adaptation on target data, DG considers the scenarios where target data is inaccessible during model learning. 
+**Watch out!** Unlike other related topics such as Domain Adaptation (DA) or Transfer Learning (TL), where the ML models can do some forms of adaptation on target data, DG considers more ubiquitous scenarios in practice where target data is inaccessible during model learning. 
 {: style="text-align: justify;"}
 {: .notice}
 
@@ -41,7 +41,7 @@ To address the domain shift problem, as well as the absence of target data, the 
 </figure>
 
 ### Formulation
-In the context of DG, we have access to $M$ similar but distinct source domains $$S_{source}=\{S_m=\{(x^s, y^s)\}\}_{m=1}^M$$, each associated with a joint distribution $$P_{XY}^{(m)}$$ with: 
+In the context of DG, we have access to $M$ similar but distinct source domains $$S_{source}=\{S_m=\{(x, y)\}\}_{m=1}^M$$, each associated with a joint distribution $$P_{XY}^{(m)}$$ with: 
 {: style="text-align: justify;"}
 * $$P_{XY}^{(m)}\neq P_{XY}^{({m}')}$$ with $$m\neq {m}'$$ and $$m, {m}'\in \{1, ..., M\}$$, 
 * $$P_{Y\mid X}^{(m)}= P_{Y\mid X}^{({m}')}$$ with $$m\neq {m}'$$ and $$m, {m}'\in \{1, ..., M\}$$, 
@@ -63,7 +63,7 @@ In this series of tutorials, besides introducing and explaining outstanding DG m
 {: style="text-align: justify;"}
 
 ### Datasets
-The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recordings from 6 institutes in 4 countries across 3 continents. Each recording was annotated with one or more of 26 types of cardiac abnormalities, which means the problem is multi-label classification. Figure 3 shows the number of data samples in each dataset, and Figure 4 illustrates the difference in the appearance of signals from 6 institutes. 
+The datasets are from PhysioNet Challenge 2021, containing twelve-lead ECG recordings from 6 institutes in 4 countries across 3 continents. Each recording was annotated with one or more of 26 types of cardiac abnormalities, which means the problem is _multi-label classification_. Figure 3 shows the number of data samples in each dataset, and Figure 4 illustrates the difference in the appearance of signals from 6 institutes. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
@@ -98,7 +98,7 @@ We always need a baseline model before applying any advanced methods. Here, I us
 * The batch size is 512 and the number of epochs is 80
 {: style="text-align: justify;"}
 
-Evaluation of DG algorithms often follows the _leave-one-domain-out_ rule. It leaves one dataset as the target domain while treating the others as the training part, i.e., source domains. Based on this evaluation strategy, the baseline model's performance is shown in the table below. 
+Evaluation of DG algorithms often follows the _leave-one-domain-out_ rule. It leaves one dataset as the target domain while treating the others as the training part, i.e., source domains. Based on this evaluation strategy, the baseline model's performance is shown in the table below: 
 {: style="text-align: justify;"}
 
 <figure class="align-center">

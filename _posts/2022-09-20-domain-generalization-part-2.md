@@ -136,7 +136,7 @@ optim.swa_utils.update_bn(loaders["train"], swa_model)
 ```
 
 ## 4. Results
-The table below shows the performance of the two presented methods in this article. 
+The table below shows the performance of the two presented methods in this article: 
 {: style="text-align: justify;"}
 
 |            |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        Avg |

@@ -234,7 +234,7 @@ At inference time, a test instance is fed into all $M$ "sub-networks" of all dom
 {: style="text-align: justify;"}
 
 ## 5. Results
-The table below shows the performance of the two presented methods in this article. 
+The table below shows the performance of the two presented methods in this article: 
 {: style="text-align: justify;"}
 
 |            |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        Avg |
