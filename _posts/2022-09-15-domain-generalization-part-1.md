@@ -84,8 +84,8 @@ I recommend you read some documents to understand what is ECG and cardiac abnorm
 
 Important things to remember about our problem: 
 {: style="text-align: justify;"}
-* input: twelve 1D-signals, a matrix with a shape of (12, 5000)
-* output: one or more of 26 classes, a vector of 26 elements, each 0 or 1
+* Input: twelve 1D-signals, a matrix with a shape of (12, 5000)
+* Output: one or more of 26 classes, a vector of 26 elements, each 0 or 1
 {: style="text-align: justify;"}
 
 ### Baseline

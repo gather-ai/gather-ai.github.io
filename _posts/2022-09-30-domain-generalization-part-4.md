@@ -12,7 +12,7 @@ toc: true
 toc_sticky: true
 ---
 
-👋 Hi there. Welcome back to my page, this is part 4 of my tutorial series about the topic of Domain Generalization (DG). This article will cover the approach of **domain alignment**, to which most existing DG methods belong. 
+👋 Hi there. Welcome back to my page, this is part 4 of my tutorial series about the topic of Domain Generalization (DG). This article will cover the approach of **domain alignment**, to which most existing DG methods belong. In addition, we also cover an improvement upon this approach. 
 {: style="text-align: justify;"}
 
 You can find the source code of the whole series [here](https://github.com/lhkhiem28/DGECG). 
@@ -48,7 +48,6 @@ Snippet 1: DAT module.
 import torch.nn as nn
 
 class SEResNet34(nn.Module):
-
   ...
   self.auxiliary = nn.Sequential(
     GradientReversal(), 
@@ -78,7 +77,7 @@ loss, sub_loss = F.binary_cross_entropy_with_logits(logits, labels), F.cross_ent
 ...
 ```
 
-Intuitively, the gradient reversal layer is skipped in the forward pass and just flips the sign of the gradient flow through it during the backpropagation process. Look at the position of this layer, it is placed right before the domain classifier $g_{d}$, this means that during training, $g_{d}$ is updated with $\frac{\partial L_{sub}}{\partial \theta_{g_d}}$ while the backbone $f$ is updated with $-\frac{\partial L_{sub}}{\partial \theta_{f}}$. In this way, the domain classifier learns how to use representations to identify the source domain of instances, but gives the reverse information to the backbone, forcing $f$ to generate domain-invariant representations. 
+Intuitively, the gradient reversal layer is skipped in the forward pass and just flips the sign of the gradient flow through it during the backpropagation process. Look at the position of this layer, it is placed right before the domain classifier $g_{d}$, this means that during training, $g_{d}$ is updated with $\frac{\partial L_{sub}}{\partial \theta_{g_d}}$ while the backbone $f$ is updated with $-\frac{\partial L_{sub}}{\partial \theta_{f}}$. In this way, the domain classifier learns how to use representations to identify the source domain of instances, but gives the reversed information to the backbone, forcing $f$ to generate domain-invariant representations. 
 {: style="text-align: justify;"}
 
 ## 3. Instance-Batch Normalization Network
@@ -136,7 +135,6 @@ Snippet 4: I-BN ResNet setting.
 import torch.nn as nn
 
 class SEResNet34(nn.Module):
-
   ...
   self.block = I_NBSEBlock()
   ...
@@ -191,11 +189,11 @@ Extending from the above I-BN Net, domain-specific I-BN Net (DS I-BN Net) is dev
 ### Method
 In particular, an original ResNet can is modified to become a DS I-BN ResNet in the following two steps: 
 {: style="text-align: justify;"}
-* Turn all BN layers in the model into (domain-specific BN) [DSBN](https://arxiv.org/abs/1906.03950) modules
+* Turn all BN layers in the model into domain-specific BN ([DSBN](https://arxiv.org/abs/1906.03950)) modules
 * Replace BN layers with I-BN layers at the same positions as I-BN ResNet
 {: style="text-align: justify;"}
 
-What is the DSBN? DSBN is a module that consists of $M$ BN layers, using parameters of each BN layer to capture domain-specific features of each individual domain in $M$ source domains. Specifically, during training, instances from domain $m$, $\mathbf{X}_{m}$ only go through the $m^{th}$ BN layer in the DSBN module. Figure 4 illustrates the module and Snippet 5 is its implementation in a 1-dimensional version. 
+What is the DSBN? DSBN is a module that consists of $M$ BN layers, using parameters of each BN layer to capture domain-specific features of each individual domain in $M$ source domains. Specifically, during training, instances from domain $m$, $\mathbf{X}^{m}$ only go through the $m^{th}$ BN layer in the DSBN module. Figure 4 illustrates the module and Snippet 5 is its implementation in a one-dimensional version. 
 {: style="text-align: justify;"}
 
 <figure class="align-center" style="width: 400px">
