@@ -41,13 +41,16 @@ Firstly, what is "template" in the name of T3A? Let's say the linear classifier 
 $$\omega^k = \theta_{g}[:, k]$$
 {: style="text-align: justify;"}
 
-During test time, the model makes its prediction by measuring the distance (dot product) between its templates and the representations $z$ of the input data: 
+During test time, the model generates its logits by measuring the distance (dot product) between its templates and the representations $z$ of the input data $x$, then the prediction $\widehat{y}$ is made by a final operation, e.g., softmax function for multi-class classification. 
 {: style="text-align: justify;"}
 
 $$logit^k = z\omega^k$$
 {: style="text-align: justify;"}
 
 Since these templates were trained in the source domain, there is no guarantee that they will be a good template in the target domain. 
+{: style="text-align: justify;"}
+
+Next, how does T3A adjust the model templates to make better predictions on the target domain? Assume we have (batch of) test data $\mathbf{x}$ at time $t$, T3A introduces a _support set_ $\mathbb{S}_t^k$ for each class $k$. 
 {: style="text-align: justify;"}
 
 <!-- To be continued ... -->
