@@ -1,6 +1,6 @@
 ---
 title: "Domain Generalization Tutorials (Part 5): Test-Time Adjustment"
-date: 2022-10-04
+date: 2022-10-05
 categories: 
   - Tutorials
 tags: 
@@ -41,7 +41,7 @@ Firstly, what is "template" in the name of T3A? Let's say the linear classifier 
 $$\omega^k = \theta_{g}[:, k]$$
 {: style="text-align: justify;"}
 
-During test time, the model generates its logits by measuring the distance (dot product) between its templates and the representations $z$ of the input data $x$, then the prediction $\widehat{y}$ is made by a final operation, e.g., softmax function for multi-class classification. 
+During test time, the model generates its logits by measuring the distance (dot product) between its templates and the representations $z$ of the input data $x$, then the prediction $\widehat{y}$ is made by a final operation, e.g., softmax function for multi-class classification: 
 {: style="text-align: justify;"}
 
 $$logit^k = z\omega^k$$
@@ -50,7 +50,18 @@ $$logit^k = z\omega^k$$
 Since these templates were trained in the source domain, there is no guarantee that they will be a good template in the target domain. 
 {: style="text-align: justify;"}
 
-Next, how does T3A adjust the model templates to make better predictions on the target domain? Assume we have (batch of) test data $\mathbf{x}$ at time $t$, T3A introduces a _support set_ $\mathbb{S}_t^k$ for each class $k$. 
+Next, how does T3A adjust the model templates to make better predictions on the target domain? Assume we have (batch of) test data $\mathbf{x}$ at time $t$, T3A introduces a _support set_ $\mathbb{S}_t^k$ for each class $k$: 
+{: style="text-align: justify;"}
+
+$$
+\mathbb{S}_t^k = \left\{\begin{matrix}
+\mathbb{S}_{t-1}^k \cup \{ \frac{f(x)}{\left \| f(x) \right \|} \} & \text{if} \hspace{5px} \widehat{y}=k\\ 
+\mathbb{S}_{t-1}^k \hspace{52px} & \text{else} \hspace{22px}
+\end{matrix}\right.
+$$
+{: style="text-align: justify;"}
+
+where $\left \| . \right \|$ represents the L2 norm of a vector and $\mathbb{S}_0^k = \{ \frac{\omega^k}{\left \| \omega^k \right \|} \}$. If the input data contains multiple samples at the same time (e.g., a batch of data), the above procedure is repeated for each sample in the batch. 
 {: style="text-align: justify;"}
 
 <!-- To be continued ... -->
