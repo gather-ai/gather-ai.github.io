@@ -38,7 +38,7 @@ Test-time template adjuster (T3A) is a pioneer in this approach. The method is a
 Firstly, what is "template" in the name of T3A? Let's say the linear classifier of a trained model is denoted as $g$ with the parameters $\theta_{g}$. $\theta_{g}$ has a shape of $dim_{z}\times C$, where $dim_{z}$ is the dimension of output from feature extractor $f$ and $C$ is the total number of classes. The template of representation for the class $k$ is defined as:
 {: style="text-align: justify;"}
 
-$$\omega^k = \theta_{g}\[:, k\]. $$
+$$\omega^k = \theta_{g}[:, k]. $$
 {: style="text-align: justify;"}
 
 <!-- To be continued ... -->
