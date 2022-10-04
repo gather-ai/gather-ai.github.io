@@ -47,10 +47,10 @@ $$y_{mix} = \lambda y + (1-\lambda ) y_{shuffled}$$
 The above combination of original labels can yield a non-integer label for the generated instances, this is not fit with the classification problem which requires the label must be categorical. Therefore, we have to do a trick, mixing loss instead of mixing labels: 
 {: style="text-align: justify;"}
 
-$$loss = \lambda loss(z_{mix}, y) + (1-\lambda ) loss(z_{mix}, y_{shuffled})$$
+$$loss = \lambda loss(logit_{mix}, y) + (1-\lambda ) loss(logit_{mix}, y_{shuffled})$$
 {: style="text-align: justify;"}
 
-where $z_{mix}$ is output from the model of $x_{mix}$. 
+where $logit_{mix}$ is output from the model of $x_{mix}$. 
 {: style="text-align: justify;"}
 
 Snippet 1 describes how to integrate Mixup into the training pipeline. 
