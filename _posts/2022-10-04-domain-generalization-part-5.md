@@ -50,7 +50,7 @@ $$logit^k = z\omega^k$$
 Since these templates were trained in the source domain, there is no guarantee that they will be a good template in the target domain. 
 {: style="text-align: justify;"}
 
-Next, how does T3A adjust the model templates to make better predictions on the target domain? Assume we have (batch of) test data $\mathbf{x}$ at time $t$, T3A introduces a _support set_ $\mathbb{S}_t^k$ for each class $k$: 
+Next, how does T3A adjust the model templates to make better predictions on the target domain? Assume we have (batch of) test data $x$ at time $t$, T3A introduces a _support set_ $\mathbb{S}_t^k$ for each class $k$: 
 {: style="text-align: justify;"}
 
 $$
@@ -62,6 +62,18 @@ $$
 {: style="text-align: justify;"}
 
 where $$\left \| \cdot \right \|$$ represents the L2 norm of a vector and $$\mathbb{S}_0^k = \{ \frac{\omega^k}{\left \| \omega^k \right \|} \}$$. If the input data contains multiple samples at the same time (e.g., a batch of data), the above procedure is repeated for each sample in the batch. 
+{: style="text-align: justify;"}
+
+Then, T3A uses centroids of these support sets as adjusted templates to make it new prediction: 
+{: style="text-align: justify;"}
+
+$$c^k = \frac{1}{\left | \mathbb{S}^k \right |}\sum_{s\in  \mathbb{S}^k}s$$
+{: style="text-align: justify;"}
+
+and
+{: style="text-align: justify;"}
+
+$$logit^k = z\c^k$$
 {: style="text-align: justify;"}
 
 <!-- To be continued ... -->
