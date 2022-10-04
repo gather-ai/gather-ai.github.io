@@ -1,6 +1,6 @@
 ---
 title: "Domain Generalization Tutorials (Part 5): Test-Time Adjustment"
-date: 2022-10-05
+date: 2022-10-04
 categories: 
   - Tutorials
 tags: 
