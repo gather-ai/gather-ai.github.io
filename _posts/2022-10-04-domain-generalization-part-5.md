@@ -47,6 +47,9 @@ During test time, the model makes its prediction by measuring the distance (dot 
 $$logit^k = z\omega^k$$
 {: style="text-align: justify;"}
 
+Since these templates were trained in the source domain, there is no guarantee that they will be a good template in the target domain. 
+{: style="text-align: justify;"}
+
 <!-- To be continued ... -->
 {: style="text-align: justify;"}
 
