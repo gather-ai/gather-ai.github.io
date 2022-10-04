@@ -55,8 +55,8 @@ Next, how does T3A adjust the model templates to make better predictions on the 
 
 $$
 \mathbb{S}_t^k = \left\{\begin{matrix}
-\mathbb{S}_{t-1}^k \cup \{ \frac{f(x)}{\left \| f(x) \right \|} \} & \text{if} \hspace{5px} \widehat{y}=k\\ 
-\mathbb{S}_{t-1}^k \hspace{100px} & \text{else} \hspace{35px}
+\mathbb{S}_{t-1}^k \cup \{ \frac{f(x)}{\left \| f(x) \right \|} \} & \text{if} \hspace{5px} \widehat{y}=k \\ 
+\mathbb{S}_{t-1}^k \hspace{18mm} & \text{else} \hspace{8mm}
 \end{matrix}\right.
 $$
 {: style="text-align: justify;"}
