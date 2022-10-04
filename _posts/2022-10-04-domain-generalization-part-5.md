@@ -56,7 +56,7 @@ Next, how does T3A adjust the model templates to make better predictions on the 
 $$
 \mathbb{S}_t^k = \left\{\begin{matrix}
 \mathbb{S}_{t-1}^k \cup \{ \frac{f(x)}{\left \| f(x) \right \|} \} & \text{if} \hspace{5px} \widehat{y}=k\\ 
-\mathbb{S}_{t-1}^k \hspace{60px} & \text{else} \hspace{25px}
+\mathbb{S}_{t-1}^k \hspace{80px} & \text{else} \hspace{30px}
 \end{matrix}\right.
 $$
 {: style="text-align: justify;"}
@@ -73,8 +73,11 @@ $$c^k = \frac{1}{\left | \mathbb{S}^k \right |}\sum_{s\in  \mathbb{S}^k}s$$
 and
 {: style="text-align: justify;"}
 
-$$logit^k = z\c^k$$
+$$logit^k = zc^k$$
 {: style="text-align: justify;"}
+
+<head><style>hr.solid {border-top: 3px solid #bbb;}</style></head>
+<body><hr class="solid"></body>
 
 <!-- To be continued ... -->
 {: style="text-align: justify;"}
