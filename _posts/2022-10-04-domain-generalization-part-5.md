@@ -56,7 +56,7 @@ Next, how does T3A adjust the model templates to make better predictions on the 
 $$
 \mathbb{S}_t^k = \left\{\begin{matrix}
 \mathbb{S}_{t-1}^k \cup \{ \frac{f(x)}{\left \| f(x) \right \|} \} & \text{if} \hspace{5px} \widehat{y}=k\\ 
-\mathbb{S}_{t-1}^k \hspace{80px} & \text{else} \hspace{30px}
+\mathbb{S}_{t-1}^k \hspace{82px} & \text{else} \hspace{32px}
 \end{matrix}\right.
 $$
 {: style="text-align: justify;"}
@@ -76,10 +76,10 @@ and
 $$logit^k = zc^k$$
 {: style="text-align: justify;"}
 
-<head><style>hr.solid {border-top: 3px solid #bbb;}</style></head>
+<head><style>hr.solid {border-top: 1px solid #bbb;}</style></head>
 <body><hr class="solid"></body>
 
-<!-- To be continued ... -->
+This is the final part of my tutorial series on Domain Generalization (DG). Actually, there is another interesting approach to DG which is based on Meta-Learning. I might come back to this approach later. 
 {: style="text-align: justify;"}
 
 ## References
