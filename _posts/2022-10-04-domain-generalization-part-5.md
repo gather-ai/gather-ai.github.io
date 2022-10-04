@@ -31,7 +31,7 @@ this data provides clues about the target distribution that is not available dur
 ## 2. Test-Time Template Adjuster
 
 ### Motivation
-
+Test-time template adjuster (T3A) is a pioneer in this approach. The method is an optimization-free procedure that adjusts the linear classifier (the last layer of deep neural networks) at test time. This procedure makes the adjusted decision boundary avoid the high-data density region on the target domain and reduces the ambiguity (entropy) of predictions, which is known to be connected to classification error. One interesting property of T3A is that it does not alter the training phase, therefore it can be used together with any existing DG algorithms. Moreover, it can be used together with any classification model since it only adjusts the linear classifier on top of the representations. 
 {: style="text-align: justify;"}
 
 ### Method
