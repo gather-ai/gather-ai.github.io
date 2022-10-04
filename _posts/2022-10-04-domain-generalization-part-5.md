@@ -56,12 +56,12 @@ Next, how does T3A adjust the model templates to make better predictions on the 
 $$
 \mathbb{S}_t^k = \left\{\begin{matrix}
 \mathbb{S}_{t-1}^k \cup \{ \frac{f(x)}{\left \| f(x) \right \|} \} & \text{if} \hspace{5px} \widehat{y}=k\\ 
-\mathbb{S}_{t-1}^k \hspace{52px} & \text{else} \hspace{22px}
+\mathbb{S}_{t-1}^k \hspace{60px} & \text{else} \hspace{25px}
 \end{matrix}\right.
 $$
 {: style="text-align: justify;"}
 
-where $\left \| . \right \|$ represents the L2 norm of a vector and $\mathbb{S}_0^k = \{ \frac{\omega^k}{\left \| \omega^k \right \|} \}$. If the input data contains multiple samples at the same time (e.g., a batch of data), the above procedure is repeated for each sample in the batch. 
+where $$\left \| \cdot \right \|$$ represents the L2 norm of a vector and $$\mathbb{S}_0^k = \{ \frac{\omega^k}{\left \| \omega^k \right \|} \}$$. If the input data contains multiple samples at the same time (e.g., a batch of data), the above procedure is repeated for each sample in the batch. 
 {: style="text-align: justify;"}
 
 <!-- To be continued ... -->
