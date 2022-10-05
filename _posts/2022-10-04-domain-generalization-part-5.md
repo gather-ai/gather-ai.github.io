@@ -60,7 +60,7 @@ $$
 \end{cases}
 \end{align}
 $$
-{: style="text-align: left;"}
+{: style="text-align: justify;"}
 
 where $$\left \| \cdot \right \|$$ represents the L2 norm of a vector and $$\mathbb{S}_0^k = \{ \frac{\omega^k}{\left \| \omega^k \right \|} \}$$. If the input data contains multiple samples at the same time (e.g., a batch of data), the above procedure is repeated for each sample in the batch. 
 {: style="text-align: justify;"}
@@ -75,6 +75,9 @@ and
 {: style="text-align: justify;"}
 
 $$logit^k = zc^k$$
+{: style="text-align: justify;"}
+
+then the prediction $\widehat{y}$ is made by a final operation, e.g., softmax function for multi-class classification, sigmoid and thresholding for multi-label classification. 
 {: style="text-align: justify;"}
 
 <head><style>hr.solid {border-top: 1px solid #bbb;}</style></head>
