@@ -1,6 +1,6 @@
 ---
 title: "Domain Generalization Tutorials (Part 5): Test-Time Adjustment"
-date: 2022-10-04
+date: 2022-10-05
 categories: 
   - Tutorials
 tags: 
@@ -41,7 +41,7 @@ Firstly, what is "template" in the name of T3A? Let's say the linear classifier 
 $$\omega^k = \theta_{g}[:, k]$$
 {: style="text-align: justify;"}
 
-During test time, the model generates its logits by measuring the distance (dot product) between its templates and the representations $z$ of the input data $x$, then the prediction $\widehat{y}$ is made by a final operation, e.g., softmax function for multi-class classification: 
+During test time, the model generates its logits by measuring the distance (dot product) between its templates and the representations $z$ of the input data $x$, then the prediction $\widehat{y}$ is made by final operations, e.g., softmax function for multi-class classification: 
 {: style="text-align: justify;"}
 
 $$logit^k = z\omega^k$$
@@ -77,7 +77,7 @@ and
 $$logit^k = zc^k$$
 {: style="text-align: justify;"}
 
-then the prediction $\widehat{y}$ is made by a final operation, e.g., softmax function for multi-class classification, sigmoid and thresholding for multi-label classification. 
+then the prediction $\widehat{y}$ is made by final operations, e.g., softmax function for multi-class classification, sigmoid and thresholding for multi-label classification. 
 {: style="text-align: justify;"}
 
 <head><style>hr.solid {border-top: 1px solid #bbb;}</style></head>
