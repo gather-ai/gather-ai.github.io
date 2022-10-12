@@ -19,15 +19,22 @@ toc_sticky: true
 ## 1. Background
 
 ### Motivation
+Currently, there are nearly 7 billion connected Internet of Things (IoT) devices and 3 billion smartphones around the world. These devices generate data at the edge constantly. However, due to limits in data privacy regulations and communication bandwidth, it is usually infeasible to transmit and store all training data at a central location. Coupled with the rise of Machine Learning (ML), the wealth of data collected by end devices opens up countless possibilities for meaningful research and applications. 
+{: style="text-align: justify;"}
 
-From these observations, the topic of Federated Learning (FL) was introduced. FL is a distributed machine learning strategy that generates a global model by learning from multiple decentralized edge clients. FL enables on-device training, keeping the client's local data private, and further, updating the global model based on the local model updates. 
+From these observations, the topic of Federated Learning (FL) was introduced. FL is a distributed ML strategy that generates a global model by learning from multiple decentralized edge clients. FL enables on-device training, keeping the client's local data private, and further, updating the global model based on the local model updates. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/federated-learning-iot/flower.jpg">
-  <figcaption>Figure 1. Federated Learning Illustration. </figcaption>
+  <figcaption>Figure 1. Federated Learning Illustration. Adapted from [1]. </figcaption>
 </figure>
 
 ### Formulation
 
+
 ## 2. A Network of IoT Devices
+
+## References
+[[1] Flower: A Friendly Federated Learning Framework](https://flower.dev/)<br>
+[[2] A Survey on Federated Learning for Resource-Constrained IoT Devices](https://ieeexplore.ieee.org/document/9475501)<br>
