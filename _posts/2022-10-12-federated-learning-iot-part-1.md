@@ -43,7 +43,7 @@ where
 $$L(\theta) := \sum_{m=1}^{M} p_mL_m(\theta)$$
 {: style="text-align: justify;"}
 
-Here $M$ is the total number of devices, $L_{m}$ is the local objective function for the $m^{th}$ device, and $p_{m}$ specifies the relative impact of each device with $p_{m} \geq 0$ and $\sum_{m=1}^{M} = 1$. 
+Here $M$ is the total number of devices, $L_m$ is the local objective function for the $m^{th}$ device, and $p_m$ specifies the relative impact of each device with $p_m \geq 0$ and $\sum_{m=1}^{M}p_m = 1$. The local objective function $L_m$ is often defined as the empirical risk over local data. The relative impact of each device $p_m$ is user-defined. 
 {: style="text-align: justify;"}
 
 ## 2. A Network of IoT Devices
