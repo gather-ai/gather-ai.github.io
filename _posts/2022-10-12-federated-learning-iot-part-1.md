@@ -27,14 +27,24 @@ From these observations, the topic of Federated Learning (FL) was introduced. FL
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/federated-learning-iot/flower.jpg">
-  <figcaption>Figure 1. Federated Learning Illustration. Adapted from [1]. </figcaption>
+  <figcaption>Figure 1. Federated Learning Illustration. </figcaption>
 </figure>
 
 ### Formulation
+The federated learning problem involves learning a single, global model from data stored on tens to potentially millions of remote devices. In particular, the goal is typically to minimize the following objective function: 
+{: style="text-align: justify;"}
 
+$$\underset{\theta}{min}L(\theta)$$
+{: style="text-align: justify;"}
+
+where
+{: style="text-align: justify;"}
+
+$$L(\theta) := \sum_{m=1}^{M} p_mL_m(\theta)$$
+{: style="text-align: justify;"}
 
 ## 2. A Network of IoT Devices
 
 ## References
-[[1] Flower: A Friendly Federated Learning Framework](https://flower.dev/)<br>
-[[2] A Survey on Federated Learning for Resource-Constrained IoT Devices](https://ieeexplore.ieee.org/document/9475501)<br>
+[[1] A Survey on Federated Learning for Resource-Constrained IoT Devices](https://ieeexplore.ieee.org/document/9475501)<br>
+[[2] Federated Learning: Challenges, Methods, and Future Directions](https://blog.ml.cmu.edu/2019/11/12/federated-learning-challenges-methods-and-future-directions/)<br>
