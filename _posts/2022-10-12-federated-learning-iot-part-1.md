@@ -13,4 +13,9 @@ toc: true
 toc_sticky: true
 ---
 
-👋 Hi there. 
+👋 Hi there. Recently, I have started working on the [Federated Learning](https://en.wikipedia.org/wiki/Federated_learning) (FL) field, Federated Learning deployment on IoT devices in specific. There are many powerful frameworks outside such as [Flower](https://flower.dev/), [FedML](https://doc.fedml.ai/) to help you learn and practice the topic easily. However, I believe that we cannot understand the real challenges and issues of applying FL to an IoT environment when using these frameworks. Therefore, this 2-part tutorial walks through implementing an FL setting on a network of IoT devices with pure Python. Let's get started by summarizing what is FL. 
+{: style="text-align: justify;"}
+
+## 1. Federated Learning
+
+## 2. A Network of IoT Devices
