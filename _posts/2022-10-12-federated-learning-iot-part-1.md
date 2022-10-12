@@ -43,6 +43,9 @@ where
 $$L(\theta) := \sum_{m=1}^{M} p_mL_m(\theta)$$
 {: style="text-align: justify;"}
 
+Here $M$ is the total number of devices, $L_{m}$ is the local objective function for the $m^{th}$ device, and $p_{m}$ specifies the relative impact of each device with $p_{m} \geq 0$ and $\sum_{m=1}^{M} = 1$. 
+{: style="text-align: justify;"}
+
 ## 2. A Network of IoT Devices
 
 ## References
