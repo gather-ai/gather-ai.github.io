@@ -55,6 +55,9 @@ Most of the existing research on FL uses an FL setting simulation on a single ma
   <figcaption>Figure 2. A Network of IoT Devices. </figcaption>
 </figure>
 
+Now we are ready to start deploying FL on IoT devices, in the next part, I will implement a common FL strategy FedAvg on the above network. 
+{: style="text-align: justify;"}
+
 ## References
 [[1] A Survey on Federated Learning for Resource-Constrained IoT Devices](https://ieeexplore.ieee.org/document/9475501)<br>
 [[2] Federated Learning: Challenges, Methods, and Future Directions](https://blog.ml.cmu.edu/2019/11/12/federated-learning-challenges-methods-and-future-directions/)<br>
