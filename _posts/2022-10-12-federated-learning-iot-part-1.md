@@ -47,7 +47,7 @@ Here $M$ is the total number of devices, $L_m$ is the local objective function f
 {: style="text-align: justify;"}
 
 ## 2. A Network of IoT Devices
-Most of the existing research on FL uses an FL setting simulation on a single machine. This does not make sense much because it does not introduce major issues of real FL like communication and system heterogeneity. In this tutorial, to introduce and handle these issues, I create and use a local network that consists of various types of edge devices. Specifically, I use 2 Raspberry Pi 4 Model B, 4 NVIDIA Jetson Nano, and 1 NVIDIA Jetson Nano 2GB. Figure 2 shows the ingredients of the network where my laptop is used as a remote server and connects to all devices via local Wifi. 
+Most of the existing research on FL uses an FL setting simulation on a single machine. This does not make sense much because it does not introduce major issues of real FL like communication and system heterogeneity. In this tutorial, to introduce and handle these issues, I create and use a local network that consists of various types of edge devices. Specifically, I use 2 Raspberry Pi 4 Model B, 2 NVIDIA Jetson Nano, and 1 NVIDIA Jetson Nano 2GB. Figure 2 shows the ingredients of the network where my laptop is used as a remote server and connects to all devices via local Wifi. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
