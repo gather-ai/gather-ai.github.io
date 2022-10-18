@@ -49,7 +49,7 @@ Here $M$ is the total number of devices, $L_m$ is the local objective function f
 ## 2. A Network of IoT Devices
 
 ### Network Ingredients
-Most of the existing research on FL uses an FL setting simulation on a single machine. This does not make sense much because it does not introduce major issues of real FL like communication and system heterogeneity. In this tutorial, to introduce and handle these issues, I create and use a local network that consists of various types of edge devices. Specifically, I use 2 Raspberry Pi 4 Model B, 2 NVIDIA Jetson Nano 2GB, and 4 NVIDIA Jetson Nano 4GB. Figure 2 shows the ingredients of the network where my laptop is used as a remote server and connects to all devices via local Wifi. 
+Most of the existing research on FL uses an FL setting simulation on a single machine. This does not make sense much because it does not introduce major issues of real FL like communication and system heterogeneity. In this tutorial, to introduce and handle these issues, I create and use a local network that consists of various types of edge devices. Specifically, I use 3 Raspberry Pi (RPi) 4 Model B, 2 NVIDIA Jetson Nano (Jetson) 2GB, and 5 NVIDIA Jetson Nano 4GB. Figure 2 shows the ingredients of the network where my laptop is used as a remote server and connects to all devices via local Wifi. 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
@@ -58,6 +58,19 @@ Most of the existing research on FL uses an FL setting simulation on a single ma
 </figure>
 
 ### Setup Environments
+Setup and configuring environments for smoothly working on Raspberry Pi and NVIDIA Jetson Nano is a nightmare. Therefore, I recommend using [Docker](https://docs.docker.com/) for convenience and consistency. I have built Docker images for RPi and Jetson [here](https://hub.docker.com/repositories), you can pull and run them without additional installations. Make sure that you have booted Raspberry Pi OS (64-bit) for RPi and JetPack 4.6.1 for Jetson. 
+{: style="text-align: justify;"}
+* For RPi: 
+```
+$ docker pull lhkhiem28/rpi:1.4
+$ docker run -it -d -w /root --network=host --name=rpi-container -v $(pwd):/usr/src/ lhkhiem28/rpi:1.4 /bin/bash
+```
+* For Jetson: 
+```
+$ docker pull lhkhiem28/jetson:1.0
+$ docker run -it -d -w /root --runtime=nvidia --network=host --name=jetson-container -v $(pwd):/usr/src/ lhkhiem28/jetson:1.0 /bin/bash
+```
+{: style="text-align: justify;"}
 
 Now we are ready to start deploying FL on IoT devices, in the next part, I will implement a common FL strategy FedAvg on the above network using Flower. 
 {: style="text-align: justify;"}
