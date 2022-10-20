@@ -1,5 +1,5 @@
 ---
-title: "Domain Generalization Tutorials (Part 1): Introduction"
+title: "Domain Generalization Tutorials (Part 1): \nIntroduction"
 date: 2022-09-15
 categories: 
   - Tutorials
