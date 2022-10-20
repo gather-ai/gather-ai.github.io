@@ -116,13 +116,10 @@ class LeNet5(nn.Module):
         return logit
 ```
 
-## 3. Client Site
+## 3. Server Site
 
 
-## 4. Server Site
-
-
-## 5. Running
+## 4. Client Site
 
 
 ## References
