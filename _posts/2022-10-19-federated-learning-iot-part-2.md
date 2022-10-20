@@ -187,7 +187,95 @@ def client_fit_fn(
 ```
 
 ## 3. Server Site
+We can use our laptop to work as a server, at each round, the server sent a global model to all clients to perform on-device training. When clients finish their training, they will send their local models back to the server, then the global model is updated by an FL strategy, FedAvg for example, where the server averages all models from clients and start the next round. 
+{: style="text-align: justify;"}
 
+We will modify the `FedAvg` class of Flower to save the global at each round. 
+{: style="text-align: justify;"}
+```python
+"""
+Snippet 4: FedAvg strategy. 
+"""
+from libs import *
+
+def metrics_aggregation_fn(metrics):
+    fit_losses, fit_accuracies,  = [metric["fit_loss"] for _, metric in metrics], [metric["fit_accuracy"] for _, metric in metrics], 
+    eval_losses, eval_accuracies,  = [metric["eval_loss"] for _, metric in metrics], [metric["eval_accuracy"] for _, metric in metrics], 
+    aggregated_metrics = {
+        "fit_loss":sum(fit_losses)/len(fit_losses), "fit_accuracy":sum(fit_accuracies)/len(fit_accuracies), 
+        "eval_loss":sum(eval_losses)/len(eval_losses), "eval_accuracy":sum(eval_accuracies)/len(eval_accuracies), 
+    }
+
+    return aggregated_metrics
+
+class FedAvg(fl.server.strategy.FedAvg):
+    def __init__(self, 
+        initial_model, 
+        save_ckp_path, 
+        *args, **kwargs
+    ):
+        self.initial_model = initial_model
+        self.save_ckp_path = save_ckp_path
+        super().__init__(*args, **kwargs)
+    def aggregate_fit(self, 
+        server_round, 
+        results, failures
+    ):
+        aggregated_metrics = metrics_aggregation_fn([(result.num_examples, result.metrics) for _, result in results])
+        wandb.log({"fit_loss":aggregated_metrics["fit_loss"]}, step = server_round), wandb.log({"fit_accuracy":aggregated_metrics["fit_accuracy"]}, step = server_round), 
+        wandb.log({"eval_loss":aggregated_metrics["eval_loss"]}, step = server_round), wandb.log({"eval_accuracy":aggregated_metrics["eval_accuracy"]}, step = server_round), 
+
+        aggregated_parameters, results = super().aggregate_fit(
+            server_round, 
+            results, failures
+        )
+        if aggregated_parameters is not None:
+            self.initial_model.load_state_dict(OrderedDict({key:torch.tensor(value) for key, value in zip(self.initial_model.state_dict().keys(), fl.common.parameters_to_weights(aggregated_parameters))}), strict = True)
+            torch.save(self.initial_model, self.save_ckp_path)
+
+        return aggregated_parameters, {}
+```
+
+The server can be easily started by passing your laptop IP address and an arbitrary port into the `start_server` function. 
+{: style="text-align: justify;"}
+
+```python
+"""
+Snippet 5: Server site. 
+"""
+from libs import *
+
+from data import ImageDataset
+from nets import LeNet5
+from strategies import FedAvg
+from engines import server_test_fn
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--server_address", type = str, default = "192.168.50.102"), parser.add_argument("--server_port", type = int)
+parser.add_argument("--dataset", type = str, default = "CIFAR10"), parser.add_argument("--num_clients", type = int, default = 10)
+parser.add_argument("--num_rounds", type = int, default = 100)
+args = parser.parse_args()
+
+wandb.login()
+wandb.init(project = "FL-IoT", name = "{}".format(args.dataset))
+
+initial_model = LeNet5(1 if "MNIST" in args.dataset else 3, num_classes = 10)
+initial_parameters = [value.cpu().numpy() for key, value in initial_model.state_dict().items()]
+save_ckp_path = "../ckps/{}/server.ptl".format(args.dataset)
+if not os.path.exists("/".join(save_ckp_path.split("/")[:-1])):
+    os.makedirs("/".join(save_ckp_path.split("/")[:-1]))
+fl.server.start_server(
+    server_address = "{}:{}".format(args.server_address, args.server_port), 
+    config = {"num_rounds":args.num_rounds}, 
+    strategy = FedAvg(min_available_clients = args.num_clients, 
+        min_fit_clients = args.num_clients, 
+        min_eval_clients = args.num_clients, 
+        initial_parameters = fl.common.weights_to_parameters(initial_parameters), 
+        initial_model = initial_model, 
+        save_ckp_path = save_ckp_path, 
+    )
+)
+```
 
 ## 4. Client Site
 
