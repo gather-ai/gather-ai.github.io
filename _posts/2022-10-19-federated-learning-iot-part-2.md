@@ -13,7 +13,7 @@ toc: true
 toc_sticky: true
 ---
 
-👋 Hi there. Welcome back to my page, this is part 2 of my tutorial series on deploying Federated Learning on IoT devices. In the last article, we discussed what FL is and built a network of IoT devices as well as environments for starting work. Today, I will guide you step by step to train a simple CNN model on the CIFAR10 dataset in real IoT devices by using [Flower](https://flower.dev/). Let's get started. 
+👋 Hi there. Welcome back to my page, this is part 2 of my tutorial series on deploying Federated Learning on IoT devices. In the [last article](https://gather-ai.github.io/tutorials/federated-learning-iot-part-1/), we discussed what FL is and built a network of IoT devices as well as environments for starting work. Today, I will guide you step by step to train a simple CNN model on the CIFAR10 dataset in real IoT devices by using [Flower](https://flower.dev/). Let's get started. 
 {: style="text-align: justify;"}
 
 ## 1. Preparing Dataset
@@ -66,7 +66,55 @@ class ImageDataset(torch.utils.data.Dataset):
 ```
 
 ## 2. A Simple CNN Model
+For simplicity, I use a simple LeNet5 model, a pioneer CNN model, for deployment. Snippet 2 is an implementation of this model. 
+{: style="text-align: justify;"}
 
+```python
+"""
+Snippet 2: LeNet5 model. 
+"""
+from libs import *
+
+class LeNet5(nn.Module):
+    def __init__(self, 
+        in_channels, num_classes
+    ):
+        super(LeNet5, self).__init__()
+        self.layer1 = nn.Sequential(
+            nn.Conv2d(in_channels, 6, kernel_size = 5, stride = 1, padding = 0), 
+            nn.BatchNorm2d(6), 
+            nn.ReLU(), 
+            nn.MaxPool2d(kernel_size = 2, stride = 2), 
+        )
+        self.layer2 = nn.Sequential(
+            nn.Conv2d(6, 16, kernel_size = 5, stride = 1, padding = 0), 
+            nn.BatchNorm2d(16), 
+            nn.ReLU(), 
+            nn.MaxPool2d(kernel_size = 2, stride = 2), 
+        )
+
+        self.layer3 = nn.Sequential(
+            nn.Linear(400, 120), 
+            nn.ReLU(), 
+            nn.Linear(120, 84), 
+            nn.ReLU(), 
+        )
+
+        self.classifier = nn.Linear(84, num_classes)
+
+    def forward(self, 
+        input
+    ):
+        input = self.layer1(input)
+        input = self.layer2(input)
+        input = input.reshape(input.size(0), -1)
+
+        input = self.layer3(input)
+
+        logit = self.classifier(input)
+
+        return logit
+```
 
 ## 3. Client Site
 
