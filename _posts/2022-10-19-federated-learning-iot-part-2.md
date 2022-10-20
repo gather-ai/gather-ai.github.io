@@ -28,6 +28,42 @@ The CIFAR10 dataset consists of 60000 32x32 color images in 10 classes, with 600
 </figure>
 
 ### Data Partition
+In this tutorial, the training data are assigned to the clients in an IID setting. As mentioned before, our network has 10 clients in total, the training data is shuffled and uniformly divided into 10 partitions, each with 5000 images for each client. Note that each partition might be doesn't include 500 images for each class. 
+{: style="text-align: justify;"}
+
+After assigning data to clients, let's implement a Dataset class, which will be used in a PyTorch DataLoader. 
+{: style="text-align: justify;"}
+
+```python
+"""
+Snippet 1: Dataset class. 
+"""
+from libs import *
+
+class ImageDataset(torch.utils.data.Dataset):
+    def __init__(self, 
+        df, data_path, 
+        image_size = (32, 32)
+    ):
+        self.df, self.data_path,  = df, data_path, 
+        self.image_size = image_size
+
+    def __len__(self, 
+    ):
+        return len(self.df)
+
+    def __getitem__(self, 
+        index
+    ):
+        row = self.df.iloc[index]
+
+        image = np.load("{}/{}.npy".format(self.data_path, row["id"]))
+        image = cv2.resize(image, self.image_size)/255
+        if len(image.shape) < 3:
+            image = np.expand_dims(image, -1)
+
+        return torch.tensor(image).permute(2, 0, 1), row["label"]
+```
 
 ## 2. A Simple CNN Model
 
