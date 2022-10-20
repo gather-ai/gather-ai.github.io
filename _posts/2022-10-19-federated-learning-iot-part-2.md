@@ -27,7 +27,7 @@ The CIFAR10 dataset consists of 60000 32x32 color images in 10 classes, with 600
   <figcaption>Figure 1. CIFAR10 Dataset. Mount from [1]</figcaption>
 </figure>
 
-### Data Partition
+### Data Partitioning
 In this tutorial, the training data are assigned to the clients in an IID setting. As mentioned before, our network has 10 clients in total, the training data is shuffled and uniformly divided into 10 partitions, each with 5000 images for each client. Note that each partition might be doesn't include 500 images for each class. 
 {: style="text-align: justify;"}
 
