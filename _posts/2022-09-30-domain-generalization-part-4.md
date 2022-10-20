@@ -1,5 +1,5 @@
 ---
-title: "Domain Generalization Tutorials (Part 4): Domain Alignment (and More)"
+title: "Domain Generalization Tutorials (Part 4): \nDomain Alignment (and More)"
 date: 2022-09-30
 categories: 
   - Tutorials

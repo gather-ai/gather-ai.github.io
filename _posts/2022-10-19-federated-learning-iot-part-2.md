@@ -1,5 +1,5 @@
 ---
-title: "Federated Learning on IoT Devices Tutorials (Part 2): From Zero to Hero"
+title: "Federated Learning on IoT Devices Tutorials (Part 2): \nFrom Zero to Hero"
 date: 2022-10-19
 categories: 
   - Tutorials
