@@ -278,7 +278,108 @@ fl.server.start_server(
 ```
 
 ## 4. Client Site
+For the client, we need to create a `Client` class that inherits from Flower’s `Client` and contains 4 methods `get_parameters`, `set_parameters`, `fit`, and `evaluate`. Then, pass the server’s IP address and its opened port, the rest is similar to traditional ML projects. 
+{: style="text-align: justify;"}
 
+```python
+"""
+Snippet 6: Client site. 
+"""
+from libs import *
+
+from data import ImageDataset
+from nets import LeNet5
+from engines import client_fit_fn
+
+class Client(fl.client.NumPyClient):
+    def __init__(self, 
+        loaders, model, 
+        num_epochs = 1, 
+        device = torch.device("cpu"), 
+        save_ckp_path = "./ckp.ptl", training_verbose = True
+    ):
+        self.loaders, self.model,  = loaders, model, 
+        self.num_epochs = num_epochs
+        self.device = device
+        self.save_ckp_path, self.training_verbose = save_ckp_path, training_verbose
+
+        self.model = self.model.to(device)
+
+    def get_parameters(self, 
+        config
+    ):
+        self.model.train()
+        return [value.cpu().numpy() for key, value in self.model.state_dict().items()]
+
+    def set_parameters(self, 
+        parameters, 
+    ):
+        self.model.train()
+        self.model.load_state_dict(OrderedDict({key:torch.tensor(value) for key, value in zip(self.model.state_dict().keys(), parameters)}), strict = True)
+    def fit(self, 
+        parameters, config
+    ):
+        self.set_parameters(parameters)
+        self.model.train()
+        history = client_fit_fn(
+            self.loaders, self.model, 
+            self.num_epochs, 
+            self.device, 
+            self.save_ckp_path, self.training_verbose
+        )
+        return self.get_parameters(config = {}), len(loaders["fit"].dataset), history
+    def evaluate(self, 
+        parameters, config
+    ):
+        return float(len(loaders["eval"].dataset)), len(loaders["eval"].dataset), {}
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--server_address", type = str, default = "192.168.50.102"), parser.add_argument("--server_port", type = int)
+parser.add_argument("--dataset", type = str, default = "CIFAR10"), parser.add_argument("--cid", type = int)
+args = parser.parse_args()
+
+df = pandas.read_csv("../datasets/{}/clients/client_{}.csv".format(args.dataset, args.cid))
+loaders = {
+    "fit":torch.utils.data.DataLoader(
+        ImageDataset(
+            df = df[df["phase"] == "fit"], data_path = "../datasets/{}/train".format(args.dataset), 
+        ), batch_size = 32, 
+        shuffle = True
+    ), 
+    "eval":torch.utils.data.DataLoader(
+        ImageDataset(
+            df = df[df["phase"] == "eval"], data_path = "../datasets/{}/train".format(args.dataset), 
+        ), batch_size = 32*2, 
+        shuffle = False
+    ), 
+}
+model = LeNet5(1 if "MNIST" in args.dataset else 3, num_classes = 10)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+save_ckp_path = "../ckps/{}/client_{}.ptl".format(args.dataset, args.cid)
+if not os.path.exists("/".join(save_ckp_path.split("/")[:-1])):
+    os.makedirs("/".join(save_ckp_path.split("/")[:-1]))
+client = Client(
+    loaders, model, 
+    num_epochs = 1, 
+    device = device, 
+    save_ckp_path = save_ckp_path, training_verbose = True
+)
+fl.client.start_numpy_client(
+    server_address = "{}:{}".format(args.server_address, args.server_port), 
+    client = client, 
+)
+```
+
+Now, everything is ready for starting. On your laptop, run the server, and on each device, run the client. As you can see, I use `wandb` to log all metrics during training. This is what they look like: 
+{: style="text-align: justify;"}
+
+<figure class="align-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/federated-learning-iot/metrics.jpg">
+  <figcaption>Figure 2. Training Loss and Accuracy. </figcaption>
+</figure>
+
+Stay tuned for more content ...
+{: style="text-align: justify;"}
 
 ## References
 [[1] CIFAR10 and CIFAR100 Datasets](https://www.cs.toronto.edu/~kriz/cifar.html)<br>
