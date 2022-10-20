@@ -65,7 +65,9 @@ class ImageDataset(torch.utils.data.Dataset):
         return torch.tensor(image).permute(2, 0, 1), row["label"]
 ```
 
-## 2. A Simple CNN Model
+## 2. Ingredients for Training
+
+### A Simple CNN Model
 For simplicity, I use a simple LeNet5 model, a pioneer CNN model, for deployment. Snippet 2 is an implementation of this model. 
 {: style="text-align: justify;"}
 
@@ -114,6 +116,74 @@ class LeNet5(nn.Module):
         logit = self.classifier(input)
 
         return logit
+```
+
+### A Training Function
+We need a function that each client will use to perform training on their own data. All metrics during training should be logged and returned in a dictionary. 
+{: style="text-align: justify;"}
+
+```python
+"""
+Snippet 3: Training function. 
+"""
+from libs import *
+
+def client_fit_fn(
+    loaders, model, 
+    num_epochs = 1, 
+    device = torch.device("cpu"), 
+    save_ckp_path = "./ckp.ptl", training_verbose = True
+):
+    print("\nStart Client Training ...\n" + " = "*16)
+    model = model.to(device)
+    criterion, optimizer = nn.CrossEntropyLoss(), optim.Adam(model.parameters(), lr = 1e-3)
+
+    for epoch in tqdm(range(1, num_epochs + 1), disable = training_verbose):
+        if training_verbose:print("epoch {:2}/{:2}".format(epoch, num_epochs) + "\n" + " - "*16)
+
+        running_loss, running_correct = 0, 0
+        for images, labels in tqdm(loaders["fit"], disable = not training_verbose):
+            images, labels = images.float().to(device), labels.to(device)
+
+            logits = model(images)
+            loss = criterion(logits, labels)
+
+            loss.backward()
+            optimizer.step(), optimizer.zero_grad()
+
+            running_loss, running_correct = running_loss + loss.item()*images.size(0), running_correct + (torch.max(logits.data, 1)[1].detach().cpu() == labels.cpu()).sum().item()
+
+        fit_loss, fit_accuracy,  = running_loss/len(loaders["fit"].dataset), running_correct/len(loaders["fit"].dataset), 
+        if training_verbose:
+            print("{:<5} - loss:{:.4f}, accuracy:{:.4f}".format(
+                "fit", 
+                fit_loss, fit_accuracy, 
+            ))
+
+        with torch.no_grad():
+            model.eval()
+            running_loss, running_correct = 0, 0
+            for images, labels in tqdm(loaders["eval"], disable = not training_verbose):
+                images, labels = images.float().to(device), labels.to(device)
+
+                logits = model(images)
+                loss = criterion(logits, labels)
+
+                running_loss, running_correct = running_loss + loss.item()*images.size(0), running_correct + (torch.max(logits.data, 1)[1].detach().cpu() == labels.cpu()).sum().item()
+
+        eval_loss, eval_accuracy,  = running_loss/len(loaders["eval"].dataset), running_correct/len(loaders["eval"].dataset), 
+        if training_verbose:
+            print("{:<5} - loss:{:.4f}, accuracy:{:.4f}".format(
+                "eval", 
+                eval_loss, eval_accuracy, 
+            ))
+
+    torch.save(model, save_ckp_path)
+    print("\nFinish Client Training ...\n" + " = "*16)
+    return {
+        "fit_loss":fit_loss, "fit_accuracy":fit_accuracy, 
+        "eval_loss":eval_loss, "eval_accuracy":eval_accuracy, 
+    }
 ```
 
 ## 3. Server Site
