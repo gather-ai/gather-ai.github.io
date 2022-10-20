@@ -370,7 +370,7 @@ fl.client.start_numpy_client(
 )
 ```
 
-Now, everything is ready for starting. On your laptop, run the server, and on each device, run the client. As you can see, I use `wandb` to log all metrics during training. This is what they look like: 
+Now, everything is ready for starting. On your laptop, run the server, and on each device, run the client. As you can see, I use `wandb` to log all metrics during training. This is what they look like after 100 rounds: 
 {: style="text-align: justify;"}
 
 <figure class="align-center">
