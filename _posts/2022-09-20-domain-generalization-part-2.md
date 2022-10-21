@@ -1,5 +1,5 @@
 ---
-title: "Domain Generalization Tutorials (Part 2):"
+title: "Domain Generalization Tutorials - Part 2"
 subtitle: "Conventional Generalization"
 date: 2022-09-20
 categories: 

@@ -1,5 +1,5 @@
 ---
-title: "Domain Generalization Tutorials (Part 5):"
+title: "Domain Generalization Tutorials - Part 5"
 subtitle: "Test-Time Adjustment"
 date: 2022-10-05
 categories: 

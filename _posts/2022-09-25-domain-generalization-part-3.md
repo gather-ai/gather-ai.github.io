@@ -1,5 +1,5 @@
 ---
-title: "Domain Generalization Tutorials (Part 3):"
+title: "Domain Generalization Tutorials - Part 3"
 subtitle: "Inter-domain Data Augmentation"
 date: 2022-09-25
 categories: 
