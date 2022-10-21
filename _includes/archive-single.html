@@ -7,9 +7,15 @@
 {% if post.id %}
   {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
   {% assign subtitle = post.subtitle | markdownify | remove: "<p>" | remove: "</p>" %}
+  {% assign date = post.date | markdownify | remove: "<p>" | remove: "</p>" %}
+  {% assign categories = post.categories | markdownify | remove: "<p>" | remove: "</p>" %}
+  {% assign tags = post.tags | markdownify | remove: "<p>" | remove: "</p>" %}
 {% else %}
   {% assign title = post.title %}
   {% assign subtitle = post.subtitle %}
+  {% assign date = post.date %}
+  {% assign categories = post.categories %}
+  {% assign tags = post.tags %}
 {% endif %}
 
 <div class="{{ include.type | default: 'list' }}__item">
@@ -19,7 +25,7 @@
         <img src="{{ teaser | relative_url }}" alt="">
       </div>
     {% endif %}
-    <h1 class="archive__item-title no_toc" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       {% if post.link %}
         <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">hyperlinked text</span></a><br>
         <a href="{{ post.link }}">{{ subtitle }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">hyperlinked text</span></a>
@@ -27,11 +33,13 @@
         <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a><br>
         <a href="{{ post.url | relative_url }}" rel="permalink">{{ subtitle }}</a>
       {% endif %}
-    </h1>
+    </h2>
     {% include page__meta.html type=include.type %}
+    {{ tags }}
     {% if post.excerpt %}
-    <p class="archive__item-excerpt" itemprop="description" style="text-align:justify; font-size:12px">
+    <p class="archive__item-excerpt" itemprop="description" style="text-align:justify; font-size:14px">
       {{ post.excerpt | markdownify | strip_html | truncate: 160 }}
-    </p>{% endif %}
+    </p>
+    {% endif %}
   </article>
 </div>
