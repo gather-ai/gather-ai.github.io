@@ -31,7 +31,7 @@
     {% include page__meta.html type=include.type %}
     {% if post.excerpt %}
     <p class="archive__item-excerpt" itemprop="description" style="text-align:justify; font-size:14px">
-      {{ post.excerpt | markdownify | strip_html | truncate: 320 }}
+      {{ post.excerpt | markdownify | strip_html | truncate: 512 }}
     </p>{% endif %}
   </article>
 </div>
