@@ -8,13 +8,13 @@
 @import "minimal-mistakes";
 
 html {
-    font-size: 10px;
-    @include breakpoint($medium){font-size: 12px;}
+    font-size: 12px;
+    @include breakpoint($medium){font-size: 14px;}
 
     @include breakpoint($large){
-        font-size: 14px;
+        font-size: 16px;
     }
     @include breakpoint($x-large){
-        font-size: 16px;
+        font-size: 18px;
     }
 }
