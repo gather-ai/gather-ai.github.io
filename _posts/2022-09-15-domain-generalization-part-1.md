@@ -1,5 +1,6 @@
 ---
 title: "Domain Generalization Tutorials (Part 1): \nIntroduction"
+subtitle: "You're going to love this."
 date: 2022-09-15
 categories: 
   - Tutorials
