@@ -32,6 +32,7 @@
       {% else %}
         <a href="{{ post.url | relative_url }}" rel="permalink">{{ subtitle }}</a>
       {% endif %} -->
+      {{ subtitle }}
     </h2>
     {% include page__meta.html type=include.type %}
     {% if post.excerpt %}
