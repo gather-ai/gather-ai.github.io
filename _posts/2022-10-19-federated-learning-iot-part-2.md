@@ -14,13 +14,11 @@ toc_sticky: true
 ---
 
 👋 Hi there. Welcome back to my page, this is part 2 of my tutorial series on deploying Federated Learning on IoT devices. In the [last article](https://gather-ai.github.io/tutorials/federated-learning-iot-part-1/), we discussed what FL is and built a network of IoT devices as well as environments for starting work. Today, I will guide you step by step to train a simple CNN model on the CIFAR10 dataset in real IoT devices by using [Flower](https://flower.dev/). Let's get started. 
-{: style="text-align: justify;"}
 
 ## 1. Preparing Dataset
 
 ### CIFAR10 Dataset
 The CIFAR10 dataset consists of 60000 32x32 color images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. Here are the classes in the dataset, as well as 10 random images from each: 
-{: style="text-align: justify;"}
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/federated-learning-iot/cifar10.jpg">
@@ -29,10 +27,8 @@ The CIFAR10 dataset consists of 60000 32x32 color images in 10 classes, with 600
 
 ### Data Partitioning
 In this tutorial, the training data are assigned to the clients in an IID setting. As mentioned before, our network has 10 clients in total, the training data is shuffled and uniformly divided into 10 partitions, each with 5000 images for each client. Note that each partition might be doesn't include 500 images for each class. 
-{: style="text-align: justify;"}
 
 After assigning data to clients, let's implement a Dataset class, which will be used in a PyTorch DataLoader. 
-{: style="text-align: justify;"}
 
 ```python
 """
@@ -69,7 +65,6 @@ class ImageDataset(torch.utils.data.Dataset):
 
 ### A Simple CNN Model
 For simplicity, I use a simple LeNet5 model, a pioneer CNN model, for deployment. Snippet 2 is an implementation of this model. 
-{: style="text-align: justify;"}
 
 ```python
 """
@@ -120,7 +115,6 @@ class LeNet5(nn.Module):
 
 ### A Training Function
 We need a function that each client will use to perform training on their own data. All metrics during training should be logged and returned in a dictionary. 
-{: style="text-align: justify;"}
 
 ```python
 """
@@ -188,10 +182,8 @@ def client_fit_fn(
 
 ## 3. Server Site
 We can use our laptop to work as a server, at each round, the server sent a global model to all clients to perform on-device training. When clients finish their training, they will send their local models back to the server, then the global model is updated by an FL strategy, FedAvg for example, where the server averages all models from clients and start the next round. 
-{: style="text-align: justify;"}
 
 We will modify the `FedAvg` class of Flower to save the global at each round. 
-{: style="text-align: justify;"}
 ```python
 """
 Snippet 4: FedAvg strategy. 
@@ -237,7 +229,6 @@ class FedAvg(fl.server.strategy.FedAvg):
 ```
 
 The server can be easily started by passing your laptop IP address and an arbitrary port into the `start_server` function. 
-{: style="text-align: justify;"}
 
 ```python
 """
@@ -279,7 +270,6 @@ fl.server.start_server(
 
 ## 4. Client Site
 For the client, we need to create a `Client` class that inherits from Flower’s `Client` and contains 4 methods `get_parameters`, `set_parameters`, `fit`, and `evaluate`. Then, pass the server’s IP address and its opened port, the rest is similar to traditional ML projects. 
-{: style="text-align: justify;"}
 
 ```python
 """
@@ -371,7 +361,6 @@ fl.client.start_numpy_client(
 ```
 
 Now, everything is ready for starting. On your laptop, run the server, and on each device, run the client. As you can see, I use `wandb` to log all metrics during training. This is what they look like after 100 rounds: 
-{: style="text-align: justify;"}
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/federated-learning-iot/metrics.jpg">
@@ -379,7 +368,6 @@ Now, everything is ready for starting. On your laptop, run the server, and on ea
 </figure>
 
 Stay tuned for more content ...
-{: style="text-align: justify;"}
 
 ## References
 [[1] CIFAR10 and CIFAR100 Datasets](https://www.cs.toronto.edu/~kriz/cifar.html)<br>

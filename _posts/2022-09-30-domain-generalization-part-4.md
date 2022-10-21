@@ -13,28 +13,22 @@ toc_sticky: true
 ---
 
 👋 Hi there. Welcome back to my page, this is part 4 of my tutorial series about the topic of Domain Generalization (DG). This article will cover the approach of **domain alignment**, to which most existing DG methods belong. In addition, we also cover an improvement upon this approach. 
-{: style="text-align: justify;"}
 
 You can find the source code of the whole series [here](https://github.com/lhkhiem28/DGECG). 
-{: style="text-align: justify;"}
 {: .notice--info}
 
 ## 1. Domain Alignment
 The central idea of domain alignment is to minimize the difference among source domains for learning _domain-invariant representations_. The motivation is straightforward: features that are invariant to the source domains should also generalize well on any unseen target domain. Traditionally, the difference among source domains is modeled by [Feature Correlation](https://arxiv.org/abs/1612.01939) or [Maximum Mean Discrepancy](https://jmlr.csail.mit.edu/papers/v13/gretton12a.html), these entities are minimized to learn domain-invariant representations. However, let's explore simpler and more effective domain alignment methods. 
-{: style="text-align: justify;"}
 
 ## 2. Domain-Adversarial Training
 
 ### Motivation
 Don't be afraid to see the word "adversarial", this method is simple to understand if you have read about multi-task learning in [part 2](https://gather-ai.github.io/tutorials/domain-generalization-part-2/) of the series, but if not, it's still simple. Domain-adversarial training (DAT) perfectly represents the spirit of the domain alignment approach, that is to learn the feature cannot tell which source domain the instance came from. 
-{: style="text-align: justify;"}
 
 By leveraging a multi-task learning setting, DAT combines discriminativeness and domain-invariance into the same representations. To this end, a subtle trick is introduced along with the main method. 
-{: style="text-align: justify;"}
 
 ### Method
 Specifically, along the main task of cardiac abnormalities classification, DAT performs a subtask of domain identification and uses a gradient reversal layer to learn the representations in an adversarial manner. Figure 1 illustrates the architecture of the model and Snippet 1 describes the auxiliary module which performs DAT. 
-{: style="text-align: justify;"}
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/domain-adversarial-training.jpg">
@@ -62,7 +56,6 @@ class SEResNet34(nn.Module):
 ```
 
 The model is optimized with a combined loss similar to multi-task learning. Snippet 2 describes the optimization process. 
-{: style="text-align: justify;"}
 
 ```python
 """
@@ -78,13 +71,11 @@ loss, sub_loss = F.binary_cross_entropy_with_logits(logits, labels), F.cross_ent
 ```
 
 Intuitively, the gradient reversal layer is skipped in the forward pass and just flips the sign of the gradient flow through it during the backpropagation process. Look at the position of this layer, it is placed right before the domain classifier $g_{d}$, this means that during training, $g_{d}$ is updated with $\frac{\partial L_{sub}}{\partial \theta_{g_d}}$ while the backbone $f$ is updated with $-\frac{\partial L_{sub}}{\partial \theta_{f}}$. In this way, the domain classifier learns how to use representations to identify the source domain of instances, but gives the reversed information to the backbone, forcing $f$ to generate domain-invariant representations. 
-{: style="text-align: justify;"}
 
 ## 3. Instance-Batch Normalization Network
 
 ### Motivation
 Nowadays, normalization layers are an important part of any neural network. There are many types of normalization techniques and each of them has its own characteristics and advantages, perhaps you have seen Figure 2 somewhere. We will talk about batch normalization (BN) and instance normalization (IN) here because of their effects on DG. 
-{: style="text-align: justify;"}
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/normalization-techniques.jpg">
@@ -92,11 +83,9 @@ Nowadays, normalization layers are an important part of any neural network. Ther
 </figure>
 
 Although BN generally works well in a variety of tasks, it consistently degrades performance when it is trained in the presence of a large domain divergence. This is because the batch statistics overfit the particular training domains, resulting in poor generalization performance in unseen target domains. Meanwhile, IN does not depend on batch statistics. This property allows the network to learn feature representations that less overfit a particular domain. The downside of IN, however, is that it makes the features less discriminative with respect to instance categories, which is guaranteed in BN in contrast. Instance-Batch normalization (I-BN) is a mixture of BN and IN, which is introduced to reap the benefits of IN of learning domain-invariant representations while maintaining the ability to capture discriminative representations from BN. 
-{: style="text-align: justify;"}
 
 ### Method
 Snippet 3 is a simple implementation of a one-dimensional I-BN layer, just half of BN and half of IN. It is straightforward to extend the implementation to higher-dimension usages. 
-{: style="text-align: justify;"}
 
 ```python
 """
@@ -120,13 +109,10 @@ class Instance_BatchNorm1d(nn.Module):
 ```
 
 But where to place I-BN layers in a specific network, a ResNet-like model for example? Another observation showed that, for BN-based CNNs, the feature divergence caused by appearance variance (domain shift) mainly lies in the shallow half of the CNN, while the feature discrimination for categories is high in deep layers, but also exists in shallow layers. Therefore, an original ResNet can is modified as follows to become an I-BN ResNet: 
-{: style="text-align: justify;"}
 * Only use I-BN layers in the first three residual blocks and leave the fourth block as normal (similar to MixStyle in the [previous article](https://gather-ai.github.io/tutorials/domain-generalization-part-3/))
 * For each selected block, only replace the BN layer after the first convolution layer in the main path with an I-BN layer
-{: style="text-align: justify;"}
 
 Snippet 4 illustrates this setting. 
-{: style="text-align: justify;"}
 
 ```python
 """
@@ -173,7 +159,6 @@ class SEResNet34(nn.Module):
 
 ### Motivation
 Domain alignment methods generally have a common limitation, which will be discussed and addressed here. Look back to an illustration of DG from [part 1](https://gather-ai.github.io/tutorials/domain-generalization-part-1/), where a classifier trained in _sketch_, _cartoon_, _art painting_ images encounters instances from a novel domain _photo_ at test-time. 
-{: style="text-align: justify;"}
 
 <figure class="align-center">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/DG-DA.jpg">
@@ -181,20 +166,15 @@ Domain alignment methods generally have a common limitation, which will be discu
 </figure>
 
 It is reasonable to note that leveraging the relative similarity of the _photo_ instances to instances from _art painting_ might result in better predictions compared to a setting where the model relies solely on invariant characteristics across domains. Both covered methods try to learn domain-invariant representations while ignoring domain-specific features, features that are specific to individual domains. 
-{: style="text-align: justify;"}
 
 Extending from the above I-BN Net, domain-specific I-BN Net (DS I-BN Net) is developed which aims to capture both domain-invariant and domain-specific features from multi-source domain data. 
-{: style="text-align: justify;"}
 
 ### Method
 In particular, an original ResNet can is modified to become a DS I-BN ResNet in the following two steps: 
-{: style="text-align: justify;"}
 * Turn all BN layers in the model into domain-specific BN ([DSBN](https://arxiv.org/abs/1906.03950)) modules
 * Replace BN layers with I-BN layers at the same positions as I-BN ResNet
-{: style="text-align: justify;"}
 
 What is the DSBN? DSBN is a module that consists of $M$ BN layers, using parameters of each BN layer to capture domain-specific features of each individual domain in $M$ source domains. Specifically, during training, instances from domain $m$, $\mathbf{X}^{m}$ only go through the $m^{th}$ BN layer in the DSBN module. Figure 4 illustrates the module and Snippet 5 is its implementation in a one-dimensional version. 
-{: style="text-align: justify;"}
 
 <figure class="align-center" style="width: 400px">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/images/domain-generalization/domain-specific-batch-normalization.jpg">
@@ -229,11 +209,9 @@ class DomainSpecificBatchNorm1d(nn.Module):
 ```
 
 At inference time, a test instance is fed into all $M$ "sub-networks" of all domains to get $M$ logits. The final logit is averaged over these $M$ logits and made the prediction. 
-{: style="text-align: justify;"}
 
 ## 5. Results
 The table below shows the performance of the two presented methods in this article: 
-{: style="text-align: justify;"}
 
 |            |    Chapman |       CPSC | CPSC-Extra |      G12EC |     Ningbo |     PTB-XL |        Avg |
 | :--------- | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: |
@@ -245,10 +223,8 @@ The table below shows the performance of the two presented methods in this artic
 | DAT | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4282 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1712 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1966 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3956 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4114 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3878 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **0.3318** |
 | I-BN | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4252 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1748 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.2045 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3817 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4193 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4161 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **0.3369** |
 | DS I-BN | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4484 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.1805 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.2191 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4318 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.3916 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4242 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **0.3493** |
-{: style="text-align: justify;"}
 
 To be continued ...
-{: style="text-align: justify;"}
 
 ## References
 [[1] Domain Generalization: A Survey](https://arxiv.org/abs/2103.02503)<br>
