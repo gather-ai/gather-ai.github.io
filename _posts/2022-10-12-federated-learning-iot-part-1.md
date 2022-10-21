@@ -1,5 +1,6 @@
 ---
-title: "Federated Learning on IoT Devices Tutorials (Part 1): \nIntroduction and Setup"
+title: "Federated Learning on IoT Devices Tutorials (Part 1):"
+subtitle: "Introduction and Setup"
 date: 2022-10-12
 categories: 
   - Tutorials
