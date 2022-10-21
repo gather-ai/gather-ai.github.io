@@ -21,11 +21,11 @@
     {% endif %}
     <h1 class="archive__item-title no_toc" itemprop="headline">
       {% if post.link %}
-        <a href="{{ post.link }}" style="text-decoration: none;">{{ title }}</a> <a href="{{ post.url | relative_url }}" style="text-decoration: none;" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">hyperlinked text</span></a><br>
-        <a href="{{ post.link }}" style="text-decoration: none;">{{ subtitle }}</a> <a href="{{ post.url | relative_url }}" style="text-decoration: none;" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">hyperlinked text</span></a>
+        <a style="text-decoration: none;" href="{{ post.link }}">{{ title }}</a> <a style="text-decoration: none;" href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">hyperlinked text</span></a><br>
+        <a style="text-decoration: none;" href="{{ post.link }}">{{ subtitle }}</a> <a style="text-decoration: none;" href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">hyperlinked text</span></a>
       {% else %}
-        <a href="{{ post.url | relative_url }}" style="text-decoration: none;" rel="permalink">{{ title }}</a><br>
-        <a href="{{ post.url | relative_url }}" style="text-decoration: none;" rel="permalink">{{ subtitle }}</a>
+        <a style="text-decoration: none;" href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a><br>
+        <a style="text-decoration: none;" href="{{ post.url | relative_url }}" rel="permalink">{{ subtitle }}</a>
       {% endif %}
     </h1>
     {% include page__meta.html type=include.type %}
