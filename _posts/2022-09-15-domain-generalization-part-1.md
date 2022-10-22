@@ -13,9 +13,7 @@ toc: true
 toc_sticky: true
 ---
 
-👋 Hi there. I'm Khiem. Welcome to my page, where I gather and share some intuitive explanations and hands-on tutorials on a range of topics in AI. 
-
-🚀 I am going to kick off this website with a series of tutorials about the topic of Domain Generalization. This series provides a systematic survey of outstanding methods in literature and my own implementations to demonstrate these methods. This is the first part of the series that gives you a brief understanding of the term Domain Generalization. Let's get started. 
+👋 Hi there. I'm Khiem. Welcome to my page, where I gather and share some intuitive explanations and hands-on tutorials on a range of topics in AI. <br>🚀 I am going to kick off this website with a series of tutorials about the topic of Domain Generalization. This series provides a systematic survey of outstanding methods in literature and my own implementations to demonstrate these methods. This is the first part of the series that gives you a brief understanding of the term Domain Generalization. Let's get started. 
 
 You can find the source code of the whole series [here](https://github.com/lhkhiem28/DGECG). 
 {: .notice--info}
