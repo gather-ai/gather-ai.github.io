@@ -4,7 +4,7 @@ layout: archive
 
 {{ content }}
 
-<h1 class="archive__subtitle" style="text-align:justify; font-size:16px">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h1>
+<strong class="archive__subtitle" style="font-size:1.563em;">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</strong>
 
 {% if paginator %}
   {% assign posts = paginator.posts %}

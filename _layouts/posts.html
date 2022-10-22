@@ -19,7 +19,7 @@ layout: archive
 {% assign postsByYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.date | date: "%Y"' %}
 {% for year in postsByYear %}
   <section id="{{ year.name }}" class="taxonomy__section">
-    <strong class="archive__subtitle" style="font-size:20px;">{{ year.name }}</strong>
+    <strong class="archive__subtitle" style="font-size:1.563em;">{{ year.name }}</strong>
     <div class="entries-{{ entries_layout }}">
       {% for post in year.items %}
         {% include archive-single.html type=entries_layout %}
