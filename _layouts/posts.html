@@ -8,7 +8,7 @@ layout: archive
   {% assign postsInYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.date | date: "%Y"' %}
   {% for year in postsInYear %}
     <li>
-      <a href="#{{ year.name }}">
+      <a href="#{{ year.name }}" style="font-size:16px;">
         <strong>{{ year.name }}</strong> <span class="taxonomy__count">{{ year.items | size }}</span>
       </a>
     </li>
@@ -19,7 +19,7 @@ layout: archive
 {% assign postsByYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.date | date: "%Y"' %}
 {% for year in postsByYear %}
   <section id="{{ year.name }}" class="taxonomy__section">
-    <p class="archive__subtitle" style="font-size:18px;">{{ year.name }}</p>
+    <strong class="archive__subtitle" style="font-size:20px;">{{ year.name }}</strong>
     <div class="entries-{{ entries_layout }}">
       {% for post in year.items %}
         {% include archive-single.html type=entries_layout %}
