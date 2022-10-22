@@ -5,9 +5,9 @@ date: 2022-10-12
 categories: 
   - Tutorials
 tags: 
-  - ai research
-  - federated learning
-  - iot
+  - AI Research
+  - Federated Learning
+  - IoT
 header: 
   image: "/assets/images/federated-learning-iot/flower-cover.jpg"
 toc: true

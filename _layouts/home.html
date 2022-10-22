@@ -5,6 +5,8 @@ layout: archive
 {{ content }}
 
 <strong class="archive__subtitle" style="font-size:1.563em;">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</strong>
+<head><style>hr.solid {border-top: 1px solid #bbb;}</style></head>
+<body><hr class="solid"></body>
 
 {% if paginator %}
   {% assign posts = paginator.posts %}
