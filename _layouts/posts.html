@@ -20,6 +20,8 @@ layout: archive
 {% for year in postsByYear %}
   <section id="{{ year.name }}" class="taxonomy__section">
     <strong class="archive__subtitle" style="font-size:1.563em;">{{ year.name }}</strong>
+    <head><style>hr.solid {border-top: 1px solid #bbb;}</style></head>
+    <body><hr class="solid"></body>
     <div class="entries-{{ entries_layout }}">
       {% for post in year.items %}
         {% include archive-single.html type=entries_layout %}

@@ -31,6 +31,8 @@ layout: archive
     {% if tag[1].size == i %}
       <section id="{{ tag[0] | slugify | downcase }}" class="taxonomy__section">
         <strong class="archive__subtitle" style="font-size:1.563em;">{{ tag[0] }}</strong>
+        <head><style>hr.solid {border-top: 1px solid #bbb;}</style></head>
+        <body><hr class="solid"></body>
         <div class="entries-{{ entries_layout }}">
           {% for post in tag.last %}
             {% include archive-single.html type=entries_layout %}
