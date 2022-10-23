@@ -67,3 +67,4 @@ Now we are ready to start deploying FL on IoT devices, in the next part, I will 
 ## References
 [[1] A Survey on Federated Learning for Resource-Constrained IoT Devices](https://ieeexplore.ieee.org/document/9475501)<br>
 [[2] Federated Learning: Challenges, Methods, and Future Directions](https://blog.ml.cmu.edu/2019/11/12/federated-learning-challenges-methods-and-future-directions/)<br>
+{: style="font-size: 12px;"}
