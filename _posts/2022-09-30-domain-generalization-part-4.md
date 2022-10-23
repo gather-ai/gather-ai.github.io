@@ -233,4 +233,4 @@ To be continued ...
 [[3] Two at Once: Enhancing Learning and Generalization Capacities via IBN-Net](https://arxiv.org/abs/1807.09441)<br>
 [[4] Learning to Optimize Domain Specific Normalization for Domain Generalization](https://arxiv.org/abs/1907.04275)<br>
 [[5] Learning to Balance Specificity and Invariance for In and Out of Domain Generalization](https://arxiv.org/abs/2008.12839)<br>
-{: style="font-size: 12px;"}
+{: style="font-size: 14px;"}

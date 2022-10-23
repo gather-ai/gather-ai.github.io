@@ -373,4 +373,4 @@ Stay tuned for more content ...
 ## References
 [[1] CIFAR10 and CIFAR100 Datasets](https://www.cs.toronto.edu/~kriz/cifar.html)<br>
 [[2] Flower: A Friendly Federated Learning Framework](https://flower.dev/)<br>
-{: style="font-size: 12px;"}
+{: style="font-size: 14px;"}

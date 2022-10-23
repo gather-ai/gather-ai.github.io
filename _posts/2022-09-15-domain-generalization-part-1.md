@@ -97,4 +97,4 @@ Now we are ready to start exploring DG methods, next part of the series will pre
 ## References
 [[1] Generalizing to Unseen Domains: A Survey on Domain Generalization](https://arxiv.org/abs/2103.03097)<br>
 [[2] Domain Generalization: A Survey](https://arxiv.org/abs/2103.02503)<br>
-{: style="font-size: 12px;"}
+{: style="font-size: 14px;"}

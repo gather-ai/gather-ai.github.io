@@ -70,4 +70,4 @@ This is the final part of my tutorial series on Domain Generalization (DG). Actu
 ## References
 [[1] Tent: Fully Test-time Adaptation by Entropy Minimization](https://arxiv.org/abs/2006.10726)<br>
 [[2] Test-Time Classifier Adjustment Module for Model-Agnostic Domain Generalization](https://proceedings.neurips.cc/paper/2021/hash/1415fe9fea0fa1e45dddcff5682239a0-Abstract.html)<br>
-{: style="font-size: 12px;"}
+{: style="font-size: 14px;"}

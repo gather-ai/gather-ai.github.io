@@ -129,4 +129,4 @@ To be continued ...
 ## References
 [[1] Mixup: Beyond Empirical Risk Minimization](https://arxiv.org/abs/1710.09412)<br>
 [[2] Domain Generalization with MixStyle](https://arxiv.org/abs/2104.02008)<br>
-{: style="font-size: 12px;"}
+{: style="font-size: 14px;"}
