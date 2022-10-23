@@ -72,6 +72,7 @@
   }
   
   .sidebar__right {
+    text-align: left;
     margin-bottom: 1em;
   
     @include breakpoint($large) {
@@ -106,6 +107,7 @@
   }
   
   .splash .sidebar__right {
+    text-align: left;
     @include breakpoint($large) {
       position: relative;
       float: right;
