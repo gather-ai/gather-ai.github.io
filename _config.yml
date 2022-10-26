@@ -23,7 +23,7 @@ include:
 
 search: true
 author: 
-  name   : "Welcome to Gathering.AI"
+  name   : "Gathering.AI"
   avatar : "/assets/images/seedling.png"
   bio    : "Gather knowledge of various AI topics"
   links: 
