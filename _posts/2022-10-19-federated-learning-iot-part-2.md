@@ -136,7 +136,7 @@ def client_fit_fn(
     for epoch in tqdm(range(1, num_epochs + 1), disable = training_verbose):
         if training_verbose:print("epoch {:2}/{:2}".format(epoch, num_epochs) + "\n" + " - "*16)
 
-        running_loss, running_correct = 0, 0
+        running_loss, running_correct,  = 0, 0, 
         for images, labels in tqdm(loaders["fit"], disable = not training_verbose):
             images, labels = images.float().to(device), labels.to(device)
 
@@ -146,7 +146,7 @@ def client_fit_fn(
             loss.backward()
             optimizer.step(), optimizer.zero_grad()
 
-            running_loss, running_correct = running_loss + loss.item()*images.size(0), running_correct + (torch.max(logits.data, 1)[1].detach().cpu() == labels.cpu()).sum().item()
+            running_loss, running_correct,  = running_loss + loss.item()*images.size(0), running_correct + (torch.max(logits.data, 1)[1].detach().cpu() == labels.cpu()).sum().item(), 
 
         fit_loss, fit_accuracy,  = running_loss/len(loaders["fit"].dataset), running_correct/len(loaders["fit"].dataset), 
         if training_verbose:
@@ -157,14 +157,14 @@ def client_fit_fn(
 
         with torch.no_grad():
             model.eval()
-            running_loss, running_correct = 0, 0
+            running_loss, running_correct,  = 0, 0, 
             for images, labels in tqdm(loaders["eval"], disable = not training_verbose):
                 images, labels = images.float().to(device), labels.to(device)
 
                 logits = model(images)
                 loss = criterion(logits, labels)
 
-                running_loss, running_correct = running_loss + loss.item()*images.size(0), running_correct + (torch.max(logits.data, 1)[1].detach().cpu() == labels.cpu()).sum().item()
+                running_loss, running_correct,  = running_loss + loss.item()*images.size(0), running_correct + (torch.max(logits.data, 1)[1].detach().cpu() == labels.cpu()).sum().item(), 
 
         eval_loss, eval_accuracy,  = running_loss/len(loaders["eval"].dataset), running_correct/len(loaders["eval"].dataset), 
         if training_verbose:
@@ -340,7 +340,7 @@ loaders = {
     "eval":torch.utils.data.DataLoader(
         ImageDataset(
             df = df[df["phase"] == "eval"], data_path = "../datasets/{}/train".format(args.dataset), 
-        ), batch_size = 32*2, 
+        ), batch_size = 32, 
         shuffle = False
     ), 
 }
