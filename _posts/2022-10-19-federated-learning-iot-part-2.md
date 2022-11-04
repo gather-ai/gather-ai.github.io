@@ -1,6 +1,6 @@
 ---
 title: "Federated Learning on IoT Devices - Part 2"
-subtitle: "From Zero to Hero"
+subtitle: "From Zero to Hero with Flower"
 date: 2022-10-19
 categories: 
   - Tutorials
