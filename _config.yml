@@ -25,7 +25,7 @@ search: true
 author: 
   name   : "Gathering.AI"
   avatar : "/assets/images/seedling.png"
-  bio    : "Gather knowledge of various AI topics"
+  bio    : "Gather knowledge on various AI topics"
   links: 
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
