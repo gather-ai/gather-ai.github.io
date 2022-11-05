@@ -1,7 +1,7 @@
 ---
 title: "Domain Generalization Tutorials - Part 4"
 subtitle: "Domain Alignment (and More)"
-date: 2022-09-30
+date: 2022-10-08
 categories: 
   - Tutorials
 tags: 

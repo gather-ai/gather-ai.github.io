@@ -1,7 +1,7 @@
 ---
 title: "Domain Generalization Tutorials - Part 3"
 subtitle: "Inter-domain Data Augmentation"
-date: 2022-09-25
+date: 2022-10-01
 categories: 
   - Tutorials
 tags: 

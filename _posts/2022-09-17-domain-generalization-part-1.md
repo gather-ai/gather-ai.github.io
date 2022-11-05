@@ -1,7 +1,7 @@
 ---
 title: "Domain Generalization Tutorials - Part 1"
 subtitle: "Introduction"
-date: 2022-09-15
+date: 2022-09-17
 categories: 
   - Tutorials
 tags: 
