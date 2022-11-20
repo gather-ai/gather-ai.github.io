@@ -3,7 +3,7 @@ permalink: /about/
 title: "About"
 ---
 
-Gathering.AI was formally built in the autumn of 2022 with a few main purposes: 
+I’m an Artificial Intelligence enthusiast and I'm happy to connect and grow every day. Gathering.AI was formally built in the autumn of 2022 with a few main purposes: 
 * Document my learning notes and share them with other AI enthusiasts
 * Share hands-on tutorials with implementations on various AI topics
 * Present my independent research projects and Record my personal journey
