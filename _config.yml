@@ -28,16 +28,16 @@ author:
   bio    : "Gather knowledge on various AI topics"
   links: 
     - label: "GitHub"
-      icon: "fa-brands fa-github"
+      icon: "fab fa-fw fa-github"
       url: "https://github.com/lhkhiem28"
     - label: "Google Scholar"
-      icon: "fa-regular fa-graduation-cap"
+      icon: "fab fa-fw fa-google"
       url: "https://scholar.google.com/citations?hl=vi&user=T8I-cLIAAAAJ&view_op=list_works&sortby=pubdate"
 
 footer:
   links:
     - label: "Email"
-      icon: "fa-regular fa-envelope"
+      icon: "fab fa-fw fa-envelope-o"
       url: "mailto:lhkhiem28@gmail.com"
 
 category_archive: 
