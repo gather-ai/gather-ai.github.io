@@ -37,7 +37,7 @@ author:
 footer:
   links:
     - label: "Email"
-      icon: "fab fa-fw fa-envelope-o"
+      icon: "fas fa-fw fa-envelope-square"
       url: "mailto:lhkhiem28@gmail.com"
 
 category_archive: 
