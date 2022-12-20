@@ -15,8 +15,8 @@ toc_sticky: true
 
 👋 Hi there. Welcome back to my page, this is part 4 of my tutorial series about the topic of Domain Generalization (DG). This article will cover the approach of **domain alignment**, to which most existing DG methods belong. In addition, we also cover an improvement upon this approach. 
 
-You can find the source code of the whole series [here](https://github.com/lhkhiem28/DGECG). 
-{: .notice--info}
+<!-- You can find the source code of the whole series [here](https://github.com/lhkhiem28/DGECG). 
+{: .notice--info} -->
 
 ## 1. Domain Alignment
 The central idea of domain alignment is to minimize the difference among source domains for learning _domain-invariant representations_. The motivation is straightforward: features that are invariant to the source domains should also generalize well on any unseen target domain. Traditionally, the difference among source domains is modeled by [Feature Correlation](https://arxiv.org/abs/1612.01939) or [Maximum Mean Discrepancy](https://jmlr.csail.mit.edu/papers/v13/gretton12a.html), these entities are minimized to learn domain-invariant representations. However, let's explore simpler and more effective domain alignment methods. 

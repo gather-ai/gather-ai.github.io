@@ -15,8 +15,8 @@ toc_sticky: true
 
 👋 Hi there. Welcome back to my page, this is part 5 of my tutorial series about the topic of Domain Generalization (DG). While all previous parts discussed DG methods that focus on the training phase, this article presents a new and unique approach that focuses on the test phase, namely **test-time adjustment**. 
 
-You can find the source code of the whole series [here](https://github.com/lhkhiem28/DGECG). 
-{: .notice--info}
+<!-- You can find the source code of the whole series [here](https://github.com/lhkhiem28/DGECG). 
+{: .notice--info} -->
 
 ## 1. Test-Time Adjustment
 Test-time adjustment is a novel approach to DG problems where the trained model twists its parameters to correct its prediction by itself during the test time. Since no data about the target domain is available during training in a DG setup, the existing DG methods focus on how to use labeled data from multiple-source domains. However, at test time, the model always has access to test data from the target domain. Although the available data is constrained to be:
