@@ -7,7 +7,6 @@ categories:
 tags: 
   - AI Research
   - Federated Learning
-  - IoT
 header: 
   image: "/assets/images/federated-learning-iot/flower-cover.jpg"
 toc: true

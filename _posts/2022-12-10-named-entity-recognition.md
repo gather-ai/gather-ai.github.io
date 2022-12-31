@@ -1,7 +1,7 @@
 ---
 title: "End-to-End Named Entity Recognition"
 subtitle: "Build the First Web App by Transformers and Gradio"
-date: 2022-12-31
+date: 2022-12-10
 categories: 
   - Tutorials
 tags: 
@@ -24,3 +24,20 @@ Where is NER in the big picture of NLP? NLP is a large field with lots of variou
 * **Text Generation**: Text generation is the task of generating text with the goal of appearing indistinguishable from the human-written text. This task has many wonderful applications such as (Abstractive) Document Summarization, Machine Translation, or Chatbot. 
 
 ## 2. Dataset and Annotation Process
+We now dive into the standard process of an ML project, starting with Data Preparation. 
+
+### Pho-COVID-19 Dataset
+In this tutorial, I will use the Pho-COVID-19 dataset, a dataset for recognizing COVID-19-related named entities in Vietnamese news, consisting of 35K entities over 10K sentences. The dataset includes 10 entity types with the aim of extracting key information related to COVID-19 patients, which are especially useful in downstream applications. In general, these entity types can be used in the context of not only the COVID-19 pandemic but also in other future epidemics: 
+
+| Entity Type | Definition |
+| :---------- | :--------- |
+| PATIENT_ID          | Unique identifier of a COVID-19 patient in Vietnam. An PATIENT_ID annotation over "X" refers to as the X-th patient having COVID-19 in Vietnam. |
+| NAME                | Name of a patient or person who comes into contact with a patient. |
+| AGE                 | Age of a patient or person who comes into contact with a patient. |
+| GENDER              | Gender of a patient or person who comes into contact with a patient. |
+| JOB                 | Job of a patient or person who comes into contact with a patient. |
+| LOCATION            | Locations/places that a patient was presented at. |
+| ORGANIZATION        | Organizations related to a patient, e.g. company, government organization, and the like, with structures and their own functions. |
+| SYMPTOM_AND_DISEASE | Symptoms that a patient experiences, and diseases that a patient had prior to COVID-19 or complications that usually appear in death reports. |
+| TRANSPORTATION      | Means of transportation that a patient used. Here, we only tag the specific identifier of vehicles, e.g. flight numbers and bus/car plates. |
+| DATE                | Any date that appears in the sentence. |
