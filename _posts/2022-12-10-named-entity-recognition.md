@@ -43,20 +43,20 @@ The dataset was randomly split into train/val/test sets with a ratio of 5/2/3, e
 
 | Entity Type | Train |   Val |  Test |   All |
 | :---------- | ----: | ----: | ----: | ----: |
-| PATIENT_ID            | 3240 | 1276 | 2005 | 6521 |
-| NAME                  | 349 | 188 | 318 | 855 |
-| AGE                   | 682 | 361 | 582 | 1625 |
-| GENDER                | 542 | 277 | 462 | 1281 |
-| JOB                   | 205 | 132 | 173 | 510 |
-| LOCATION              | 5398 | 2737 | 4441 | 12576 |
-| ORGANIZATION          | 1137 | 551 | 771 | 2459 |
-| SYMPTOM_AND_DISEASE   | 1439 | 766 | 1136 | 3341 |
-| TRANSPORTATION        | 226 | 87 | 193 | 506 |
-| DATE                  | 2549 | 1103 | 1654 | 5306 |
-| # Entities in total   | 15767 | 7478 | 11735 | 34984 |
-| # Sentences in total  | 5027 | 2000 | 3000 | 10027 |
+| PATIENT_ID            | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3240 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1276 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2005 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 6521 |
+| NAME                  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 349 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 188 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 318 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 855 |
+| AGE                   | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 682 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 361 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 582 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1625 |
+| GENDER                | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 542 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 277 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 462 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1281 |
+| JOB                   | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 205 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 132 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 173 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 510 |
+| LOCATION              | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5398 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2737 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4441 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 12576 |
+| ORGANIZATION          | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1137 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 551 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 771 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2459 |
+| SYMPTOM_AND_DISEASE   | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1439 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 766 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1136 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3341 |
+| TRANSPORTATION        | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 226 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 87 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 193 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 506 |
+| DATE                  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2549 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1103 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1654 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5306 |
+| # Entities in total   | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 15767 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 7478 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 11735 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 34984 |
+| # Sentences in total  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5027 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2000 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3000 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 10027 |
 
-If you are annotating your own dataset, [Prodigy](https://prodi.gy/) is a great annotation tool for the NER task. 
+If you are building your own dataset, [Prodigy](https://prodi.gy/) is a great annotation tool for a NER task. 
 
 ## References
 [[1] COVID-19 Named Entity Recognition for Vietnamese](https://arxiv.org/abs/2104.03879v1)<br>
